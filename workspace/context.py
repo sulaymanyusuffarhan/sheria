@@ -5,6 +5,8 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext as _
 
+from casework.notices import visible_inbox
+from casework.policy import can_submit
 from identity.models import RoleCode
 from identity.policy import LEGAL_CAPABILITIES, STAFF_CAPABILITIES
 
@@ -27,10 +29,25 @@ def workspace(request):
 
     if staff_surface and staff:
         add(main, 'staff_dashboard', _('Dashboard'), 'grid')
-        add(main, 'staff_requests', _('My requests'), 'files', ('staff_request',))
+        add(main, 'staff_requests', _('My requests'), 'files', ('staff_request', 'case_reply'))
+        if can_submit(policy):
+            add(main, 'new_request', _('New legal request'), 'file')
     elif legal:
         add(main, 'legal_dashboard', _('Dashboard'), 'grid')
-        add(main, 'matter_register', _('Matter register'), 'briefcase', ('matter_detail',))
+        add(
+            main,
+            'matter_register',
+            _('Matter register'),
+            'briefcase',
+            ('matter_detail', 'case_action', 'case_review'),
+        )
+        add(
+            main,
+            'contract_register',
+            _('Contract register'),
+            'files',
+            ('contract_detail', 'contract_version', 'checklist_section'),
+        )
     if ict:
         add(main, 'ict_dashboard', _('System overview'), 'grid')
         add(
@@ -89,10 +106,11 @@ def workspace(request):
         'search_route': search,
         'today_local': timezone.localdate(),
         'can_dept': policy.has('request.department'),
+        'can_submit_request': staff_surface and can_submit(policy),
         'demo_mode': request.user.is_demo,
         'actor_role': RoleCode(policy.primary_role).label if policy.primary_role else _('Employee'),
         'initials': ''.join(word[0] for word in request.user.display_name.split()[:2]).upper(),
-        'notice_count': request.user.notifications.filter(read_at__isnull=True).count()
+        'notice_count': visible_inbox(policy).filter(read_at__isnull=True).count()
         if request.user.show_unread_badge
         else 0,
         'can_apply': policy.has('access.apply'),

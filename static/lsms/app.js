@@ -25,3 +25,19 @@ for (const button of document.querySelectorAll("[data-password]")) {
     button.setAttribute("aria-pressed", String(show));
   });
 }
+
+const intake = document.querySelector("[data-intake]");
+if (intake) {
+  const category = intake.elements.category;
+  const contract = intake.querySelector("[data-contract-fields]");
+  const sync = () => {
+    const applicable = ["contract", "mou"].includes(category.value);
+    contract.hidden = !applicable;
+    contract.disabled = !applicable;
+    for (const input of contract.querySelectorAll("[data-contract-input]")) {
+      input.required = applicable;
+    }
+  };
+  category.addEventListener("change", sync);
+  sync();
+}

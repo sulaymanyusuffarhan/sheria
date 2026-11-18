@@ -1,0 +1,3 @@
+{% extends 'base.html' %}{% load i18n ui %}
+{% block title %}{% translate 'Request changed' %}{% endblock %}
+{% block content %}<section class="page-head"><div><p class="eyebrow reference">{{ case.matter.reference }}</p><h1>{% translate 'Request changed' %}</h1><p>{% translate 'This request changed. Go back and reload it before trying again.' %}</p></div><a class="button primary" href="{{ back_url }}">{% translate 'Open latest record' %}{% icon 'arrow-right' 16 %}</a></section>{% endblock %}

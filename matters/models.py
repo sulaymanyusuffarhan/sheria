@@ -57,7 +57,7 @@ class Category(models.Model):
 
 
 class LegalMatter(models.Model):
-    """Read-only in Phase 1; intake and legal decisions are not exposed as mutations."""
+    """Internal register; Phase 2 transitions are owned by casework commands."""
 
     class Priority(models.TextChoices):
         LOW = 'low', _('Low')

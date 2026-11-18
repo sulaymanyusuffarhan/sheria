@@ -1,0 +1,6 @@
+{% load i18n ui %}
+{% if staff_question %}<section class="case-banner warn" aria-label="{% translate 'Additional information requested' %}"><div class="case-banner-icon">{% icon 'message' 22 %}</div><div><strong>{% translate 'Additional information requested' %}</strong><p>{{ staff_question.question|linebreaksbr }}</p><p>{% translate 'Response due date' %}: {{ staff_question.due_on|date:'d/m/Y' }}</p>
+  {% if staff_question.replied_at %}<p>{% translate 'Your response was received and is awaiting verification.' %}</p>{% else %}<a class="button primary small" href="{% url 'case_reply' record.pk %}">{% translate 'Send information' %}{% icon 'arrow-right' 16 %}</a>{% endif %}
+</div></section>{% endif %}
+{% if staff_documents %}<section class="panel case-gap"><header class="panel-header"><div><h2>{% translate 'Available documents' %}</h2><p>{% translate 'Your uploads and copies released to you by Legal Services' %}</p></div>{% icon 'files' 19 %}</header>
+<ul class="case-list">{% for doc in staff_documents %}<li><span class="case-resource-icon">{% icon 'file' 17 %}</span><div><a class="text-link" href="{% url 'staff_document' record.pk doc.pk %}">{{ doc.name }}</a><small>{{ doc.byte_size|filesizeformat }} · {{ doc.created_at|date:'d/m/Y' }}</small></div></li>{% endfor %}</ul></section>{% endif %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}{% load i18n ui %}
+{% block title %}{{ part.code }}. {{ part.title }}{% endblock %}{% block breadcrumb %}{% translate 'Contract checklist' %}{% endblock %}
+{% block content %}
+<a class="back-link" href="{% url 'contract_version' case.pk version.pk %}#part-{{ part.code }}">{% icon 'arrow-left' 16 %}{% translate 'Back to checklist' %}</a>
+<section class="page-head"><div><p class="eyebrow reference">{{ form_reference }} · {% translate 'Version' %} {{ version.number }}</p><h1>{{ part.code }}. {{ part.title }}</h1><p>{{ version.title }} · {% translate 'Internal use only' %}</p></div></section>
+<div class="case-banner"><div class="case-banner-icon">{% icon 'lock' 20 %}</div><div><strong>{% translate 'Draft template' %} · {% translate 'Template revision' %} {{ template_revision }}</strong><p>{% translate 'Save one section at a time. Blank means unanswered; No and N/A need a reason before review.' %}</p></div></div>
+<form method="post" class="part-form">{% csrf_token %}{{ form.revision }}{{ form.revision.errors }}{{ form.non_field_errors }}
+  {% if part.code == 'XI' %}<div class="panel case-form-body">{% include 'casework/fields.html' with fields=form.visible_fields|slice:':1' %}</div>
+    {% for fields in form.risk_rows %}<fieldset class="panel case-form-body review-item"><legend><span class="part-number">{{ forloop.counter }}</span> {% translate 'Risk assessment' %}</legend><div class="part-fields risk-fields">{% include 'casework/fields.html' with fields=fields %}</div></fieldset>{% endfor %}
+  {% else %}{% for item in form.items %}<fieldset class="panel case-form-body review-item" data-check="{{ item.key }}"><legend><span class="part-number">{{ item.key }}</span> {{ item.label }}</legend><div class="part-fields">{% include 'casework/fields.html' with fields=item.fields %}</div></fieldset>{% endfor %}
+    {% if form.post_fields %}<fieldset class="panel case-form-body review-item"><legend>{% translate 'Execution follow-up' %}</legend>{% include 'casework/fields.html' with fields=form.post_fields %}</fieldset>{% endif %}
+  {% endif %}
+  <div class="form-actions"><button class="button primary" type="submit">{% translate 'Save section' %}{% icon 'check-circle' 17 %}</button><a class="button secondary" href="{% url 'contract_version' case.pk version.pk %}#part-{{ part.code }}">{% translate 'Cancel' %}</a></div>
+</form>{% endblock %}

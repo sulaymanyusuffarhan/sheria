@@ -1,4 +1,4 @@
-"""Run Phase 1 tests against a temporary, local-only PostgreSQL cluster. Revisions: Git."""
+"""Run LSMS tests against a temporary, local-only PostgreSQL cluster. Revisions: Git."""
 
 import os
 import subprocess
