@@ -57,10 +57,18 @@ class StorageTests(SimpleTestCase):
             ([b'stream: OK', b''], Document.Scan.PENDING),
             ([b'stream: limits exceeded ERROR\x00'], Document.Scan.PENDING),
         ):
-            with self.subTest(chunks=chunks), patch('casework.storage.socket.socket') as socket:
+            # Mock the socket module so the protocol test does not require AF_UNIX on this host.
+            with self.subTest(chunks=chunks), patch('casework.storage.socket') as transport:
                 conn = MagicMock()
                 conn.recv.side_effect = chunks
-                socket.return_value.__enter__.return_value = conn
+                transport.socket.return_value.__enter__.return_value = conn
                 verdict, _method = scan_bytes(b'fictional evidence')
                 self.assertEqual(verdict, expected)
+                transport.socket.assert_called_once_with(transport.AF_UNIX, transport.SOCK_STREAM)
                 self.assertEqual(conn.sendall.call_args_list[0].args[0], b'zINSTREAM\x00')
+
+        with patch('casework.storage.socket', spec=['socket', 'SOCK_STREAM']) as transport:
+            self.assertEqual(
+                scan_bytes(b'fictional evidence'), (Document.Scan.PENDING, 'scanner-unavailable')
+            )
+            transport.socket.assert_not_called()
