@@ -1,0 +1,34 @@
+{% extends 'base.html' %}{% load i18n ui l10n %}
+{% block title %}{% translate 'Legal dashboard' %}{% endblock %}{% block breadcrumb %}{% translate 'Dashboard' %}{% endblock %}
+{% block content %}
+<section class="page-head"><div><p class="eyebrow"><i></i>{% translate 'DIRECTORATE OF LEGAL SERVICES' %}</p><h1>{% translate 'Legal dashboard' %}</h1><p>{% translate 'Monitor legal matters, review queues and upcoming deadlines.' %}</p></div><div class="head-actions"><span class="date-chip">{% icon 'calendar' 17 %} {{ today|date:'d M Y' }} <span>{{ time_zone_label }}</span></span><a class="button primary" href="{% url 'matter_register' %}">{% icon 'briefcase' 17 %}{% translate 'Matter register' %}</a></div></section>
+{% if demo_mode %}<div class="demo-strip">{% icon 'shield' 16 %}<strong>{% translate 'Demonstration data' %}</strong><span>{% translate 'This workspace contains synthetic records for Phase 1 testing.' %}</span></div>{% endif %}
+<form class="filters dashboard-filters" method="get" aria-label="{% translate 'Dashboard filters' %}">
+  <div class="filter-caption">{% icon 'filter' 18 %}<strong>{% translate 'Filters' %}</strong></div>
+  {% for field in filter_form %}<div class="filter-field">{{ field.label_tag }}{{ field }}{{ field.errors }}</div>{% endfor %}
+  <button class="button secondary small" type="submit">{% translate 'Apply' %}</button>
+  {% if request.GET %}<a class="text-link small-link" href="{% url 'legal_dashboard' %}">{% translate 'Reset' %}</a>{% endif %}
+</form>
+<div class="metric-grid legal-metrics" role="group" aria-label="{% translate 'Matter totals' %}">{% for item in metrics %}{% include 'partials/metric.html' %}{% endfor %}</div>
+<div class="charts">
+  <section class="panel trend-panel" aria-labelledby="trend-title"><header class="panel-header"><div><h2 id="trend-title">{% translate 'Matter activity' %}</h2><p>{% translate 'Matters opened by month within the selected scope' %}</p></div><span class="series"><i></i>{% translate 'Matters' %}</span></header>
+    <div class="trend-wrap"><svg viewBox="0 0 640 200" class="trend-svg" aria-hidden="true">
+      {% for mark, y in trend.ticks %}<line x1="42" x2="616" y1="{{ y|unlocalize }}" y2="{{ y|unlocalize }}" class="chart-grid"/><text x="31" y="{{ y|unlocalize }}" text-anchor="end" dy="4">{{ mark }}</text>{% endfor %}
+      <polygon points="{{ trend.area }}" class="chart-fill"/><polyline points="{{ trend.coords }}" class="chart-line"/>
+      {% for point in trend.points %}<circle cx="{{ point.x|unlocalize }}" cy="{{ point.y|unlocalize }}" r="4" class="chart-point"/><text x="{{ point.x|unlocalize }}" y="190" text-anchor="middle">{{ point.label }}</text>{% endfor %}
+    </svg></div>
+    <details class="chart-data"><summary>{% translate 'View chart data' %}</summary><table><caption class="screen-reader">{% translate 'Matters opened by month' %}</caption><thead><tr><th scope="col">{% translate 'Month' %}</th><th scope="col">{% translate 'Matters' %}</th></tr></thead><tbody>{% for point in trend.points %}<tr><td>{{ point.label }}</td><td>{{ point.value }}</td></tr>{% endfor %}</tbody></table></details>
+  </section>
+  <section class="panel category-panel" aria-labelledby="category-title"><header class="panel-header"><div><h2 id="category-title">{% translate 'Matters by category' %}</h2><p>{% translate 'Distribution in the selected scope' %}</p></div>{% icon 'chart' 18 %}</header>
+    <div class="category-content"><div class="donut" aria-hidden="true"><svg viewBox="0 0 144 144"><circle class="donut-base" cx="72" cy="72" r="55" fill="none" stroke-width="17"/>
+    {% for slice in chart.slices %}<circle class="donut-{{ slice.tone }}" cx="72" cy="72" r="55" pathLength="100" fill="none" stroke-width="17" stroke-dasharray="{{ slice.size|unlocalize }} {{ slice.gap|unlocalize }}" stroke-dashoffset="{{ slice.offset|unlocalize }}" transform="rotate(-90 72 72)"/>{% endfor %}</svg><div><strong>{{ chart.total }}</strong><small>{% translate 'matters' %}</small></div></div>
+    {% if chart.slices %}<ul class="category-legend">{% for slice in chart.slices %}<li><i class="swatch-{{ slice.tone }}"></i><span>{{ slice.label }}</span><strong>{{ slice.count }}</strong></li>{% endfor %}</ul>{% else %}<p class="muted">{% translate 'No data for these filters.' %}</p>{% endif %}</div>
+  </section>
+</div>
+<div class="activity-grid">
+<section class="panel recent-panel"><header class="panel-header"><div><h2>{% translate 'Recent matters' %}</h2><p>{% translate 'Latest entries in your authorised register' %}</p></div><a class="text-link" href="{% url 'matter_register' %}">{% translate 'View all' %}{% icon 'arrow-right' 16 %}</a></header>{% include 'partials/matter_table.html' with matters=recent compact=True %}</section>
+<section class="panel watch-panel"><header class="panel-header"><div><h2>{% translate 'Operational watch' %}</h2><p>{% translate 'Queues, risk and upcoming dates' %}</p></div>{% icon 'alarm' 19 %}</header>
+<div class="watch-list">{% for item in extra_metrics %}<div>{% icon item.icon 16 %}<span>{{ item.label }}</span><strong>{{ item.value }}</strong></div>{% endfor %}</div>
+{% if milestones %}<div class="milestone-list"><h3>{% translate 'Next on the calendar' %}</h3>{% for milestone in milestones %}<a href="{% url 'matter_detail' milestone.matter_id %}"><span>{{ milestone.get_kind_display }} <small>{{ milestone.matter.reference }}</small></span><strong>{{ milestone.date|date:'d M' }}</strong></a>{% endfor %}</div>{% endif %}</section>
+</div>
+{% endblock %}

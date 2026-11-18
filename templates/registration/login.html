@@ -1,0 +1,36 @@
+{% extends 'base.html' %}{% load i18n ui %}
+{% block title %}{% translate 'Sign in' %}{% endblock %}
+{% block public %}
+<div class="login-layout">
+  <section class="login-aside" aria-labelledby="login-headline">
+    <div class="brand login-brand"><span class="brand-mark">{% icon 'brand' 32 %}</span><span><strong>TBC Legal</strong><small>{% translate 'SERVICES MANAGEMENT' %}</small></span></div>
+    <div class="login-story"><div class="kicker"><span></span>{% translate 'TANZANIA BROADCASTING CORPORATION' %}</div>
+      <h1 id="login-headline">{% translate 'Legal services,' %}<br><span>{% translate 'connected.' %}</span></h1>
+      <p>{% translate 'The internal workspace for the Directorate of Legal Services. Track requests, manage access and oversee legal operations in one place.' %}</p>
+      <div class="login-points"><span>{% icon 'lock' 17 %}{% translate 'Authorised access' %}</span><span>{% icon 'shield' 17 %}{% translate 'Role-based workspaces' %}</span></div>
+    </div>
+    <div class="login-aside-foot">{% translate 'DIRECTORATE OF LEGAL SERVICES' %}<span></span>{% translate 'INTERNAL SYSTEM' %}</div>
+  </section>
+  <section class="login-panel" aria-label="{% translate 'Sign in' %}">
+    <div class="login-top">{% if show_demo %}<span class="demo-pill"><span></span>{% translate 'Development demonstration' %}</span>{% else %}<span></span>{% endif %}{% include 'partials/language.html' %}</div>
+    <div class="login-form">
+      {% include 'partials/messages.html' %}<p class="eyebrow">{% translate 'LEGAL SERVICES MANAGEMENT SYSTEM' %}</p>
+      <h2>{% translate 'Welcome to LSMS' %}</h2><p class="muted">{% if show_demo %}{% translate 'Choose a sample role to explore its authorised workspace.' %}{% else %}{% translate 'Sign in to access your authorised workspace.' %}{% endif %}</p>
+      {% if local_auth_enabled %}<form class="login-fields" action="{% url 'login' %}" method="post">
+        {% csrf_token %}<input type="hidden" name="next" value="{{ next_url }}">{{ form.non_field_errors }}
+        <div class="field">{{ form.username.label_tag }}{{ form.username }}{{ form.username.errors }}</div>
+        <div class="field">{{ form.password.label_tag }}<div class="password-input">{{ form.password }}<button type="button" class="quiet-icon" data-password="id_password" aria-label="{% translate 'Show or hide password' %}" aria-pressed="false">{% icon 'eye' 19 %}</button></div>{{ form.password.errors }}</div>
+        <details class="mfa" {% if form.code.errors %}open{% endif %}><summary>{% translate 'Use an authenticator code' %}</summary><div class="field">{{ form.code.label_tag }}{{ form.code }}{{ form.code.errors }}<div class="help" id="{{ form.code.auto_id }}_helptext">{{ form.code.help_text }}</div></div></details>
+        <button class="button primary login-submit" type="submit">{% translate 'Sign in' %}{% icon 'arrow-right' 18 %}</button>
+      </form>{% elif not show_demo %}<p class="flash">{% translate 'Institutional sign-in is not configured for this environment.' %}</p>{% endif %}
+      {% if show_demo and demo_choices %}<div class="demo-entry{% if not local_auth_enabled %} demo-entry-primary{% endif %}"><div class="demo-heading"><strong>{% translate 'Explore the demonstration' %}</strong><small>{% translate 'No credentials required. All records are synthetic.' %}</small></div>
+        <form method="post" action="{% url 'demo_login' %}">{% csrf_token %}<div class="demo-options">
+        {% for code, label, symbol in demo_choices|slice:':3' %}<button type="submit" name="role" value="{{ code }}" class="demo-option">{% icon symbol 17 %}<span>{{ label }}</span>{% icon 'chevron' 13 %}</button>{% endfor %}
+        </div><details class="more-roles"><summary>{% translate 'More demonstration roles' %}</summary><div class="demo-options">
+        {% for code, label, symbol in demo_choices|slice:'3:' %}<button type="submit" name="role" value="{{ code }}" class="demo-option">{% icon symbol 17 %}<span>{{ label }}</span>{% icon 'chevron' 13 %}</button>{% endfor %}
+        </div></details></form></div>{% elif show_demo %}<p class="flash">{% translate 'No demonstration roles are available. Ask the sandbox operator to initialise the fixture.' %}</p>{% endif %}
+    </div>
+    <footer class="login-footer">{% icon 'lock' 14 %}{% translate 'For authorised use only' %}<span>·</span> {% translate 'Phase 1 Foundation' %}</footer>
+  </section>
+</div>
+{% endblock %}

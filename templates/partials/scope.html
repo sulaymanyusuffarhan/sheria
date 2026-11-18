@@ -1,0 +1,1 @@
+{% load i18n %}{% if can_dept %}<div class="switch" role="group" aria-label="{% translate 'Request scope' %}"><a class="{% if not department_scope %}selected{% endif %}" href="?scope=own">{% translate 'My requests' %}</a><a class="{% if department_scope %}selected{% endif %}" href="?scope=department">{% translate 'Department' %}</a></div>{% endif %}

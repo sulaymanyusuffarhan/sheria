@@ -1,0 +1,6 @@
+{% load i18n ui %}{% if page_obj.paginator.num_pages > 1 %}
+<nav class="pagination" aria-label="{% translate 'Pagination' %}">
+<span>{% blocktranslate with current=page_obj.number total=page_obj.paginator.num_pages %}Page {{ current }} of {{ total }}{% endblocktranslate %}</span>
+<div>{% if page_obj.has_previous %}<a class="button secondary small" href="{% querystring page=page_obj.previous_page_number %}">{% icon 'arrow-left' 15 %}{% translate 'Previous' %}</a>{% endif %}
+{% if page_obj.has_next %}<a class="button secondary small" href="{% querystring page=page_obj.next_page_number %}">{% translate 'Next' %}{% icon 'arrow-right' 15 %}</a>{% endif %}</div>
+</nav>{% endif %}

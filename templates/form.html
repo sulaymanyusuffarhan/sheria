@@ -1,0 +1,4 @@
+{% extends 'base.html' %}{% load i18n ui %}
+{% block title %}{{ title }}{% endblock %}{% block breadcrumb %}{{ title }}{% endblock %}
+{% block content %}<a class="back-link" href="{{ back_url }}">{% icon 'arrow-left' 16 %}{% translate 'Back' %}</a><section class="page-head"><div><p class="eyebrow"><i></i>{{ workspace_label }}</p><h1>{{ title }}</h1><p>{{ description }}</p></div></section>
+<section class="panel form-panel"><form method="post">{% csrf_token %}{{ form.non_field_errors }}{% include 'partials/fields.html' %}<div class="form-actions"><button class="button primary" type="submit">{{ button_label }}{% icon 'arrow-right' 16 %}</button><a class="button secondary" href="{{ back_url }}">{% translate 'Cancel' %}</a></div></form></section>{% endblock %}

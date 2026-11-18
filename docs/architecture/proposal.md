@@ -6,6 +6,8 @@
 
 **Review decision:** Endorse or amend this design as the basis for requirements workshops and formal sign-off. No application code, database, infrastructure or integrations have been created. This proposal is not deployment authorisation, a legal opinion, an e-GA assessment or certification.
 
+> This is the original design review. For the later implementation status and engineering results, see [Phase 1 verification](../phase-1/verification.md).
+
 ## 0. Repository inspection
 
 Inspected branch `arena/241e9456-sheria` at `cce5cdc` (`Initial commit`), including the tracked tree and working directory. Before this review the branch was clean and its only tracked file was `README.md`, containing `# sheria`. There were no source files, dependencies, build tools, UI assets, schema, migrations, tests or deployment configuration to reuse. **Treat this as a greenfield application; reuse the Git repository and history, not a presumed application stack.** This does not establish that TBC lacks existing systems or paper registers. Inventory those separately before choosing what to build, reuse or migrate.

@@ -1,0 +1,7 @@
+Django==5.2.19
+argon2-cffi==25.1.0
+cryptography==47.0.0
+djangorestframework==3.16.1
+psycopg[binary]==3.3.9
+pyotp==2.9.0
+tzdata==2026.6
