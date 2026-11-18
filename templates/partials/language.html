@@ -1,0 +1,7 @@
+{% load i18n ui %}{% get_current_language as current_language %}
+<form class="language" method="post" action="{% url 'language' %}" aria-label="{% translate 'Display language' %}">
+  {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+  {% icon 'globe' 16 %}
+  <button type="submit" name="language" value="en" lang="en" title="English" aria-label="EN — English" aria-pressed="{% if current_language == 'en' %}true{% else %}false{% endif %}">EN</button>
+  <button type="submit" name="language" value="sw" lang="sw" title="Kiswahili" aria-label="SW — Kiswahili" aria-pressed="{% if current_language == 'sw' %}true{% else %}false{% endif %}">SW</button>
+</form>

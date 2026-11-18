@@ -1,0 +1,4 @@
+{% extends 'base.html' %}{% load i18n ui %}
+{% block title %}{{ title }}{% endblock %}{% block breadcrumb %}{{ code }}{% endblock %}
+{% block content %}<section class="panel error-page"><p class="eyebrow">{{ code }}</p><h1>{{ title }}</h1><p>{{ detail }}</p><a class="button primary" href="{% url 'home' %}">{% icon 'arrow-left' 16 %}{% translate 'Return to workspace' %}</a></section>{% endblock %}
+{% block public %}<section class="panel error-page"><p class="eyebrow">{{ code }}</p><h1>{{ title }}</h1><p>{{ detail }}</p><a class="button primary" href="{% url 'home' %}">{% icon 'arrow-left' 16 %}{% translate 'Return to workspace' %}</a></section>{% endblock %}

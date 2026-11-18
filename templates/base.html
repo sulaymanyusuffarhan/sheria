@@ -1,0 +1,44 @@
+{% load static i18n ui %}{% get_current_language as lang %}<!doctype html>
+<html lang="{{ lang }}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{% translate 'Workspace' %}{% endblock %} · TBC Legal</title>
+<link rel="icon" href="{% static 'lsms/mark.svg' %}" type="image/svg+xml">
+<link rel="stylesheet" href="{% static 'lsms/app.css' %}"><script src="{% static 'lsms/app.js' %}" defer></script>
+</head><body class="{% if request.user.is_authenticated %}app-body{% else %}public-body{% endif %}">
+{% include 'partials/sprite.html' %}<a class="skip" href="#main">{% translate 'Skip to content' %}</a>
+{% if request.user.is_authenticated %}
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="{% url 'home' %}"><span class="brand-mark">{% icon 'brand' 28 %}</span><span><strong>TBC Legal</strong><small>{% translate 'SERVICES MANAGEMENT' %}</small></span></a>
+    <div class="workspace-tag"><span></span>{{ workspace_label }}</div>
+    <nav aria-label="{% translate 'Main navigation' %}" class="navigation">
+      <p class="nav-cap">{% translate 'WORKSPACE' %}</p>
+      {% for item in nav_main %}<a href="{{ item.url }}" class="nav-link{% if item.active %} is-active{% endif %}" {% if item.active %}aria-current="page"{% endif %}>{% icon item.icon 19 %} <span>{{ item.label }}</span></a>{% endfor %}
+      {% if workspace_switch %}<a href="{{ workspace_switch.url }}" class="nav-link">{% icon 'arrow-right' 18 %} <span>{{ workspace_switch.label }}</span></a>{% endif %}
+      <p class="nav-cap">{% translate 'ACCOUNT' %}</p>
+      {% for item in nav_secondary %}<a href="{{ item.url }}" class="nav-link{% if item.active %} is-active{% endif %}" {% if item.active %}aria-current="page"{% endif %}>{% icon item.icon 19 %} <span>{{ item.label }}</span>{% if item.icon == 'bell' and notice_count %}<span class="nav-count">{{ notice_count }}</span>{% endif %}</a>{% endfor %}
+    </nav>
+    <div class="sidebar-bottom">
+      {% if demo_mode %}<div class="sidebar-demo"><span class="live-dot"></span><div><strong>{% translate 'Demonstration workspace' %}</strong><small>{% translate 'Synthetic data · Phase 1' %}</small></div></div>{% endif %}
+      <div class="sidebar-user"><a class="mini-account" href="{% url 'profile' %}"><span class="avatar avatar-dark">{{ initials }}</span><span class="mini-text"><strong>{{ request.user.display_name }}</strong><small>{{ actor_role }}</small></span></a>
+      <form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="quiet-icon" type="submit" title="{% translate 'Sign out' %}" aria-label="{% translate 'Sign out' %}">{% icon 'logout' 18 %}</button></form></div>
+    </div>
+  </aside>
+  <div class="app-frame">
+    <header class="topbar">
+      <div class="breadcrumbs"><button type="button" class="quiet-icon menu-toggle" aria-label="{% translate 'Toggle navigation' %}" aria-controls="sidebar" aria-expanded="false" data-menu>{% icon 'menu' %}</button><span>{{ workspace_label }}</span>{% icon 'chevron' 13 %}<strong>{% block breadcrumb %}{% translate 'Workspace' %}{% endblock %}</strong></div>
+      <div class="topbar-tools">
+        {% if search_route %}<form class="header-search" action="{% url search_route %}" method="get" role="search">{% icon 'search' 17 %}<input type="search" name="q" maxlength="120" aria-label="{% translate 'Search this workspace' %}" placeholder="{% translate 'Search workspace…' %}"><button class="screen-reader" type="submit">{% translate 'Search' %}</button></form>{% endif %}
+        {% include 'partials/language.html' %}
+        <a class="top-icon" href="{% url 'inbox' %}" title="{% translate 'Notifications' %}" aria-label="{% translate 'Notifications' %}{% if notice_count %}: {{ notice_count }}{% endif %}">{% icon 'bell' 20 %}{% if notice_count %}<span class="bell-dot"></span>{% endif %}</a>
+        <a class="avatar avatar-light" href="{% url 'profile' %}" title="{{ request.user.display_name }}" aria-label="{{ initials }} · {% translate 'My profile' %}">{{ initials }}</a>
+      </div>
+    </header>
+    <main class="content" id="main" tabindex="-1">
+      {% if messages %}{% include 'partials/messages.html' %}{% endif %}
+      {% block content %}{% endblock %}
+      <footer class="app-footer"><span>TBC Legal Services Management System</span><span>{% if demo_mode %}{% translate 'Demonstration only · No real legal data' %}{% else %}{% translate 'Internal use only' %}{% endif %}</span></footer>
+    </main>
+  </div>
+</div>
+{% else %}<main id="main" tabindex="-1">{% block public %}{% endblock %}</main>{% endif %}
+</body></html>

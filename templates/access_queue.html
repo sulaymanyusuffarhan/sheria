@@ -1,0 +1,4 @@
+{% extends 'base.html' %}{% load i18n ui %}
+{% block title %}{% translate 'Access requests' %}{% endblock %}{% block breadcrumb %}{% translate 'Access requests' %}{% endblock %}
+{% block content %}<section class="page-head"><div><p class="eyebrow"><i></i>{% translate 'ACCESS GOVERNANCE' %}</p><h1>{% translate 'Access requests' %}</h1><p>{% translate 'Review identity access requests and their recorded decisions.' %}</p></div>{% if can_apply %}<a class="button primary" href="{% url 'accounts' %}">{% icon 'users' 17 %}{% translate 'Choose an account' %}</a>{% endif %}</section>
+<section class="panel"><header class="panel-header"><div><h2>{% translate 'Role access queue' %}</h2><p>{% translate 'Request, independent decision, then ICT activation' %}</p></div>{% icon 'key' 18 %}</header>{% include 'partials/access_table.html' with entries=page_obj %}{% include 'partials/pagination.html' %}</section>{% endblock %}

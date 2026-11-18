@@ -1,0 +1,116 @@
+openapi: 3.1.0
+info:
+  title: TBC Legal Services Management System — Phase 1 read API
+  version: 1.0.0
+  description: Same-origin session-authenticated pilot interface. No write, file or external integration endpoints are available.
+security:
+  - session: []
+paths:
+  /api/v1/staff/requests/:
+    get:
+      operationId: staffRequests
+      summary: List published staff request projections
+      description: Own requests require the staff grant. Department scope also requires a valid Head of Department grant and only includes explicitly released internal rows. No internal legal notes or state codes are returned.
+      parameters:
+        - name: scope
+          in: query
+          schema: {type: string, enum: [own, department], default: own}
+        - name: q
+          in: query
+          description: Case-insensitive reference or published title substring.
+          schema: {type: string, maxLength: 120}
+        - name: status
+          in: query
+          description: Finished combines completed and closed.
+          schema: {type: string, enum: [all, awaiting, processing, information, completed, rejected, closed, finished], default: all}
+        - name: due
+          in: query
+          description: Limit to published deadlines on or after the current date in the configured timezone, excluding terminal public states.
+          schema: {type: string, enum: [upcoming]}
+        - name: page
+          in: query
+          description: 20 records per page. Non-integer pages default to the first; out-of-range pages use the last.
+          schema: {type: integer, minimum: 1, default: 1}
+      responses:
+        '200':
+          description: Scoped page, including when there are no results.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [count, page, results]
+                properties:
+                  count: {type: integer, minimum: 0}
+                  page: {type: integer, minimum: 1}
+                  results:
+                    type: array
+                    items: {$ref: '#/components/schemas/PublishedRequest'}
+        '400': {description: Invalid status filter.}
+        '403': {$ref: '#/components/responses/Forbidden'}
+  /api/v1/legal/summary/:
+    get:
+      operationId: legalSummary
+      summary: Read aggregate dashboard counts within the caller's legal scope
+      description: Requires an active legal assignment, department or institution role. Non-internal records also need current, matching named clearance. ICT, management and audit roles do not grant this API.
+      parameters:
+        - name: period
+          in: query
+          description: A day count includes the current local date.
+          schema: {type: string, enum: ['all', '180', '90', '30'], default: all}
+        - name: directorate
+          in: query
+          schema: {type: string, format: uuid}
+        - name: department
+          in: query
+          schema: {type: string, format: uuid}
+        - name: category
+          in: query
+          schema: {type: string, maxLength: 24}
+        - name: officer
+          in: query
+          description: Most recent active assignment on each matter.
+          schema: {type: string, format: uuid}
+      responses:
+        '200':
+          description: Counts from the same selectors as the DLS dashboard.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [metrics]
+                properties:
+                  metrics:
+                    type: array
+                    items:
+                      type: object
+                      required: [key, label, count]
+                      properties:
+                        key:
+                          type: string
+                          enum: [total, review, head_review, completed, new, unassigned, overdue, litigation, contracts_review, high_risk_contracts, hearings, expiries]
+                        label: {type: string, description: Localised display name. Use key for comparisons.}
+                        count: {type: integer, minimum: 0}
+        '400': {description: Invalid filter or unavailable filter choice for the current scope.}
+        '403': {$ref: '#/components/responses/Forbidden'}
+components:
+  securitySchemes:
+    session:
+      type: apiKey
+      in: cookie
+      name: sessionid
+      description: Server-managed login session. No API key issuance or token integration is provided in Phase 1.
+  responses:
+    Forbidden:
+      description: Sign-in is missing/expired, or the caller lacks the required role or scope.
+  schemas:
+    PublishedRequest:
+      type: object
+      required: [id, reference, title, status, status_label, submitted_at, due_on]
+      properties:
+        id: {type: string, format: uuid}
+        reference: {type: string}
+        title: {type: string}
+        status: {type: string, enum: [awaiting, processing, information, completed, rejected, closed]}
+        status_label: {type: string, description: Localised display label.}
+        submitted_at: {type: string, format: date-time}
+        due_on: {type: [string, 'null'], format: date}

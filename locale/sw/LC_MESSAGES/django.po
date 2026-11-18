@@ -1,0 +1,1308 @@
+# Kiswahili messages for TBC LSMS. Draft translations for institutional review.
+# Introduced 2026-11-18; revisions tracked in Git.
+msgid ""
+msgstr ""
+"Project-Id-Version: TBC LSMS Phase 1\n"
+"Language: sw\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, python-format
+msgid "%(count)s account"
+msgid_plural "%(count)s accounts"
+msgstr[0] "Akaunti %(count)s"
+msgstr[1] "Akaunti %(count)s"
+
+#, python-format
+msgid "%(count)s visible record"
+msgid_plural "%(count)s visible records"
+msgstr[0] "Rekodi %(count)s inayoonekana"
+msgstr[1] "Rekodi %(count)s zinazoonekana"
+
+#, python-format
+msgid "%(unread_count)s unread notification"
+msgid_plural "%(unread_count)s unread notifications"
+msgstr[0] "Arifa %(unread_count)s ambayo haijasomwa"
+msgstr[1] "Arifa %(unread_count)s ambazo hazijasomwa"
+
+msgid "A department head must belong to the selected department."
+msgstr "Mkuu wa idara lazima awe mwanachama wa idara iliyochaguliwa."
+
+msgid "Accepted"
+msgstr "Limepokelewa"
+
+msgid "Access applied. Existing sessions for this account were revoked."
+msgstr "Ufikiaji umewezeshwa. Vipindi vya awali vya akaunti hii vimekatishwa."
+
+msgid "Access decision"
+msgstr "Uamuzi wa ufikiaji"
+
+msgid "Access decision recorded"
+msgstr "Uamuzi wa ufikiaji umerekodiwa"
+
+msgid "ACCESS GOVERNANCE"
+msgstr "USIMAMIZI WA UFIKIAJI"
+
+msgid "Access is applied only after an independent decision."
+msgstr "Ufikiaji unawezeshwa baada ya uamuzi wa mhusika mwingine aliyeidhinishwa."
+
+msgid "Access request"
+msgstr "Ombi la ufikiaji"
+
+msgid "Access request sent for a separate decision."
+msgstr "Ombi la ufikiaji limetumwa ili kuamuliwa na mhusika mwingine."
+
+msgid "Access requests"
+msgstr "Maombi ya ufikiaji"
+
+msgid "Access requests to apply"
+msgstr "Maombi yanayosubiri kuwezeshwa"
+
+msgid "Access restricted"
+msgstr "Ufikiaji umezuiwa"
+
+msgid "Access revoked."
+msgstr "Ufikiaji umeondolewa."
+
+msgid "ACCOUNT"
+msgstr "AKAUNTI"
+
+msgid "Account"
+msgstr "Akaunti"
+
+msgid "Account created. Local credential enrolment is a separate ICT procedure."
+msgstr "Akaunti imeundwa. Usajili wa vitambulisho vya kuingia ni utaratibu tofauti wa TEHAMA."
+
+msgid "ACCOUNT DETAILS"
+msgstr "TAARIFA ZA AKAUNTI"
+
+msgid "Account details"
+msgstr "Taarifa za akaunti"
+
+msgid "Account directory"
+msgstr "Orodha ya akaunti"
+
+msgid "Account type"
+msgstr "Aina ya akaunti"
+
+msgid "Account updated."
+msgstr "Akaunti imesasishwa."
+
+msgid "Active"
+msgstr "Inatumika"
+
+msgid "Active account"
+msgstr "Akaunti inayotumika"
+
+msgid "Active accounts"
+msgstr "Akaunti zinazotumika"
+
+msgid "Active litigation"
+msgstr "Mashauri yanayoendelea"
+
+msgid "Actor"
+msgstr "Mhusika"
+
+msgid "Add department"
+msgstr "Ongeza idara"
+
+msgid "Add directorate"
+msgstr "Ongeza kurugenzi"
+
+msgid "Add employee account"
+msgstr "Ongeza akaunti ya mfanyakazi"
+
+msgid "Aggregate only"
+msgstr "Takwimu za jumla pekee"
+
+msgid "Aggregate view of reportable legal activity."
+msgstr "Takwimu za jumla za masuala ya kisheria yanayoweza kuripotiwa."
+
+msgid "All categories"
+msgstr "Kategoria zote"
+
+msgid "All departments"
+msgstr "Idara zote"
+
+msgid "All directorates"
+msgstr "Kurugenzi zote"
+
+msgid "All officers"
+msgstr "Maafisa wote"
+
+msgid "All statuses"
+msgstr "Hali zote"
+
+msgid "All time"
+msgstr "Muda wote"
+
+msgid "Append-only"
+msgstr "Kuongeza tu"
+
+msgid "Applied"
+msgstr "Imewezeshwa"
+
+msgid "Apply"
+msgstr "Tumia"
+
+msgid "Apply approved access"
+msgstr "Wezesha ufikiaji ulioidhinishwa"
+
+msgid "Apply filters"
+msgstr "Tumia vichujio"
+
+msgid "Apply the approved role and end the account’s existing sessions."
+msgstr "Wezesha jukumu lililoidhinishwa na ukatishe vipindi vya sasa vya akaunti."
+
+msgid "Approve access"
+msgstr "Idhinisha ufikiaji"
+
+msgid "Approved"
+msgstr "Limeidhinishwa"
+
+msgid "Approved for activation"
+msgstr "Imeidhinishwa kuwezeshwa"
+
+msgid "Area"
+msgstr "Eneo"
+
+msgid "Assigned"
+msgstr "Limepangiwa"
+
+msgid "Assigned matters"
+msgstr "Masuala yaliyopangiwa"
+
+msgid "Assigned officer"
+msgstr "Afisa aliyepangiwa"
+
+msgid "Audit log"
+msgstr "Kumbukumbu za ukaguzi"
+
+msgid "Audited events"
+msgstr "Matukio yaliyorekodiwa"
+
+msgid "Authentication"
+msgstr "Uthibitishaji"
+
+msgid "Authenticator code"
+msgstr "Msimbo wa uthibitishaji"
+
+msgid "Authorised access"
+msgstr "Ufikiaji ulioidhinishwa"
+
+msgid "Authorised records"
+msgstr "Rekodi zilizoidhinishwa"
+
+msgid "Awaiting additional information"
+msgstr "Linasubiri taarifa za ziada"
+
+msgid "Awaiting credential enrolment"
+msgstr "Inasubiri usajili wa vitambulisho vya kuingia"
+
+msgid "Awaiting Head of Legal Services"
+msgstr "Yanasubiri Mkuu wa Huduma za Sheria"
+
+msgid "Awaiting Head of Legal Services review"
+msgstr "Linasubiri mapitio ya Mkuu wa Huduma za Sheria"
+
+msgid "Awaiting Head review"
+msgstr "Linasubiri mapitio ya Mkuu"
+
+msgid "Awaiting review"
+msgstr "Inasubiri mapitio"
+
+msgid "Back"
+msgstr "Rudi"
+
+msgid "Back to administration"
+msgstr "Rudi kwenye usimamizi"
+
+msgid "Back to dashboard"
+msgstr "Rudi kwenye dashibodi"
+
+msgid "Back to requests"
+msgstr "Rudi kwenye maombi"
+
+msgid "Being assessed by Legal Services"
+msgstr "Yanapitiwa na Huduma za Sheria"
+
+msgid "Business justification"
+msgstr "Sababu ya kikazi"
+
+msgid "Cancel"
+msgstr "Ghairi"
+
+msgid "Cancelled"
+msgstr "Imeghairiwa"
+
+msgid "Category"
+msgstr "Kategoria"
+
+msgid "Change password"
+msgstr "Badili nenosiri"
+
+msgid "Choose a different password."
+msgstr "Chagua nenosiri tofauti."
+
+msgid "Choose a sample role to explore its authorised workspace."
+msgstr "Chagua jukumu la maonesho ili kutumia eneo lake la kazi lililoidhinishwa."
+
+msgid "Choose a valid access decision."
+msgstr "Chagua uamuzi unaokubalika kuhusu ufikiaji."
+
+msgid "Choose a valid status."
+msgstr "Chagua hali inayokubalika."
+
+msgid "Choose an account"
+msgstr "Chagua akaunti"
+
+msgid "Classification"
+msgstr "Uainishaji"
+
+msgid "Closed"
+msgstr "Yamefungwa"
+
+msgid "Completed"
+msgstr "Yamekamilika"
+
+msgid "Completed matters"
+msgstr "Masuala yaliyokamilika"
+
+msgid "Completed or closed"
+msgstr "Yamekamilika au kufungwa"
+
+msgid "Confidential"
+msgstr "Siri"
+
+msgid "Confirm new password"
+msgstr "Thibitisha nenosiri jipya"
+
+msgid "connected."
+msgstr "zimeunganishwa."
+
+msgid "Contract expiry"
+msgstr "Mwisho wa mkataba"
+
+msgid "Contracts awaiting review"
+msgstr "Mikataba inayosubiri mapitio"
+
+msgid "Court hearing"
+msgstr "Kusikilizwa kwa shauri"
+
+msgid "Current password"
+msgstr "Nenosiri la sasa"
+
+msgid "Current status of visible requests"
+msgstr "Hali ya sasa ya maombi yanayoonekana"
+
+msgid "Dashboard"
+msgstr "Dashibodi"
+
+msgid "Dashboard filters"
+msgstr "Vichujio vya dashibodi"
+
+msgid "Dates shared with your workspace"
+msgstr "Tarehe zilizoshirikiwa na eneo lako la kazi"
+
+msgid "Decided by"
+msgstr "Aliyeamua"
+
+msgid "Decision"
+msgstr "Uamuzi"
+
+msgid "Decision reason"
+msgstr "Sababu ya uamuzi"
+
+msgid "Decision recorded."
+msgstr "Uamuzi umerekodiwa."
+
+msgid "Demonstration account"
+msgstr "Akaunti ya maonesho"
+
+msgid "Demonstration data"
+msgstr "Data za maonesho"
+
+msgid "Demonstration only · No real legal data"
+msgstr "Maonesho pekee · Hakuna data halisi za kisheria"
+
+msgid "Demonstration sign-in"
+msgstr "Kuingia kwenye maonesho"
+
+msgid "Demonstration workspace"
+msgstr "Eneo la kazi la maonesho"
+
+msgid "Department"
+msgstr "Idara"
+
+msgid "Department overview"
+msgstr "Muhtasari wa idara"
+
+msgid "Department requests"
+msgstr "Maombi ya idara"
+
+msgid "Department scope"
+msgstr "Wigo wa idara"
+
+msgid "Departments"
+msgstr "Idara"
+
+msgid "Development demonstration"
+msgstr "Maonesho ya uendelezaji"
+
+msgid "Directorate"
+msgstr "Kurugenzi"
+
+msgid "DIRECTORATE OF LEGAL SERVICES"
+msgstr "KURUGENZI YA HUDUMA ZA SHERIA"
+
+msgid "Directory record"
+msgstr "Rekodi ya orodha"
+
+msgid "Disabling an account ends its sessions and revokes elevated roles."
+msgstr "Kuzima akaunti hukatisha vipindi vyake na kuondoa majukumu yenye mamlaka ya juu."
+
+msgid "Display language"
+msgstr "Lugha ya kiolesura"
+
+msgid "Distribution in the selected scope"
+msgstr "Mgawanyo katika wigo uliochaguliwa"
+
+msgid "Due date"
+msgstr "Tarehe ya mwisho"
+
+msgid "Edit"
+msgstr "Hariri"
+
+msgid "Edit account"
+msgstr "Hariri akaunti"
+
+msgid "Edit department"
+msgstr "Hariri idara"
+
+msgid "Edit directorate"
+msgstr "Hariri kurugenzi"
+
+msgid "Edit employee account"
+msgstr "Hariri akaunti ya mfanyakazi"
+
+msgid "Effective roles"
+msgstr "Majukumu halali"
+
+msgid "Employee"
+msgstr "Mfanyakazi"
+
+msgid "Employee account created"
+msgstr "Akaunti ya mfanyakazi imeundwa"
+
+msgid "Employee account updated"
+msgstr "Akaunti ya mfanyakazi imesasishwa"
+
+msgid "Enter your password"
+msgstr "Weka nenosiri lako"
+
+msgid "Enter your username"
+msgstr "Weka jina lako la mtumiaji"
+
+msgid "Event"
+msgstr "Tukio"
+
+msgid "Expiries in 30 days"
+msgstr "Mikataba inayoisha ndani ya siku 30"
+
+msgid "Explore the demonstration"
+msgstr "Tumia maonesho"
+
+msgid "Family name"
+msgstr "Jina la ukoo"
+
+msgid "Filters"
+msgstr "Vichujio"
+
+msgid "For authorised use only"
+msgstr "Kwa matumizi yaliyoidhinishwa pekee"
+
+msgid "Form could not be verified"
+msgstr "Fomu haikuweza kuthibitishwa"
+
+msgid "From date"
+msgstr "Kuanzia tarehe"
+
+msgid "Given name"
+msgstr "Jina la kwanza"
+
+msgid "Head of Department"
+msgstr "Mkuu wa Idara"
+
+msgid "Head of Legal Services"
+msgstr "Mkuu wa Huduma za Sheria"
+
+msgid "Hearings in 30 days"
+msgstr "Vikao vya mahakama ndani ya siku 30"
+
+msgid "High"
+msgstr "Juu"
+
+msgid "High risk"
+msgstr "Hatari kubwa"
+
+msgid "High-risk contracts"
+msgstr "Mikataba yenye hatari kubwa"
+
+msgid "ICT ADMINISTRATION"
+msgstr "USIMAMIZI WA TEHAMA"
+
+msgid "ICT administration"
+msgstr "Usimamizi wa TEHAMA"
+
+msgid "ICT Administrator"
+msgstr "Msimamizi wa TEHAMA"
+
+msgid "ICT console"
+msgstr "Dashibodi ya TEHAMA"
+
+msgid "Identity"
+msgstr "Utambulisho"
+
+msgid "Identity access only — not legal clearance"
+msgstr "Ufikiaji wa akaunti tu — si idhini ya kisheria"
+
+msgid "In the selected period"
+msgstr "Katika kipindi kilichochaguliwa"
+
+msgid "Inactive"
+msgstr "Haitumiki"
+
+msgid "Inactive accounts"
+msgstr "Akaunti zisizotumika"
+
+msgid "Inbox"
+msgstr "Kikasha"
+
+msgid "Information shared with your account"
+msgstr "Taarifa zilizoshirikiwa na akaunti yako"
+
+msgid "Institution"
+msgstr "Taasisi"
+
+msgid "Institutional sign-in is not configured for this environment."
+msgstr "Njia ya taasisi ya kuingia haijasanidiwa katika mazingira haya."
+
+msgid "Internal Auditor"
+msgstr "Mkaguzi wa Ndani"
+
+msgid "Internal legal summary"
+msgstr "Muhtasari wa ndani wa kisheria"
+
+msgid "INTERNAL SYSTEM"
+msgstr "MFUMO WA NDANI"
+
+msgid "Internal use only"
+msgstr "Kwa matumizi ya ndani pekee"
+
+msgid "Keep track of the requests shared with your account."
+msgstr "Fuatilia maombi yaliyoshirikiwa na akaunti yako."
+
+msgid "Last 180 days"
+msgstr "Siku 180 zilizopita"
+
+msgid "Last 30 days"
+msgstr "Siku 30 zilizopita"
+
+msgid "Last 90 days"
+msgstr "Siku 90 zilizopita"
+
+msgid "Latest entries in your authorised register"
+msgstr "Rekodi za karibuni katika rejesta yako iliyoidhinishwa"
+
+msgid "Leave the department blank for this role."
+msgstr "Acha sehemu ya idara wazi kwa jukumu hili."
+
+msgid "Legal access"
+msgstr "Ufikiaji wa taarifa za kisheria"
+
+msgid "Legal administration"
+msgstr "Usimamizi wa huduma za sheria"
+
+msgid "Legal administration view"
+msgstr "Mwonekano wa usimamizi wa huduma za sheria"
+
+msgid "Legal dashboard"
+msgstr "Dashibodi ya huduma za sheria"
+
+msgid "Legal dashboard viewed"
+msgstr "Dashibodi ya huduma za sheria imeangaliwa"
+
+msgid "Legal matters"
+msgstr "Masuala ya kisheria"
+
+msgid "Legal Officer"
+msgstr "Afisa Sheria"
+
+msgid "Legal officer"
+msgstr "Afisa wa sheria"
+
+msgid "LEGAL OPERATIONS"
+msgstr "SHUGHULI ZA KISHERIA"
+
+msgid "Legal register viewed"
+msgstr "Rejesta ya kisheria imeangaliwa"
+
+msgid "LEGAL SERVICES MANAGEMENT SYSTEM"
+msgstr "MFUMO WA USIMAMIZI WA HUDUMA ZA SHERIA"
+
+msgid "Legal services,"
+msgstr "Huduma za sheria,"
+
+msgid "Legal summary requested"
+msgstr "Muhtasari wa kisheria umeombwa"
+
+msgid "Local credentials enrolled"
+msgstr "Vitambulisho vya kuingia vimesajiliwa"
+
+msgid "Low"
+msgstr "Chini"
+
+msgid "Low risk"
+msgstr "Hatari ndogo"
+
+msgid "Lowercase letters, numbers, dots, underscores or hyphens."
+msgstr "Herufi ndogo, namba, nukta, mistari ya chini au vistari."
+
+msgid "Main navigation"
+msgstr "Menyu kuu"
+
+msgid "Manage directorates and the departments within them."
+msgstr "Simamia kurugenzi na idara zake."
+
+msgid ""
+"Manage identities, organisational units and approved access. Legal content is not available "
+"here."
+msgstr ""
+"Simamia akaunti, vitengo vya shirika na ufikiaji ulioidhinishwa. Maudhui ya kisheria "
+"hayapatikani hapa."
+
+msgid ""
+"Manage verified employee directory information. Privileged access requires separate approval."
+msgstr ""
+"Simamia taarifa zilizothibitishwa za wafanyakazi. Ufikiaji maalumu unahitaji idhini tofauti."
+
+msgid "Managed by TBC ICT"
+msgstr "Inasimamiwa na TEHAMA ya TBC"
+
+msgid "Management / Director General"
+msgstr "Menejimenti / Mkurugenzi Mkuu"
+
+msgid "Management overview"
+msgstr "Muhtasari wa menejimenti"
+
+msgid "Management summary viewed"
+msgstr "Muhtasari wa menejimenti umeangaliwa"
+
+msgid "Mark all as read"
+msgstr "Weka zote kuwa zimesomwa"
+
+msgid "Mark as read"
+msgstr "Weka kuwa imesomwa"
+
+msgid "Marked completed in the register"
+msgstr "Yameandikwa kuwa yamekamilika kwenye rejesta"
+
+msgid "Matter activity"
+msgstr "Mwenendo wa masuala"
+
+msgid "Matter detail"
+msgstr "Taarifa za suala"
+
+msgid "Matter information"
+msgstr "Taarifa za suala"
+
+msgid "Matter opened"
+msgstr "Suala limefunguliwa"
+
+msgid "Matter register"
+msgstr "Rejesta ya masuala"
+
+msgid "Matter totals"
+msgstr "Jumla za masuala"
+
+msgid "Matters"
+msgstr "Masuala"
+
+msgid "matters"
+msgstr "masuala"
+
+msgid "Matters by category"
+msgstr "Masuala kwa kategoria"
+
+msgid "Matters opened by month"
+msgstr "Masuala yaliyofunguliwa kwa mwezi"
+
+msgid "Matters opened by month within the selected scope"
+msgstr "Masuala yaliyofunguliwa kwa mwezi katika wigo uliochaguliwa"
+
+msgid "Medium risk"
+msgstr "Hatari ya wastani"
+
+msgid "Monitor legal matters, review queues and upcoming deadlines."
+msgstr "Fuatilia masuala ya kisheria, yanayosubiri mapitio na tarehe zinazokaribia."
+
+msgid "Month"
+msgstr "Mwezi"
+
+msgid "More demonstration roles"
+msgstr "Majukumu mengine ya maonesho"
+
+msgid "Most recent events first"
+msgstr "Matukio ya karibuni kwanza"
+
+msgid "Move or deactivate active members and sub-units first."
+msgstr "Hamisha au zima kwanza akaunti na vitengo vidogo vinavyotumika."
+
+msgid "My profile"
+msgstr "Wasifu wangu"
+
+msgid "My request overview"
+msgstr "Muhtasari wa maombi yangu"
+
+msgid "My requests"
+msgstr "Maombi yangu"
+
+msgid "Name"
+msgstr "Jina"
+
+msgid "Name (English)"
+msgstr "Jina (Kiingereza)"
+
+msgid "Name (Kiswahili)"
+msgstr "Jina (Kiswahili)"
+
+msgid "Name or username"
+msgstr "Jina au jina la mtumiaji"
+
+msgid "Needs information"
+msgstr "Yanahitaji taarifa"
+
+msgid "New password"
+msgstr "Nenosiri jipya"
+
+msgid "New requests"
+msgstr "Maombi mapya"
+
+msgid "Next"
+msgstr "Ifuatayo"
+
+msgid "Next on the calendar"
+msgstr "Matukio yanayofuata kwenye kalenda"
+
+msgid "No access requests"
+msgstr "Hakuna maombi ya ufikiaji"
+
+msgid "No credentials required. All records are synthetic."
+msgstr "Huhitaji vitambulisho vya kuingia. Rekodi zote ni za maonesho."
+
+msgid "No data for these filters."
+msgstr "Hakuna data kwa vichujio hivi."
+
+msgid ""
+"No demonstration roles are available. Ask the sandbox operator to initialise the fixture."
+msgstr "Hakuna majukumu ya maonesho. Mwombe msimamizi aandae data za maonesho."
+
+msgid "No departments in this directorate."
+msgstr "Hakuna idara katika kurugenzi hii."
+
+msgid "No directorates yet"
+msgstr "Hakuna kurugenzi bado"
+
+msgid "No effective roles"
+msgstr "Hakuna majukumu halali"
+
+msgid "No events recorded"
+msgstr "Hakuna matukio yaliyorekodiwa"
+
+msgid "No milestones recorded"
+msgstr "Hakuna matukio muhimu yaliyorekodiwa"
+
+msgid "No notifications yet"
+msgstr "Hakuna arifa bado"
+
+msgid "No records found"
+msgstr "Hakuna rekodi zilizopatikana"
+
+msgid "No upcoming deadlines"
+msgstr "Hakuna tarehe za mwisho zinazokaribia"
+
+msgid "No updates published"
+msgstr "Hakuna taarifa zilizochapishwa"
+
+msgid "Normal"
+msgstr "Kawaida"
+
+msgid "Notifications"
+msgstr "Arifa"
+
+msgid "Notifications marked read"
+msgstr "Arifa zimewekwa kuwa zimesomwa"
+
+msgid "Only active grants are shown"
+msgstr "Ruhusa halali pekee ndizo zinazoonyeshwa"
+
+msgid "Only approved requests can be applied."
+msgstr "Maombi yaliyoidhinishwa pekee yanaweza kuwezeshwa."
+
+msgid "Open a request to see its published timeline"
+msgstr "Fungua ombi kuona mfuatano wa taarifa zilizochapishwa"
+
+msgid "Open matter"
+msgstr "Fungua suala"
+
+msgid "Open staff portal"
+msgstr "Fungua tovuti ya wafanyakazi"
+
+msgid "Opened"
+msgstr "Lilifunguliwa"
+
+msgid "Operational watch"
+msgstr "Ufuatiliaji wa shughuli"
+
+msgid "Organisation"
+msgstr "Shirika"
+
+msgid "Organisation directory"
+msgstr "Orodha ya vitengo vya shirika"
+
+msgid "Organisation unit created"
+msgstr "Kitengo cha shirika kimeundwa"
+
+msgid "Organisation unit saved."
+msgstr "Kitengo cha shirika kimehifadhiwa."
+
+msgid "Organisation unit updated"
+msgstr "Kitengo cha shirika kimesasishwa"
+
+msgid "Other categories"
+msgstr "Kategoria nyingine"
+
+msgid "Other outcomes and open matters"
+msgstr "Matokeo mengine na masuala yanayoendelea"
+
+msgid "Other sessions will be signed out."
+msgstr "Vipindi vingine vya kuingia vitakatishwa."
+
+msgid "Overdue assignments"
+msgstr "Kazi zilizopitisha muda wake"
+
+msgid "OVERSIGHT"
+msgstr "USIMAMIZI"
+
+msgid "Oversight workspace"
+msgstr "Eneo la kazi la usimamizi"
+
+msgid "Own requests"
+msgstr "Maombi binafsi"
+
+#, python-format
+msgid "Page %(current)s of %(total)s"
+msgstr "Ukurasa wa %(current)s kati ya %(total)s"
+
+msgid "Page not found"
+msgstr "Ukurasa haupatikani"
+
+msgid "Pagination"
+msgstr "Kurasa"
+
+msgid "Password"
+msgstr "Nenosiri"
+
+msgid "Password changed"
+msgstr "Nenosiri limebadilishwa"
+
+msgid "Pending approvals"
+msgstr "Yanayosubiri idhini"
+
+msgid "Pending decision"
+msgstr "Linasubiri uamuzi"
+
+msgid "Personalise the interface for your account"
+msgstr "Badili mwonekano kwa akaunti yako"
+
+msgid "Phase 1 Foundation"
+msgstr "Msingi wa Awamu ya 1"
+
+msgid "Preferences"
+msgstr "Mapendeleo"
+
+msgid "Preferences updated"
+msgstr "Mapendeleo yamesasishwa"
+
+msgid "Preferred language"
+msgstr "Lugha unayopendelea"
+
+msgid "Previous"
+msgstr "Iliyotangulia"
+
+msgid "Priority"
+msgstr "Kipaumbele"
+
+msgid "Processing"
+msgstr "Yanashughulikiwa"
+
+msgid "Provision, update and offboard verified employee accounts."
+msgstr "Unda, sasisha na zima akaunti za wafanyakazi waliothibitishwa."
+
+msgid "Published timeline"
+msgstr "Mfuatano wa taarifa zilizochapishwa"
+
+msgid "Queues, risk and upcoming dates"
+msgstr "Foleni, hatari na tarehe zinazokaribia"
+
+msgid "Read-only event history. Protected record content is not displayed."
+msgstr "Historia ya matukio ya kusoma tu. Maudhui yaliyolindwa hayaonyeshwi."
+
+msgid "Read-only register"
+msgstr "Rejesta ya kusoma tu"
+
+msgid "Recent access requests"
+msgstr "Maombi ya karibuni ya ufikiaji"
+
+msgid "Recent matters"
+msgstr "Masuala ya karibuni"
+
+msgid "Recent requests"
+msgstr "Maombi ya karibuni"
+
+msgid "Record decision"
+msgstr "Rekodi uamuzi"
+
+msgid "Recorded milestones"
+msgstr "Matukio muhimu yaliyorekodiwa"
+
+msgid "Recorded risk"
+msgstr "Hatari iliyorekodiwa"
+
+msgid "Records index"
+msgstr "Faharasa ya rekodi"
+
+msgid "Records index viewed"
+msgstr "Faharasa ya rekodi imeangaliwa"
+
+msgid "Records Officer"
+msgstr "Afisa wa Nyaraka"
+
+msgid "RECORDS OVERSIGHT"
+msgstr "USIMAMIZI WA NYARAKA"
+
+msgid "Reference"
+msgstr "Rejea"
+
+msgid "Reference / matter"
+msgstr "Rejea / suala"
+
+msgid "Reference / request"
+msgstr "Rejea / ombi"
+
+msgid "Reference or matter title"
+msgstr "Rejea au kichwa cha suala"
+
+msgid "Reference or request title"
+msgstr "Rejea au kichwa cha ombi"
+
+msgid "Register filters"
+msgstr "Vichujio vya rejesta"
+
+msgid "Reject request"
+msgstr "Kataa ombi"
+
+msgid "Rejected"
+msgstr "Yamekataliwa"
+
+msgid "Reload the page and submit the form again."
+msgstr "Pakia upya ukurasa kisha wasilisha fomu tena."
+
+msgid "Reportable matters"
+msgstr "Masuala yanayoweza kuripotiwa"
+
+msgid "Reporting period"
+msgstr "Kipindi cha taarifa"
+
+msgid "Reporting scope"
+msgstr "Wigo wa taarifa"
+
+msgid "Request details"
+msgstr "Taarifa za ombi"
+
+msgid "Request scope"
+msgstr "Wigo wa maombi"
+
+msgid "Request scoped access"
+msgstr "Omba ufikiaji wenye wigo maalumu"
+
+msgid "Request summary"
+msgstr "Muhtasari wa ombi"
+
+msgid "Request tracking opened"
+msgstr "Ufuatiliaji wa ombi umefunguliwa"
+
+msgid "Request, independent decision, then ICT activation"
+msgstr "Ombi, uamuzi huru, kisha TEHAMA inawezesha ufikiaji"
+
+msgid "Requested by"
+msgstr "Aliyeomba"
+
+msgid "Requested on"
+msgstr "Tarehe ya ombi"
+
+msgid "Requested role"
+msgstr "Jukumu lililoombwa"
+
+msgid ""
+"Required for department heads, senior legal officers and records officers. Leave blank for a "
+"legal officer."
+msgstr ""
+"Inahitajika kwa wakuu wa idara, maafisa sheria waandamizi na maafisa wa nyaraka. Acha wazi "
+"kwa afisa sheria."
+
+msgid "Required if multi-factor authentication is enabled for your account."
+msgstr ""
+"Inahitajika iwapo uthibitishaji wa hatua zaidi ya moja umewezeshwa kwenye akaunti yako."
+
+msgid "Reset"
+msgstr "Ondoa vichujio"
+
+msgid "Restricted / privileged"
+msgstr "Yenye ufikiaji maalumu / yenye kinga ya kisheria"
+
+msgid "Return to workspace"
+msgstr "Rudi kwenye eneo la kazi"
+
+msgid "Review identity access requests and their recorded decisions."
+msgstr "Pitia maombi ya ufikiaji wa akaunti na maamuzi yaliyorekodiwa."
+
+msgid "Revoke"
+msgstr "Ondoa ruhusa"
+
+msgid "Role"
+msgstr "Jukumu"
+
+msgid "Role access queue"
+msgstr "Foleni ya maombi ya majukumu"
+
+msgid "Role request"
+msgstr "Ombi la jukumu"
+
+msgid "Role-based workspaces"
+msgstr "Maeneo ya kazi kulingana na majukumu"
+
+msgid "Save account"
+msgstr "Hifadhi akaunti"
+
+msgid "Save preferences"
+msgstr "Hifadhi mapendeleo"
+
+msgid "Save unit"
+msgstr "Hifadhi kitengo"
+
+msgid "Scope"
+msgstr "Wigo"
+
+msgid "Scoped access applied"
+msgstr "Ufikiaji wenye wigo umewezeshwa"
+
+msgid "Scoped access requested"
+msgstr "Ufikiaji wenye wigo umeombwa"
+
+msgid "Scoped access revoked"
+msgstr "Ufikiaji wenye wigo umeondolewa"
+
+msgid "Search"
+msgstr "Tafuta"
+
+msgid "Search accounts"
+msgstr "Tafuta akaunti"
+
+msgid "Search and review records in your authorised scope."
+msgstr "Tafuta na pitia rekodi katika wigo wako ulioidhinishwa."
+
+msgid "Search this workspace"
+msgstr "Tafuta katika eneo hili la kazi"
+
+msgid "Search workspace…"
+msgstr "Tafuta katika eneo la kazi…"
+
+msgid "Select an active department for this role."
+msgstr "Chagua idara inayotumika kwa jukumu hili."
+
+msgid "Select an active department."
+msgstr "Chagua idara inayotumika."
+
+msgid "Select an active directorate."
+msgstr "Chagua kurugenzi inayotumika."
+
+msgid "Send for approval"
+msgstr "Tuma ili kuidhinishwa"
+
+msgid "Senior Legal Officer"
+msgstr "Afisa Sheria Mwandamizi"
+
+msgid "SERVICES MANAGEMENT"
+msgstr "USIMAMIZI WA HUDUMA"
+
+msgid "Session expired"
+msgstr "Kipindi cha kuingia kimeisha"
+
+msgid "Show or hide password"
+msgstr "Onyesha au ficha nenosiri"
+
+msgid "Show unread notification count"
+msgstr "Onyesha idadi ya arifa ambazo hazijasomwa"
+
+msgid "Sign in"
+msgstr "Ingia"
+
+msgid "Sign in to access your authorised workspace."
+msgstr "Ingia ili kutumia eneo lako la kazi lililoidhinishwa."
+
+msgid "Sign out"
+msgstr "Ondoka"
+
+msgid "Sign out to change demo role"
+msgstr "Ondoka ili kubadili jukumu la maonesho"
+
+msgid "Sign-in failed"
+msgstr "Kuingia kumeshindikana"
+
+msgid "Sign-in failed. Check your credentials and authenticator code."
+msgstr "Kuingia kumeshindikana. Hakiki vitambulisho vyako na msimbo wa uthibitishaji."
+
+msgid "Signed in"
+msgstr "Ameingia"
+
+msgid "Signed out"
+msgstr "Ameondoka"
+
+msgid "Skip to content"
+msgstr "Nenda kwenye maudhui"
+
+msgid "Something went wrong"
+msgstr "Hitilafu imetokea"
+
+msgid "Staff / Requesting Officer"
+msgstr "Mfanyakazi / Afisa Mwombaji"
+
+msgid "Staff dashboard"
+msgstr "Dashibodi ya wafanyakazi"
+
+msgid "Staff portal"
+msgstr "Tovuti ya wafanyakazi"
+
+msgid "Status"
+msgstr "Hali"
+
+msgid "Strategic risk"
+msgstr "Hatari ya kimkakati"
+
+msgid "Submitted"
+msgstr "Yamewasilishwa"
+
+msgid "Submitted on"
+msgstr "Tarehe ya kuwasilisha"
+
+msgid "Synthetic data · Phase 1"
+msgstr "Data za maonesho · Awamu ya 1"
+
+msgid "System overview"
+msgstr "Muhtasari wa mfumo"
+
+msgid "TANZANIA BROADCASTING CORPORATION"
+msgstr "SHIRIKA LA UTANGAZAJI TANZANIA"
+
+msgid "TBC STAFF PORTAL"
+msgstr "TOVUTI YA WAFANYAKAZI WA TBC"
+
+msgid "Technical"
+msgstr "Kiufundi"
+
+msgid "That demonstration account is not available."
+msgstr "Akaunti hiyo ya maonesho haipatikani."
+
+msgid "That role or account is not eligible."
+msgstr "Jukumu au akaunti hiyo haistahiki."
+
+msgid "That unit code is already in use."
+msgstr "Msimbo huo wa kitengo tayari unatumika."
+
+msgid "That username is already in use."
+msgstr "Jina hilo la mtumiaji tayari linatumika."
+
+msgid "The account changed. Open a new access request."
+msgstr "Akaunti imebadilika. Fungua ombi jipya la ufikiaji."
+
+msgid "The account could not be saved. Check for duplicate values."
+msgstr "Akaunti haikuweza kuhifadhiwa. Hakiki ikiwa kuna taarifa zinazojirudia."
+
+msgid "The approving officer no longer has decision authority."
+msgstr "Afisa aliyeidhinisha hana tena mamlaka ya kufanya uamuzi."
+
+msgid "The current password is not correct."
+msgstr "Nenosiri la sasa si sahihi."
+
+msgid "The end date must be on or after the start date."
+msgstr "Tarehe ya mwisho lazima iwe sawa au baada ya tarehe ya kuanza."
+
+msgid ""
+"The internal workspace for the Directorate of Legal Services. Track requests, manage access "
+"and oversee legal operations in one place."
+msgstr ""
+"Eneo la ndani la kazi la Kurugenzi ya Huduma za Sheria. Fuatilia maombi, simamia ufikiaji na "
+"shughuli za kisheria mahali pamoja."
+
+msgid ""
+"The overview excludes confidential and restricted matters. Small groups are suppressed and "
+"individual records cannot be opened from this view."
+msgstr ""
+"Muhtasari haujumuishi masuala ya siri au yenye ufikiaji maalumu. Makundi madogo yamefichwa na"
+" huwezi kufungua rekodi moja moja hapa."
+
+msgid "The passwords do not match."
+msgstr "Manenosiri hayalingani."
+
+msgid "There are no records in this view."
+msgstr "Hakuna rekodi katika mwonekano huu."
+
+msgid "There is already an open request for this role and scope."
+msgstr "Tayari kuna ombi linaloendelea kwa jukumu na wigo huu."
+
+msgid "This account already has that scoped role."
+msgstr "Akaunti hii tayari ina jukumu hilo ndani ya wigo huo."
+
+msgid "This grant cannot be revoked here."
+msgstr "Ruhusa hii haiwezi kuondolewa hapa."
+
+msgid "This page is not available in your workspace."
+msgstr "Ukurasa huu haupatikani katika eneo lako la kazi."
+
+msgid "This request is no longer awaiting a decision."
+msgstr "Ombi hili halisubiri tena uamuzi."
+
+msgid "This workspace contains synthetic records for Phase 1 testing."
+msgstr "Eneo hili la kazi lina rekodi za maonesho za majaribio ya awamu ya kwanza."
+
+msgid "Timestamp"
+msgstr "Muda wa tukio"
+
+msgid "To date"
+msgstr "Hadi tarehe"
+
+msgid "Toggle navigation"
+msgstr "Fungua au funga menyu"
+
+msgid "Too many password attempts. Try again later."
+msgstr "Majaribio mengi ya nenosiri. Jaribu tena baadaye."
+
+msgid "Too many sign-in attempts. Try again later."
+msgstr "Majaribio mengi ya kuingia. Jaribu tena baadaye."
+
+msgid "Total legal matters"
+msgstr "Jumla ya masuala ya kisheria"
+
+msgid "Total requests"
+msgstr "Jumla ya maombi"
+
+msgid "Track request"
+msgstr "Fuatilia ombi"
+
+msgid "Track your legal requests, published updates and upcoming deadlines."
+msgstr "Fuatilia maombi yako ya kisheria, taarifa zilizochapishwa na tarehe zinazokaribia."
+
+msgid "Try again later or contact your ICT support desk."
+msgstr "Jaribu tena baadaye au wasiliana na dawati la msaada la TEHAMA."
+
+msgid "Unassigned"
+msgstr "Halijapangiwa"
+
+msgid "Unassigned accepted matters"
+msgstr "Masuala yaliyopokelewa lakini hayajapangiwa"
+
+msgid "Under legal review"
+msgstr "Yanapitiwa kisheria"
+
+msgid "Under preliminary review"
+msgstr "Yanapitiwa awali"
+
+msgid "Unit code"
+msgstr "Msimbo wa kitengo"
+
+msgid "Upcoming deadlines"
+msgstr "Tarehe za mwisho zinazokaribia"
+
+msgid "Update the organisation directory."
+msgstr "Sasisha orodha ya vitengo vya shirika."
+
+msgid "Updates available to your workspace"
+msgstr "Taarifa zinazopatikana katika eneo lako la kazi"
+
+msgid "Urgent"
+msgstr "Haraka sana"
+
+msgid "Use an authenticator code"
+msgstr "Tumia msimbo wa uthibitishaji"
+
+msgid "Use at least 12 characters and avoid common or personal words."
+msgstr "Tumia angalau vibambo 12 na epuka maneno ya kawaida au ya binafsi."
+
+msgid "Use capital letters and numbers. The code cannot be changed later."
+msgstr "Tumia herufi kubwa na namba. Msimbo hauwezi kubadilishwa baadaye."
+
+msgid "User accounts"
+msgstr "Akaunti za watumiaji"
+
+msgid "Username"
+msgstr "Jina la mtumiaji"
+
+msgid "View all"
+msgstr "Tazama zote"
+
+msgid "View all deadlines"
+msgstr "Tazama tarehe zote za mwisho"
+
+msgid "View authorised departmental metadata, without legal content or attachments."
+msgstr ""
+"Tazama taarifa msingi za idara zilizoidhinishwa, bila maudhui ya kisheria au viambatisho."
+
+msgid "View chart data"
+msgstr "Tazama data za chati"
+
+msgid "View requests"
+msgstr "Tazama maombi"
+
+msgid "View your verified account and update your personal preferences."
+msgstr "Tazama akaunti yako iliyothibitishwa na sasisha mapendeleo yako."
+
+msgid "Visible requests"
+msgstr "Maombi yanayoonekana"
+
+msgid "Welcome to LSMS"
+msgstr "Karibu kwenye LSMS"
+
+#, python-format
+msgid "Welcome, %(name)s"
+msgstr "Karibu, %(name)s"
+
+msgid "Work email"
+msgstr "Barua pepe ya kazi"
+
+msgid "WORKSPACE"
+msgstr "ENEO LA KAZI"
+
+msgid "Workspace"
+msgstr "Eneo la kazi"
+
+msgid "Your current role does not allow this action."
+msgstr "Jukumu lako la sasa haliruhusu kitendo hiki."
+
+msgid "Your password was changed."
+msgstr "Nenosiri lako limebadilishwa."
+
+msgid "Your preferences were saved."
+msgstr "Mapendeleo yako yamehifadhiwa."

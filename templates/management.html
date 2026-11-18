@@ -1,0 +1,5 @@
+{% extends 'base.html' %}{% load i18n ui %}
+{% block title %}{% translate 'Management overview' %}{% endblock %}{% block breadcrumb %}{% translate 'Management overview' %}{% endblock %}
+{% block content %}<section class="page-head"><div><p class="eyebrow"><i></i>{% translate 'OVERSIGHT' %}</p><h1>{% translate 'Management overview' %}</h1><p>{% translate 'Aggregate view of reportable legal activity.' %}</p></div><span class="date-chip">{% icon 'shield' 17 %}{% translate 'Aggregate only' %}</span></section>
+<div class="metric-grid management-metrics">{% for item in metrics %}{% include 'partials/metric.html' %}{% endfor %}</div>
+<section class="panel"><header class="panel-header"><div><h2>{% translate 'Reporting scope' %}</h2></div>{% icon 'chart' 19 %}</header><p class="spaced muted">{% translate 'The overview excludes confidential and restricted matters. Small groups are suppressed and individual records cannot be opened from this view.' %}</p></section>{% endblock %}

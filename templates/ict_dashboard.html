@@ -1,0 +1,6 @@
+{% extends 'base.html' %}{% load i18n ui %}
+{% block title %}{% translate 'System overview' %}{% endblock %}{% block breadcrumb %}{% translate 'System overview' %}{% endblock %}
+{% block content %}<section class="page-head"><div><p class="eyebrow"><i></i>{% translate 'ICT ADMINISTRATION' %}</p><h1>{% translate 'System overview' %}</h1><p>{% translate 'Manage identities, organisational units and approved access. Legal content is not available here.' %}</p></div><a class="button primary" href="{% url 'accounts' %}">{% icon 'users' 18 %}{% translate 'User accounts' %}</a></section>
+{% if demo_mode %}<div class="demo-strip">{% icon 'shield' 16 %}<strong>{% translate 'Demonstration data' %}</strong><span>{% translate 'This workspace contains synthetic records for Phase 1 testing.' %}</span></div>{% endif %}
+<div class="metric-grid legal-metrics">{% for item in metrics %}{% include 'partials/metric.html' %}{% endfor %}</div>
+<section class="panel"><header class="panel-header"><div><h2>{% translate 'Recent access requests' %}</h2><p>{% translate 'Access is applied only after an independent decision.' %}</p></div><a class="text-link" href="{% url 'access_queue' %}">{% translate 'View all' %}{% icon 'arrow-right' 16 %}</a></header>{% include 'partials/access_table.html' with entries=recent %}</section>{% endblock %}
