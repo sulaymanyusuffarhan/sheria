@@ -9,6 +9,7 @@ from casework.notices import visible_inbox
 from casework.policy import can_submit
 from identity.models import RoleCode
 from identity.policy import LEGAL_CAPABILITIES, STAFF_CAPABILITIES
+from specialists.policy import MODULES
 
 
 def workspace(request):
@@ -20,7 +21,7 @@ def workspace(request):
     legal = policy.any(LEGAL_CAPABILITIES)
     ict = policy.has('identity.manage')
     staff_surface = request.path.startswith('/portal/') or policy.landing == 'staff_dashboard'
-    main, secondary = [], []
+    main, specialist_nav, secondary = [], [], []
 
     def add(group, name, label, icon, related=()):
         group.append(
@@ -47,6 +48,26 @@ def workspace(request):
             _('Contract register'),
             'files',
             ('contract_detail', 'contract_version', 'checklist_section'),
+        )
+    if legal and not staff_surface:
+        selected_module = request.resolver_match.kwargs.get('module') if request.resolver_match else None
+        for key, module in MODULES.items():
+            specialist_nav.append(
+                {
+                    'url': reverse('specialist_index', args=[key]),
+                    'label': module['label'],
+                    'icon': module['icon'],
+                    'active': current.startswith('specialist_') and key == selected_module,
+                }
+            )
+        add(specialist_nav, 'court_calendar', _('Court calendar'), 'calendar', ('legal_deadlines',))
+    if (legal and not staff_surface) or policy.has('records.department'):
+        add(
+            main,
+            'library_index',
+            _('Document repository'),
+            'files',
+            ('library_detail', 'library_action', 'library_create'),
         )
     if ict:
         add(main, 'ict_dashboard', _('System overview'), 'grid')
@@ -101,6 +122,7 @@ def workspace(request):
     return {
         'nav_main': main,
         'nav_secondary': secondary,
+        'nav_specialist': specialist_nav,
         'workspace_label': workspace_label,
         'workspace_switch': switch,
         'search_route': search,

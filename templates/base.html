@@ -13,12 +13,14 @@
     <nav aria-label="{% translate 'Main navigation' %}" class="navigation">
       <p class="nav-cap">{% translate 'WORKSPACE' %}</p>
       {% for item in nav_main %}<a href="{{ item.url }}" class="nav-link{% if item.active %} is-active{% endif %}" {% if item.active %}aria-current="page"{% endif %}>{% icon item.icon 19 %} <span>{{ item.label }}</span></a>{% endfor %}
+      {% if nav_specialist %}<p class="nav-cap">{% translate 'SPECIALIST REGISTERS' %}</p>
+      {% for item in nav_specialist %}<a href="{{ item.url }}" class="nav-link{% if item.active %} is-active{% endif %}" {% if item.active %}aria-current="page"{% endif %}>{% icon item.icon 19 %} <span>{{ item.label }}</span></a>{% endfor %}{% endif %}
       {% if workspace_switch %}<a href="{{ workspace_switch.url }}" class="nav-link">{% icon 'arrow-right' 18 %} <span>{{ workspace_switch.label }}</span></a>{% endif %}
       <p class="nav-cap">{% translate 'ACCOUNT' %}</p>
       {% for item in nav_secondary %}<a href="{{ item.url }}" class="nav-link{% if item.active %} is-active{% endif %}" {% if item.active %}aria-current="page"{% endif %}>{% icon item.icon 19 %} <span>{{ item.label }}</span>{% if item.icon == 'bell' and notice_count %}<span class="nav-count">{{ notice_count }}</span>{% endif %}</a>{% endfor %}
     </nav>
     <div class="sidebar-bottom">
-      {% if demo_mode %}<div class="sidebar-demo"><span class="live-dot"></span><div><strong>{% translate 'Demonstration workspace' %}</strong><small>{% translate 'Synthetic data · Phase 2' %}</small></div></div>{% endif %}
+      {% if demo_mode %}<div class="sidebar-demo"><span class="live-dot"></span><div><strong>{% translate 'Demonstration workspace' %}</strong><small>{% translate 'Synthetic data · Phases 1–4' %}</small></div></div>{% endif %}
       <div class="sidebar-user"><a class="mini-account" href="{% url 'profile' %}"><span class="avatar avatar-dark">{{ initials }}</span><span class="mini-text"><strong>{{ request.user.display_name }}</strong><small>{{ actor_role }}</small></span></a>
       <form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="quiet-icon" type="submit" title="{% translate 'Sign out' %}" aria-label="{% translate 'Sign out' %}">{% icon 'logout' 18 %}</button></form></div>
     </div>

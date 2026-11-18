@@ -1,0 +1,3 @@
+{% load i18n ui %}
+<section class="panel case-gap"><header class="panel-header"><div><h2>{{ text_title }}</h2><p>{% translate 'Version' %} {{ opinion_text.number }}</p></div>{% icon 'file' 20 %}</header>
+<div class="opinion-copy"><h3>{% translate 'Question presented' %}</h3><p>{{ opinion_text.question|linebreaksbr }}</p><h3>{% translate 'Verified facts and scope' %}</h3><p>{{ opinion_text.facts|linebreaksbr }}</p><h3>{% translate 'Authorities and citations' %}</h3><p>{{ opinion_text.authorities|linebreaksbr }}</p><h3>{% translate 'Opinion analysis' %}</h3><p>{{ opinion_text.analysis|linebreaksbr }}</p><h3>{% translate 'Conclusion' %}</h3><p>{{ opinion_text.conclusion|linebreaksbr }}</p></div></section>

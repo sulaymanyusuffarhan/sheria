@@ -62,6 +62,8 @@ INSTALLED_APPS = [
     'matters',
     'workspace',
     'casework',
+    'specialists',
+    'library',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

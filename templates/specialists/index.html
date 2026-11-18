@@ -1,0 +1,19 @@
+{% extends 'base.html' %}{% load i18n ui %}
+{% block title %}{{ register.title }}{% endblock %}{% block breadcrumb %}{{ register.title }}{% endblock %}
+{% block content %}
+<section class="page-head"><div><p class="eyebrow"><i></i>{% translate 'SPECIALIST REGISTERS' %}</p><h1>{{ register.title }}</h1><p>{% translate 'Work from the same matter, assignment and evidence record.' %}</p></div>
+  <div class="case-actions">{% if module == 'litigation' %}<a class="button secondary" href="{% url 'court_calendar' %}">{% icon 'calendar' 17 %}{% translate 'Court calendar' %}</a>{% elif module == 'rights' or module == 'compliance' %}<a class="button secondary" href="{% url 'legal_deadlines' %}">{% icon 'calendar' 17 %}{% translate 'Deadlines' %}</a>{% endif %}{% if may_create %}<a class="button primary" href="{% url 'specialist_create' module %}">{% icon 'file' 17 %}{% translate 'Open internal matter' %}</a>{% endif %}</div>
+</section>
+<form class="filters lookup-filters" method="get">
+  <div class="filter-field"><label for="specialist-q">{% translate 'Search this register' %}</label><input type="search" id="specialist-q" name="q" value="{{ q }}" maxlength="120" placeholder="{% translate 'Reference or matter title' %}"></div>
+  <div class="filter-field"><label for="specialist-status">{% translate 'Matter status' %}</label><select id="specialist-status" name="status"><option value="">{% translate 'All statuses' %}</option>{% for value,label in statuses %}<option value="{{ value }}" {% if status == value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>
+  <button class="button secondary small" type="submit">{% icon 'search' 16 %}{% translate 'Search' %}</button>
+  {% if q or status %}<a class="text-link" href="{% url 'specialist_index' module %}">{% translate 'Reset' %}</a>{% endif %}
+</form>
+<section class="panel"><header class="panel-header"><div><h2>{% translate 'Authorised matters' %}</h2><p>{% translate 'Accepted matters can be linked to this register without a second intake.' %}</p></div>{% icon register.icon 20 %}</header>
+  {% if page_obj %}<div class="table-wrap" tabindex="0" role="region" aria-label="{{ register.title }}"><table><thead><tr><th scope="col">{% translate 'Matter' %}</th><th scope="col">{% translate 'Register reference' %}</th><th scope="col">{% translate 'Department' %}</th><th scope="col">{% translate 'Matter status' %}</th>{% if module == 'litigation' %}<th scope="col">{% translate 'Next hearing' %}</th>{% endif %}</tr></thead><tbody>
+    {% for row in page_obj %}<tr><td><a class="text-link" href="{% url 'specialist_detail' module row.pk %}">{{ row.matter.title }}</a><small class="row-meta reference">{{ row.matter.reference }}</small></td><td>{% if row.specialist %}<span class="reference">{{ row.specialist.reference }}</span>{% else %}<span class="muted">{% translate 'Not registered' %}</span>{% endif %}</td><td>{{ row.matter.department|local_name }}</td><td><span class="pill pill-{{ row.matter.status|tone }}">{{ row.matter.get_status_display }}</span></td>{% if module == 'litigation' %}<td>{{ row.next_hearing|date:'d/m/Y H:i'|default:'—' }}</td>{% endif %}</tr>{% endfor %}
+  </tbody></table></div>{% else %}{% include 'partials/empty.html' %}{% endif %}
+  {% include 'partials/pagination.html' %}
+</section>
+{% endblock %}

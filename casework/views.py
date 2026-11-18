@@ -38,6 +38,7 @@ from .policy import (
     cases_for,
     current_assignment,
     head,
+    matter_documents,
     own_case,
     staff_documents,
 )
@@ -140,6 +141,10 @@ def _apply(form, fn):
 
 
 def legal_panel(request, matter):
+    from library.services import COMMANDS as LIBRARY_ACTIONS
+    from specialists.policy import MODULES, module_for
+    from specialists.services import COMMANDS as SPECIALIST_ACTIONS
+
     case = Case.objects.filter(pk=matter.pk).first()
     if not case:
         return {}
@@ -169,19 +174,26 @@ def legal_panel(request, matter):
                     'submit': _('Submit request'),
                     'reply': _('Requester replied'),
                     'save_checklist': _('Save checklist section'),
+                    'open_internal': _('Open internal matter'),
+                    'library_register': _('Register repository document'),
+                    **{f'sp_{key}': value for key, value in SPECIALIST_ACTIONS.items()},
+                    **{f'library_{key}': value for key, value in LIBRARY_ACTIONS.items()},
                 }.get(event.command, event.command),
                 '',
             ),
         )[0]
+    module = module_for(case)
     return {
         'active_case': case,
+        'specialist_module': module,
+        'specialist_label': MODULES[module]['title'] if module else None,
         'case_actions': [entry for entry in urls if entry != primary],
         'primary_action': primary,
         'case_events': events,
         'current_version': version,
         'latest_review': review,
         'case_reviews': case.reviews.select_related('decision', 'version', 'reviewer')[:12],
-        'case_documents': case.documents.all(),
+        'case_documents': matter_documents(case),
         'information': info,
         'past_information': case.information_rounds.filter(verified_at__isnull=False).select_related(
             'verified_by'
@@ -190,6 +202,8 @@ def legal_panel(request, matter):
 
 
 def staff_panel(request, record, department):
+    from specialists.opinions import issued_for_staff
+
     if department:
         return {}
     case = Case.objects.filter(pk=record.pk, submitted_by=request.user).first()
@@ -198,6 +212,7 @@ def staff_panel(request, record, department):
     info = services.active_information(case)
     return {
         'staff_flow': True,
+        'public_opinion': issued_for_staff(request.policy, case),
         'staff_documents': staff_documents(request.policy, case),
         'staff_question': info if record.public_status == 'information' else None,
     }
@@ -301,6 +316,9 @@ def action(request, pk, command):
     if posted and form.is_valid():
         status, saved = _apply(form, lambda: services.run(request, pk, command, form.cleaned_data))
         if saved:
+            if command == 'issue' and 'opinion' in review.package:
+                messages.success(request, _('Approved opinion issued to the authorised audience.'))
+                return redirect('matter_detail', pk)
             messages.success(
                 request,
                 {
@@ -529,7 +547,7 @@ def contract(request, pk, version_id=None):
             'post_parts': _render_parts(
                 [{'items': checklist.SECTION_MAP['XIII'].items}],
                 post.answers,
-                {str(doc.pk): {'name': doc.name} for doc in case.documents.all()},
+                {str(doc.pk): {'name': doc.name} for doc in matter_documents(case)},
             )
             if post
             else [],
@@ -596,6 +614,7 @@ def review(request, pk, review_id):
         'casework/review.html',
         {
             'case': case,
+            'opinion': frozen.get('opinion'),
             'review': package,
             'snapshot': frozen,
             'contract': values,
@@ -638,7 +657,7 @@ def download(request, pk, document_id, staff=False):
     docs = (
         staff_documents(request.policy, case)
         if staff
-        else case.documents.filter(scan=Document.Scan.CLEAN)
+        else matter_documents(case).filter(scan=Document.Scan.CLEAN)
     )
     doc = get_object_or_404(docs.select_related('blob'), pk=document_id)
     from .storage import read_blob
@@ -652,3 +671,22 @@ def download(request, pk, document_id, staff=False):
         request, 'staff_document_downloaded' if staff else 'private_document_downloaded', doc.pk
     )
     return _attachment(data, doc.name, doc.media_type)
+
+
+@login_required
+@require_safe
+def opinion_pdf(request, pk, review_id, staff=False):
+    from specialists.opinions import issue_records, issued_for_staff, valid_issue
+    from specialists.pdf import issued_pdf
+
+    case = _staff(request, pk) if staff else _legal(request, pk)
+    if staff:
+        issue = issued_for_staff(request.policy, case)
+        if not issue or issue.review_id != review_id:
+            raise Http404
+    else:
+        issue = get_object_or_404(issue_records(case), review_id=review_id)
+        if not valid_issue(case, issue):
+            raise Http404
+    record_access(request, 'staff_opinion_exported' if staff else 'issued_opinion_exported', issue.pk)
+    return _attachment(issued_pdf(issue), f'opinion-v{issue.version.number}.pdf', 'application/pdf')

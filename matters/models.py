@@ -182,6 +182,10 @@ class Milestone(models.Model):
     class Kind(models.TextChoices):
         HEARING = 'hearing', _('Court hearing')
         EXPIRY = 'expiry', _('Contract expiry')
+        RIGHTS = 'rights', _('Rights expiry')
+        COMPLIANCE = 'compliance', _('Compliance deadline')
+        REASSESS = 'reassess', _('Compliance reassessment')
+        CORRECTIVE = 'corrective', _('Corrective action deadline')
 
     matter = models.ForeignKey(LegalMatter, on_delete=models.PROTECT, related_name='milestones')
     kind = models.CharField(max_length=12, choices=Kind)
