@@ -117,7 +117,7 @@ def can_act(policy, case, cmd, assignment, latest_review=None, information=None)
     stage = case.matter.status
     mine = assignee(policy, assignment)
     owner = policy.user.pk == case.submitted_by_id
-    supervisor = supervises(policy, case) and not owner
+    supervisor = supervises(policy, case) and (case.internal or not owner)
     lead = head(policy) and not owner
     is_contract = case.matter.category_id in CONTRACT_CATEGORIES
     reviewed = getattr(latest_review, 'decision', None)
@@ -128,6 +128,8 @@ def can_act(policy, case, cmd, assignment, latest_review=None, information=None)
         case 'accept' | 'reject_intake':
             return supervisor and stage == Status.PRELIMINARY
         case 'ask':
+            if case.internal:
+                return False
             return (supervisor and stage == Status.PRELIMINARY) or (
                 mine and not owner and stage == Status.REVIEW
             )
@@ -166,10 +168,19 @@ def can_act(policy, case, cmd, assignment, latest_review=None, information=None)
                     Status.ASSIGNED,
                     Status.REVIEW,
                 )
-                and case.documents.filter(scan=Document.Scan.PENDING).exists()
+                and matter_documents(case).filter(scan=Document.Scan.PENDING).exists()
             )
-        case 'upload' | 'submit_review':
+        case 'upload':
             return mine and not owner and stage == Status.REVIEW
+        case 'submit_review':
+            if case.matter.category_id in ('litigation', 'defamation'):
+                return False
+            return (
+                mine
+                and not owner
+                and stage == Status.REVIEW
+                and (not case.internal or case.matter.category_id == 'opinion')
+            )
         case 'version':
             return is_contract and mine and not owner and stage == Status.REVIEW
         case 'decide':
@@ -179,6 +190,11 @@ def can_act(policy, case, cmd, assignment, latest_review=None, information=None)
                 and latest_review
                 and not reviewed
                 and latest_review.reviewer_id != policy.user.pk
+                and str(policy.user.pk)
+                not in (
+                    latest_review.package.get('opinion', {}).get('author_id'),
+                    latest_review.package.get('opinion', {}).get('senior_id'),
+                )
             )
         case 'issue':
             return lead and clear and stage == Status.APPROVED
@@ -193,22 +209,34 @@ def can_act(policy, case, cmd, assignment, latest_review=None, information=None)
                 and not hasattr(reviewed, 'execution')
             )
         case 'close':
+            if case.matter.category_id in ('litigation', 'defamation') and hasattr(case, 'litigation'):
+                return False
             return supervisor and stage in (Status.COMPLETED, Status.REJECTED)
     return False
 
 
+def matter_documents(case):
+    return case.documents.exclude(kind=Document.Kind.REPOSITORY)
+
+
 def clean_documents(case):
-    return case.documents.filter(scan=Document.Scan.CLEAN).exclude(kind=Document.Kind.EXECUTION)
+    return matter_documents(case).filter(scan=Document.Scan.CLEAN).exclude(kind=Document.Kind.EXECUTION)
 
 
 def staff_documents(policy, case):
     if not own_case(policy, case):
         return Document.objects.none()
     return (
-        case.documents.filter(scan=Document.Scan.CLEAN)
+        matter_documents(case)
+        .filter(scan=Document.Scan.CLEAN)
         .filter(
             Q(uploaded_by=policy.user, kind__in=(Document.Kind.SUBMISSION, Document.Kind.DRAFT))
-            | Q(releases__decision__review__case=case)
+            | (
+                Q(releases__decision__review__case=case)
+                if case.matter.category_id != 'opinion'
+                or case.matter.classification == Classification.INTERNAL
+                else Q(pk__isnull=True)
+            )
         )
         .distinct()
     )

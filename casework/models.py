@@ -62,6 +62,7 @@ class Case(models.Model):
     submission = models.JSONField()
     revision = models.PositiveIntegerField(default=1)
     policy_revision = models.PositiveSmallIntegerField(default=1)
+    internal = models.BooleanField(default=False, editable=False)
     minimum_version = models.PositiveIntegerField(default=1)
 
     class Meta:
@@ -116,6 +117,7 @@ class Document(models.Model):
         INTERNAL = 'internal', _('Internal evidence')
         RESPONSE = 'response', _('Proposed deliverable')
         EXECUTION = 'execution', _('Signed counterpart')
+        REPOSITORY = 'repository', _('Repository version')
 
     class Scan(models.TextChoices):
         PENDING = 'pending', _('Quarantined — awaiting scan')

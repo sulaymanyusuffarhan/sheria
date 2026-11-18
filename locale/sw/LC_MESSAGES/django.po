@@ -2527,3 +2527,1269 @@ msgstr ""
 #. Draft Phase 2 UI translation.
 msgid "Synthetic data · Phase 2"
 msgstr "Data ya kubuniwa · Awamu ya 2"
+
+# Phase 3–4 specialist and reporting interface. Draft pending TBC review.
+#, python-format
+msgid "%(n)s hearing on %(day)s"
+msgid_plural "%(n)s hearings on %(day)s"
+msgstr[0] "Kikao %(n)s tarehe %(day)s"
+msgstr[1] "Vikao %(n)s tarehe %(day)s"
+
+msgid "A compliance assessment was recorded"
+msgstr "Tathmini ya uzingatiaji imerekodiwa"
+
+msgid "A court date disposition was recorded"
+msgstr "Matokeo ya tarehe ya shauri yamerekodiwa"
+
+msgid "A court date has been scheduled"
+msgstr "Tarehe ya shauri imepangwa"
+
+msgid "A court date has changed"
+msgstr "Tarehe ya shauri imebadilika"
+
+msgid ""
+"A dash marks a suppressed value. Complementary values can also be hidden. "
+"Exports use the same rules."
+msgstr ""
+"Alama ya mstari inaonyesha thamani iliyofichwa. Thamani nyingine pia "
+"zinaweza kufichwa ili kuilinda. Faili zinazopakuliwa hutumia kanuni hizo "
+"hizo."
+
+msgid "A future hearing cannot be marked held."
+msgstr "Kikao cha baadaye hakiwezi kuwekewa alama kuwa kimefanyika."
+
+msgid "A gap needs a corrective plan, owner and deadline."
+msgstr "Pengo linahitaji mpango wa marekebisho, mhusika na tarehe ya mwisho."
+
+msgid "A legal deadline requires supervisory follow-up"
+msgstr ""
+"Tarehe ya mwisho ya kazi ya kisheria inahitaji ufuatiliaji wa msimamizi"
+
+msgid "A licence and expiry date were recorded"
+msgstr "Leseni na tarehe yake ya kuisha zimerekodiwa"
+
+msgid "A licence renewal was recorded"
+msgstr "Uhuishaji wa leseni umerekodiwa"
+
+msgid "A recorded assessment is not a finding by a regulator."
+msgstr "Tathmini iliyorekodiwa si uamuzi wa mamlaka ya udhibiti."
+
+msgid ""
+"A renewal must continue the same asset and rights type after the earlier "
+"period ends."
+msgstr ""
+"Uhuishaji lazima uendeleze kazi na aina ile ile ya haki baada ya kipindi cha"
+" awali kuisha."
+
+msgid "A revision creates a new version and needs independent Senior review."
+msgstr ""
+"Marekebisho huunda toleo jipya linalohitaji mapitio huru ya Afisa "
+"Mwandamizi."
+
+msgid ""
+"Accepted matters can be linked to this register without a second intake."
+msgstr ""
+"Mashauri yaliyokubaliwa yanaweza kuunganishwa na rejesta hii bila kupokelewa"
+" upya."
+
+msgid "Actions follow the current assignment and matter status."
+msgstr "Hatua zinategemea mgawo wa sasa na hali ya shauri."
+
+msgid "Add party"
+msgstr "Ongeza upande"
+
+msgid "Adjourn and reschedule"
+msgstr "Ahirisha na panga tarehe nyingine"
+
+msgid "Adjourned"
+msgstr "Kimeahirishwa"
+
+msgid "Affected licence"
+msgstr "Leseni inayohusika"
+
+msgid "All authorised records"
+msgstr "Rekodi zote ulizoidhinishwa kuona"
+
+msgid "All days"
+msgstr "Siku zote"
+
+msgid "All dispositions"
+msgstr "Hali zote za vikao"
+
+msgid "Amount"
+msgstr "Kiasi"
+
+msgid "Amounts are recorded in their original currency."
+msgstr "Kiasi kinarekodiwa katika sarafu yake ya awali."
+
+msgid "An authorised legal deadline is approaching"
+msgstr "Tarehe ya mwisho ya kazi ya kisheria inakaribia"
+
+msgid "An authorised legal deadline is due today"
+msgstr "Tarehe ya mwisho ya kazi ya kisheria ni leo"
+
+msgid "Appeal"
+msgstr "Rufaa"
+
+msgid "Approval does not issue this opinion. Issue is a separate action."
+msgstr "Idhini haitoi maoni haya kwa mpokeaji. Kuyatoa ni hatua tofauti."
+
+msgid "Approved opinion issued to the authorised audience."
+msgstr "Maoni yaliyoidhinishwa yametolewa kwa wapokeaji walioruhusiwa."
+
+msgid "Archive"
+msgstr "Hifadhi kwenye jalada"
+
+msgid "Archive / third-party use"
+msgstr "Matumizi ya kumbukumbu au ya wahusika wengine"
+
+msgid "Archive date"
+msgstr "Tarehe ya kuhifadhi"
+
+msgid "Archive record"
+msgstr "Hamisha rekodi kwenye jalada"
+
+msgid "Archived"
+msgstr "Imehifadhiwa kwenye jalada"
+
+msgid "As of"
+msgstr "Hadi"
+
+msgid "As of (EAT)"
+msgstr "Hadi (EAT)"
+
+msgid "Assessment findings"
+msgstr "Matokeo ya tathmini"
+
+msgid "Assessment history"
+msgstr "Historia ya tathmini"
+
+msgid "Assessment result"
+msgstr "Matokeo ya tathmini"
+
+msgid "Asset or programme"
+msgstr "Kazi au kipindi"
+
+msgid "Attach available supporting evidence from this matter."
+msgstr "Ambatisha ushahidi unaopatikana kutoka katika shauri hili."
+
+msgid "Authorised document records"
+msgstr "Rekodi za nyaraka ulizoidhinishwa kuona"
+
+msgid "Authorised matters"
+msgstr "Mashauri ulioidhinishwa kuona"
+
+msgid "Authoritative HTTPS source"
+msgstr "Chanzo rasmi cha HTTPS"
+
+msgid "Authorities and citations"
+msgstr "Marejeo na vyanzo vya kisheria"
+
+msgid "Available actions"
+msgstr "Hatua zinazopatikana"
+
+msgid "Awaiting independent verification"
+msgstr "Inasubiri uhakiki huru"
+
+msgid "Broadcast / retransmission"
+msgstr "Utangazaji au utangazaji upya"
+
+msgid "Broadcasting rights"
+msgstr "Haki za utangazaji"
+
+msgid "Browse versioned records for this matter"
+msgstr "Vinjari matoleo ya nyaraka za shauri hili"
+
+msgid "Case costs"
+msgstr "Gharama za shauri"
+
+msgid "Case disposition"
+msgstr "Matokeo ya shauri"
+
+msgid "Case history, not statements of court authority."
+msgstr "Historia ya shauri, si tamko la mamlaka ya mahakama."
+
+msgid "Case type"
+msgstr "Aina ya shauri"
+
+msgid "Cases opened during the selected year"
+msgstr "Mashauri yaliyofunguliwa katika mwaka uliochaguliwa"
+
+msgid ""
+"Changes are recorded against the current matter revision. Existing history "
+"is preserved."
+msgstr ""
+"Mabadiliko yanarekodiwa kwa kutumia toleo la sasa la shauri. Historia ya "
+"awali inahifadhiwa."
+
+msgid "Choose a category supported by this register."
+msgstr "Chagua kundi linalofaa kwa rejesta hii."
+
+msgid "Choose a date on or after today."
+msgstr "Chagua tarehe ya leo au ya baadaye."
+
+msgid "Choose a different future hearing time."
+msgstr "Chagua wakati mwingine wa kikao ulio katika siku zijazo."
+
+msgid "Claimant / appellant"
+msgstr "Mdai au mrufani"
+
+msgid "Close litigation record"
+msgstr "Funga rekodi ya shauri la mahakama"
+
+msgid "Closure recorded"
+msgstr "Kufungwa kumerekodiwa"
+
+msgid "Compliance deadline"
+msgstr "Tarehe ya mwisho ya uzingatiaji"
+
+msgid "Compliance obligation"
+msgstr "Wajibu wa uzingatiaji"
+
+msgid "Compliance reassessment"
+msgstr "Tathmini upya ya uzingatiaji"
+
+msgid "Compliance register"
+msgstr "Rejesta ya uzingatiaji"
+
+msgid "Conclusion"
+msgstr "Hitimisho"
+
+msgid "Confirm appeals, obligations and custody have been addressed."
+msgstr ""
+"Thibitisha kuwa rufaa, wajibu na utunzaji wa ushahidi vimeshughulikiwa."
+
+msgid "Confirm that you reviewed this exact version and its sources."
+msgstr "Thibitisha kuwa umepitia toleo hili mahususi na vyanzo vyake."
+
+msgid "Confirm the source, applicability and effective date independently."
+msgstr ""
+"Hakiki kwa kujitegemea chanzo, matumizi yake na tarehe ya kuanza kutumika."
+
+msgid "Continue on the shared matter"
+msgstr "Endelea kwenye shauri husika"
+
+msgid "Contracts / agreements"
+msgstr "Mikataba na makubaliano"
+
+msgid "Contracts and MoUs"
+msgstr "Mikataba na hati za maelewano"
+
+msgid "Control area"
+msgstr "Eneo la udhibiti"
+
+msgid "Control demonstrated"
+msgstr "Utekelezaji wa udhibiti umeonyeshwa"
+
+msgid "Copyright"
+msgstr "Hakimiliki"
+
+msgid "Corrective action deadline"
+msgstr "Tarehe ya mwisho ya marekebisho"
+
+msgid "Corrective action owner"
+msgstr "Mhusika wa marekebisho"
+
+msgid "Corrective action plan"
+msgstr "Mpango wa marekebisho"
+
+msgid "Corrective actions"
+msgstr "Hatua za marekebisho"
+
+msgid "Corrective evidence summary"
+msgstr "Muhtasari wa ushahidi wa marekebisho"
+
+msgid "Corrective evidence was reviewed"
+msgstr "Ushahidi wa marekebisho umepitiwa"
+
+msgid "Correspondence"
+msgstr "Mawasiliano ya maandishi"
+
+msgid "Cost description"
+msgstr "Maelezo ya gharama"
+
+msgid "Court and parties"
+msgstr "Mahakama na pande za shauri"
+
+msgid "Court and registry"
+msgstr "Mahakama na masjala"
+
+msgid "Court calendar"
+msgstr "Kalenda ya mahakama"
+
+msgid "Court case number"
+msgstr "Nambari ya shauri la mahakama"
+
+msgid "Court filings / judgments"
+msgstr "Nyaraka za mahakama na hukumu"
+
+msgid "Court order"
+msgstr "Amri ya mahakama"
+
+msgid "Court room or location"
+msgstr "Ukumbi wa mahakama au eneo"
+
+msgid ""
+"Create a matter for %(register)s. Use the staff portal for requests that "
+"need a tracked staff response."
+msgstr ""
+"Fungua shauri katika %(register)s. Tumia tovuti ya wafanyakazi kwa maombi "
+"yanayohitaji jibu linalofuatiliwa."
+
+msgid ""
+"Create and obtain Senior review of a new opinion version before "
+"resubmitting."
+msgstr ""
+"Andaa toleo jipya la maoni na lipitie kwa Afisa Mwandamizi kabla ya "
+"kuwasilisha tena."
+
+msgid "Current assessment"
+msgstr "Tathmini ya sasa"
+
+msgid "Custody actions never delete a file or expand its audience."
+msgstr "Hatua za utunzaji hazifuti faili wala kupanua ruhusa ya kuiona."
+
+msgid "Custody does not change classification or access."
+msgstr "Utunzaji haubadilishi uainishaji wala ruhusa ya ufikiaji."
+
+msgid "Custody history"
+msgstr "Historia ya utunzaji"
+
+msgid "Custody reason"
+msgstr "Sababu ya hatua ya utunzaji"
+
+msgid "Dates do not override restrictions or grant permission to broadcast."
+msgstr "Tarehe haziondoi masharti wala kutoa ruhusa ya kutangaza."
+
+msgid "Deadlines"
+msgstr "Tarehe za mwisho"
+
+msgid ""
+"Departmental custody metadata only. This view does not grant access to "
+"files."
+msgstr ""
+"Taarifa za utunzaji za idara pekee. Mwonekano huu hautoi ufikiaji wa faili."
+
+msgid "Digital / OTT"
+msgstr "Kidijitali / OTT"
+
+msgid "Disposition"
+msgstr "Matokeo"
+
+msgid "Document"
+msgstr "Hati"
+
+msgid "Document registered in the legal repository."
+msgstr "Hati imesajiliwa katika hifadhi ya nyaraka za kisheria."
+
+msgid "Document repository"
+msgstr "Hifadhi ya nyaraka"
+
+msgid "Document title"
+msgstr "Kichwa cha hati"
+
+msgid "Documents"
+msgstr "Nyaraka"
+
+msgid "Download issued opinion PDF"
+msgstr "Pakua PDF ya maoni yaliyotolewa"
+
+msgid "Download version"
+msgstr "Pakua toleo"
+
+msgid "Due today"
+msgstr "Tarehe ya mwisho ni leo"
+
+msgid "Due within seven days"
+msgstr "Tarehe ya mwisho ni ndani ya siku saba"
+
+msgid ""
+"Each version has independent provenance and a verified file fingerprint."
+msgstr ""
+"Kila toleo lina chanzo chake na alama ya kidijitali ya faili iliyohakikiwa."
+
+msgid "Endorse for Head review"
+msgstr "Pendekeza kwa mapitio ya Mkuu"
+
+msgid "Endorsed for Head review"
+msgstr "Yamependekezwa kwa mapitio ya Mkuu"
+
+msgid "Event date"
+msgstr "Tarehe ya tukio"
+
+msgid "Evidence custody"
+msgstr "Utunzaji wa ushahidi"
+
+msgid "Evidence submission to verify"
+msgstr "Ushahidi uliowasilishwa wa kuhakiki"
+
+msgid "Evidence unavailable"
+msgstr "Ushahidi haupatikani"
+
+msgid "Exact draft for Senior review"
+msgstr "Rasimu mahususi ya kupitiwa na Afisa Mwandamizi"
+
+msgid "Exact frozen opinion"
+msgstr "Toleo la maoni lililofungwa kwa mapitio"
+
+msgid "Exact opinion version"
+msgstr "Toleo mahususi la maoni"
+
+msgid "Exclusive rights"
+msgstr "Haki za kipekee"
+
+msgid "Executed contract matters"
+msgstr "Mashauri ya mikataba iliyotiwa saini"
+
+msgid "Expired"
+msgstr "Imeisha"
+
+msgid "Expiry must be on or after the start date."
+msgstr "Tarehe ya kuisha lazima iwe tarehe ya kuanza au baadaye."
+
+msgid "Export CSV"
+msgstr "Pakua CSV"
+
+msgid "Export Excel"
+msgstr "Pakua Excel"
+
+msgid "Export PDF"
+msgstr "Pakua PDF"
+
+msgid "External advocate"
+msgstr "Wakili wa nje"
+
+msgid "External disposition evidence"
+msgstr "Ushahidi wa uamuzi wa nje"
+
+msgid "Externally authorised settlement"
+msgstr "Suluhu iliyoidhinishwa nje ya mfumo"
+
+msgid "Filing"
+msgstr "Uwasilishaji mahakamani"
+
+msgid "Filing date"
+msgstr "Tarehe ya kuwasilisha mahakamani"
+
+msgid "Film / television"
+msgstr "Filamu au televisheni"
+
+msgid "Find matter documents, review versions and inspect custody actions."
+msgstr "Tafuta nyaraka za shauri, pitia matoleo na angalia hatua za utunzaji."
+
+msgid "Fri"
+msgstr "Iju"
+
+msgid "Gap identified"
+msgstr "Pengo limebainika"
+
+msgid ""
+"Handling an outcome here does not create court or settlement authority."
+msgstr "Kurekodi matokeo hapa hakutoi mamlaka ya mahakama au ya kusuluhisha."
+
+msgid "Head review"
+msgstr "Mapitio ya Mkuu"
+
+msgid "Hearing agenda"
+msgstr "Ratiba ya vikao"
+
+msgid "Hearing date and time (EAT)"
+msgstr "Tarehe na saa ya kikao (EAT)"
+
+msgid "Hearing purpose"
+msgstr "Madhumuni ya kikao"
+
+msgid "Hearing time"
+msgstr "Saa ya kikao"
+
+msgid "Hearing times and changes for authorised litigation matters."
+msgstr "Nyakati na mabadiliko ya vikao vya mashauri uliyoidhinishwa kuona."
+
+msgid "Hearings"
+msgstr "Vikao vya mahakama"
+
+msgid "Held"
+msgstr "Kimefanyika"
+
+msgid ""
+"I independently reviewed this version, its facts and applicable sources."
+msgstr ""
+"Nimepitia kwa kujitegemea toleo hili, ukweli wake na vyanzo vinavyotumika."
+
+msgid ""
+"I independently verified the source, jurisdiction, applicability and "
+"effective date."
+msgstr ""
+"Nimehakiki kwa kujitegemea chanzo, mamlaka, matumizi yake na tarehe ya "
+"kuanza kutumika."
+
+msgid ""
+"I verified appeals, outstanding obligations and custody. No records will be "
+"deleted."
+msgstr ""
+"Nimehakiki rufaa, wajibu uliosalia na utunzaji wa ushahidi. Hakuna rekodi "
+"zitakazofutwa."
+
+msgid ""
+"I verified the external disposition. This form does not authorise a "
+"settlement."
+msgstr ""
+"Nimehakiki uamuzi uliotolewa nje ya mfumo. Fomu hii haitoi idhini ya suluhu."
+
+msgid ""
+"I verified the source, applicable rights and recorded restrictions. This "
+"entry does not grant new rights."
+msgstr ""
+"Nimehakiki chanzo, haki husika na masharti yaliyoandikwa. Rekodi hii haitoi "
+"haki mpya."
+
+msgid "IP & broadcasting rights"
+msgstr "Miliki bunifu na haki za utangazaji"
+
+msgid "IP and broadcasting rights"
+msgstr "Miliki bunifu na haki za utangazaji"
+
+msgid "Immediate response"
+msgstr "Hatua ya mara moja"
+
+msgid "Include hearing history"
+msgstr "Jumuisha historia ya vikao"
+
+msgid "Intellectual property / rights"
+msgstr "Miliki bunifu na haki"
+
+msgid "Internal background"
+msgstr "Usuli wa ndani"
+
+msgid "Internal matter registered. It has no staff-facing record."
+msgstr ""
+"Shauri la ndani limesajiliwa. Halina rekodi kwenye tovuti ya wafanyakazi."
+
+msgid "Internal memoranda"
+msgstr "Memo za ndani"
+
+msgid "Internal registration"
+msgstr "Usajili wa ndani"
+
+msgid "Issue record"
+msgstr "Rekodi ya utoaji"
+
+msgid "Issued"
+msgstr "Imetolewa"
+
+msgid "Issued opinion"
+msgstr "Maoni yaliyotolewa"
+
+msgid "Issued opinions"
+msgstr "Maoni yaliyotolewa"
+
+msgid "Judgment"
+msgstr "Hukumu"
+
+msgid "Jurisdiction"
+msgstr "Mamlaka ya kisheria"
+
+msgid "LEGAL CALENDAR"
+msgstr "KALENDA YA KISHERIA"
+
+msgid "LEGAL RECORDS"
+msgstr "REKODI ZA KISHERIA"
+
+msgid "Legal Services only"
+msgstr "Kwa Huduma za Kisheria pekee"
+
+msgid ""
+"Legal Services recorded a case disposition. Contact Legal Services through "
+"approved channels for details."
+msgstr ""
+"Huduma za Kisheria zimerekodi matokeo ya shauri. Wasiliana nazo kupitia njia"
+" zilizoidhinishwa kwa maelezo zaidi."
+
+msgid "Legal deadlines"
+msgstr "Tarehe za mwisho za kazi za kisheria"
+
+msgid "Legal hold"
+msgstr "Zuio la kisheria"
+
+msgid "Legal opinions"
+msgstr "Maoni ya kisheria"
+
+msgid "Licence provenance"
+msgstr "Chanzo na asili ya leseni"
+
+msgid "Licences and renewals"
+msgstr "Leseni na uhuishaji"
+
+msgid "Licensor or rights holder"
+msgstr "Mtoa leseni au mwenye haki"
+
+msgid "Litigation"
+msgstr "Mashauri mahakamani"
+
+msgid "Litigation register"
+msgstr "Rejesta ya mashauri mahakamani"
+
+msgid "Live dates for authorised contract, rights and compliance work."
+msgstr ""
+"Tarehe za sasa za kazi za mikataba, haki na uzingatiaji zilizo ndani ya "
+"mamlaka yako."
+
+msgid "Log rights incident"
+msgstr "Rekodi tukio linalohusu haki"
+
+msgid "Matter"
+msgstr "Shauri"
+
+msgid "Matter evidence"
+msgstr "Ushahidi wa shauri"
+
+msgid "Matter reference"
+msgstr "Rejea ya shauri"
+
+msgid "Matter status"
+msgstr "Hali ya shauri"
+
+msgid "Matter title"
+msgstr "Kichwa cha shauri"
+
+msgid "Matter, assignment and approval history stay linked."
+msgstr "Shauri, mgawo na historia ya idhini vinaendelea kuunganishwa."
+
+msgid "Matters opened by module"
+msgstr "Mashauri yaliyofunguliwa kwa kila kitengo cha mfumo"
+
+msgid "Matters with a hearing in the next 30 days"
+msgstr "Mashauri yenye kikao ndani ya siku 30"
+
+msgid "Matters with overdue corrective actions"
+msgstr "Mashauri yenye marekebisho yaliyochelewa"
+
+msgid "Matters with rights expiring in the next 30 days"
+msgstr "Mashauri yenye haki zinazoisha ndani ya siku 30"
+
+msgid "Metadata only"
+msgstr "Taarifa za msingi pekee"
+
+msgid "Metric"
+msgstr "Kipimo"
+
+msgid "Mon"
+msgstr "Jtt"
+
+msgid "Monthly intake"
+msgstr "Mashauri mapya kwa mwezi"
+
+msgid "Music and audio"
+msgstr "Muziki na sauti"
+
+msgid "Named requester"
+msgstr "Mwombaji aliyetajwa"
+
+msgid "New matters by opening month"
+msgstr "Mashauri mapya kwa mwezi wa kufunguliwa"
+
+msgid "Next 30 days"
+msgstr "Siku 30 zijazo"
+
+msgid "Next hearing"
+msgstr "Kikao kinachofuata"
+
+msgid "Next month"
+msgstr "Mwezi ujao"
+
+msgid "Next review date"
+msgstr "Tarehe ya mapitio yajayo"
+
+msgid "No assessments recorded"
+msgstr "Hakuna tathmini zilizorekodiwa"
+
+msgid "No corrective actions recorded"
+msgstr "Hakuna hatua za marekebisho zilizorekodiwa"
+
+msgid "No corrective evidence submitted"
+msgstr "Hakuna ushahidi wa marekebisho uliowasilishwa"
+
+msgid "No costs recorded"
+msgstr "Hakuna gharama zilizorekodiwa"
+
+msgid "No custody actions recorded"
+msgstr "Hakuna hatua za utunzaji zilizorekodiwa"
+
+msgid "No deadlines in this view"
+msgstr "Hakuna tarehe za mwisho katika mwonekano huu"
+
+msgid "No disposition has been recorded."
+msgstr "Hakuna matokeo yaliyorekodiwa."
+
+msgid "No hearings in this view"
+msgstr "Hakuna vikao katika mwonekano huu"
+
+msgid "No hearings recorded"
+msgstr "Hakuna vikao vilivyorekodiwa"
+
+msgid "No licences recorded"
+msgstr "Hakuna leseni zilizorekodiwa"
+
+msgid "No opinion drafts recorded"
+msgstr "Hakuna rasimu za maoni zilizorekodiwa"
+
+msgid "No parties recorded"
+msgstr "Hakuna pande zilizorekodiwa"
+
+msgid "No proceedings recorded"
+msgstr "Hakuna hatua za shauri zilizorekodiwa"
+
+msgid "No rights incidents recorded"
+msgstr "Hakuna matukio ya haki yaliyorekodiwa"
+
+msgid "No source versions recorded"
+msgstr "Hakuna matoleo ya chanzo yaliyorekodiwa"
+
+msgid "Not assessed against the latest source"
+msgstr "Haijatathminiwa kwa kuzingatia chanzo cha sasa"
+
+msgid "Not issued"
+msgstr "Bado haijatolewa"
+
+msgid "Not registered"
+msgstr "Haijasajiliwa"
+
+msgid "Not yet demonstrated"
+msgstr "Bado haijaonyeshwa"
+
+msgid "Not yet effective"
+msgstr "Bado haijaanza kutumika"
+
+msgid "Obligation deadline"
+msgstr "Tarehe ya mwisho ya wajibu"
+
+msgid "Obligation or control"
+msgstr "Wajibu au udhibiti"
+
+msgid "Official citation or reference"
+msgstr "Nukuu au rejea rasmi"
+
+msgid "On legal hold"
+msgstr "Chini ya zuio la kisheria"
+
+msgid "Open authoritative source"
+msgstr "Fungua chanzo rasmi"
+
+msgid "Open corrective action"
+msgstr "Hatua ya marekebisho iliyo wazi"
+
+msgid "Open incident"
+msgstr "Tukio ambalo halijatatuliwa"
+
+msgid "Open internal matter"
+msgstr "Fungua shauri la ndani"
+
+msgid "Open the linked specialist record"
+msgstr "Fungua rekodi maalumu iliyounganishwa"
+
+msgid "Opening a record rechecks your current access."
+msgstr "Ruhusa yako ya sasa inahakikiwa unapofungua rekodi."
+
+msgid "Operational indicators"
+msgstr "Viashiria vya utendaji"
+
+msgid "Opinion"
+msgstr "Maoni ya kisheria"
+
+msgid "Opinion analysis"
+msgstr "Uchambuzi wa kisheria"
+
+msgid "Opinion draft"
+msgstr "Rasimu ya maoni"
+
+msgid "Opinion review and audience"
+msgstr "Mapitio ya maoni na wapokeaji"
+
+msgid "Opinion versions"
+msgstr "Matoleo ya maoni"
+
+msgid "Other deadlines"
+msgstr "Tarehe nyingine za mwisho"
+
+msgid "Other documented disposition"
+msgstr "Matokeo mengine yaliyoandikwa"
+
+msgid "Other legal documents"
+msgstr "Nyaraka nyingine za kisheria"
+
+msgid "Other matters"
+msgstr "Mashauri mengine"
+
+msgid "Other party"
+msgstr "Upande mwingine"
+
+msgid "Outcome type"
+msgstr "Aina ya matokeo"
+
+msgid "Overdue compliance work"
+msgstr "Kazi za uzingatiaji zilizochelewa"
+
+msgid "Overdue for follow-up"
+msgstr "Imechelewa na inahitaji ufuatiliaji"
+
+msgid "Parties"
+msgstr "Pande za shauri"
+
+msgid "Party name"
+msgstr "Jina la upande"
+
+msgid "Party role"
+msgstr "Wajibu wa upande"
+
+msgid "Permitted use, reuse and restrictions"
+msgstr "Matumizi yaliyoruhusiwa, matumizi ya kurudia na masharti"
+
+msgid "Place hold"
+msgstr "Weka zuio"
+
+msgid "Place legal hold"
+msgstr "Weka zuio la kisheria"
+
+msgid "Platform / medium"
+msgstr "Jukwaa au njia"
+
+msgid "Portfolio description"
+msgstr "Maelezo ya mkusanyo wa haki"
+
+msgid "Previous licence"
+msgstr "Leseni ya awali"
+
+msgid "Previous month"
+msgstr "Mwezi uliopita"
+
+msgid "Private versions"
+msgstr "Matoleo ya faragha"
+
+msgid "Proceeding details"
+msgstr "Maelezo ya mwenendo wa shauri"
+
+msgid "Proceeding type"
+msgstr "Aina ya hatua ya shauri"
+
+msgid "Proceedings and evidence"
+msgstr "Mwenendo wa shauri na ushahidi"
+
+msgid "Programme acquisition"
+msgstr "Upatikanaji wa vipindi"
+
+msgid "Progress note"
+msgstr "Dokezo la maendeleo"
+
+msgid "Propose issuing the full opinion to the named requester."
+msgstr "Pendekeza kutoa maoni kamili kwa mwombaji aliyetajwa."
+
+msgid "Proposed opinion audience"
+msgstr "Wapokeaji waliopendekezwa wa maoni"
+
+msgid ""
+"Protected matter %(reference)s registered. Named clearance is required "
+"before anyone can open it."
+msgstr ""
+"Shauri lililolindwa %(reference)s limesajiliwa. Ruhusa ya mtu aliyetajwa "
+"inahitajika kabla ya kufungua."
+
+msgid ""
+"Protected matters require named clearance. Creating one does not grant you "
+"access."
+msgstr ""
+"Mashauri yaliyolindwa yanahitaji ruhusa ya mtu aliyetajwa. Kuyaunda hakukupi"
+" ufikiaji."
+
+msgid "Quarantined version"
+msgstr "Toleo lililotengwa"
+
+msgid "Question presented"
+msgstr "Swali lililowasilishwa"
+
+msgid "Reason or disposition"
+msgstr "Sababu au matokeo"
+
+msgid "Recheck quarantined version"
+msgstr "Hakiki tena toleo lililotengwa"
+
+msgid "Record Senior review"
+msgstr "Rekodi mapitio ya Afisa Mwandamizi"
+
+msgid "Record assessment"
+msgstr "Rekodi tathmini"
+
+msgid "Record case cost"
+msgstr "Rekodi gharama ya shauri"
+
+msgid "Record case outcome"
+msgstr "Rekodi matokeo ya shauri"
+
+msgid "Record hearing outcome"
+msgstr "Rekodi matokeo ya kikao"
+
+msgid "Record licence"
+msgstr "Rekodi leseni"
+
+msgid "Record proceeding"
+msgstr "Rekodi hatua ya shauri"
+
+msgid "Record renewal"
+msgstr "Rekodi uhuishaji"
+
+msgid "Record separate evidence of settlement authority."
+msgstr "Rekodi ushahidi tofauti wa mamlaka ya suluhu."
+
+msgid "Record source version"
+msgstr "Rekodi toleo la chanzo"
+
+msgid "Recorded disposition"
+msgstr "Matokeo yaliyorekodiwa"
+
+msgid "Recorded rights are limited to the documented terms."
+msgstr "Haki zilizorekodiwa zinawekewa mipaka na masharti yaliyoandikwa."
+
+msgid "Reference, title, filename or tag"
+msgstr "Rejea, kichwa, jina la faili au lebo"
+
+msgid "Register document"
+msgstr "Sajili hati"
+
+msgid "Register matter"
+msgstr "Sajili shauri"
+
+msgid "Register reference"
+msgstr "Rejea ya rejesta"
+
+msgid "Register repository document"
+msgstr "Sajili hati kwenye hifadhi"
+
+msgid "Register specialist details"
+msgstr "Sajili taarifa maalumu"
+
+msgid "Registered by"
+msgstr "Imesajiliwa na"
+
+msgid "Regulatory / compliance"
+msgstr "Udhibiti au uzingatiaji"
+
+msgid "Regulatory compliance"
+msgstr "Uzingatiaji wa kanuni"
+
+msgid "Related executed contract version"
+msgstr "Toleo husika la mkataba uliotiwa saini"
+
+msgid "Related litigation matter"
+msgstr "Shauri la mahakama linalohusiana"
+
+msgid "Release hold"
+msgstr "Ondoa zuio"
+
+msgid "Release legal hold"
+msgstr "Ondoa zuio la kisheria"
+
+msgid "Replaces"
+msgstr "Kinachukua nafasi ya"
+
+msgid "Reported infringement or rights concern"
+msgstr "Ukiukaji ulioripotiwa au suala la haki"
+
+msgid "Reporting year"
+msgstr "Mwaka wa taarifa"
+
+msgid "Reports are allegations until separately investigated."
+msgstr "Taarifa hizo ni madai hadi uchunguzi ufanyike."
+
+msgid "Repository action recorded."
+msgstr "Hatua ya hifadhi imerekodiwa."
+
+msgid "Repository metadata"
+msgstr "Taarifa za msingi za hifadhi"
+
+msgid "Repository version"
+msgstr "Toleo katika hifadhi"
+
+msgid "Repository views"
+msgstr "Mionekano ya hifadhi"
+
+msgid "Request different evidence"
+msgstr "Omba ushahidi mwingine"
+
+msgid ""
+"Resolve all scheduled hearings and verify the external disposition first."
+msgstr ""
+"Shughulikia vikao vyote vilivyopangwa na uhakiki uamuzi wa nje kwanza."
+
+msgid ""
+"Resolve outstanding corrective actions before recording demonstrated "
+"control."
+msgstr ""
+"Kamilisha marekebisho yaliyosalia kabla ya kurekodi utekelezaji wa udhibiti."
+
+msgid "Resolve quarantined versions before archiving this record."
+msgstr "Shughulikia matoleo yaliyotengwa kabla ya kuhifadhi rekodi hii."
+
+msgid "Resolve rights incident"
+msgstr "Tatua tukio la haki"
+
+msgid "Resolved"
+msgstr "Limetatuliwa"
+
+msgid "Respondent / defendant"
+msgstr "Mjibu maombi au mdaiwa"
+
+msgid ""
+"Restrict this item to the scoped Head and the actively assigned legal "
+"officer."
+msgstr ""
+"Zuia rekodi hii kwa Mkuu mwenye mamlaka na afisa wa sheria aliyepangiwa "
+"shauri hili kwa sasa."
+
+msgid "Restricted litigation strategy"
+msgstr "Mkakati wa shauri wenye ufikiaji wenye mipaka"
+
+msgid "Retention review date"
+msgstr "Tarehe ya kupitia muda wa uhifadhi"
+
+msgid "Return for revisions"
+msgstr "Rejesha kwa marekebisho"
+
+msgid "Returned for evidence"
+msgstr "Imerejeshwa kwa ushahidi zaidi"
+
+msgid "Returned for revisions"
+msgstr "Imerejeshwa kwa marekebisho"
+
+msgid "Review and issue"
+msgstr "Mapitio na utoaji"
+
+msgid "Rights expiry"
+msgstr "Kuisha kwa haki"
+
+msgid "Rights incidents"
+msgstr "Matukio yanayohusu haki"
+
+msgid "Rights portfolio"
+msgstr "Mkusanyo wa haki"
+
+msgid "Rights type"
+msgstr "Aina ya haki"
+
+msgid "SPECIALIST REGISTERS"
+msgstr "REJESTA MAALUMU"
+
+msgid "Sat"
+msgstr "Jmo"
+
+msgid "Save new opinion version"
+msgstr "Hifadhi toleo jipya la maoni"
+
+msgid "Schedule hearing"
+msgstr "Panga kikao cha mahakama"
+
+msgid "Scheduled"
+msgstr "Kimepangwa"
+
+msgid "Scheduled hearing"
+msgstr "Kikao kilichopangwa"
+
+msgid "Scheduled only"
+msgstr "Vilivyopangwa pekee"
+
+msgid "Sealed"
+msgstr "Imefungwa kwa ufikiaji maalumu"
+
+msgid "Search documents"
+msgstr "Tafuta nyaraka"
+
+msgid "Search tags"
+msgstr "Lebo za utafutaji"
+
+msgid "Search this register"
+msgstr "Tafuta katika rejesta hii"
+
+msgid "Select Held or Cancelled. Use reschedule for adjournments."
+msgstr ""
+"Chagua Kimefanyika au Kimefutwa. Kwa kuahirisha panga tarehe nyingine."
+
+msgid "Select a current record from this matter."
+msgstr "Chagua rekodi ya sasa kutoka katika shauri hili."
+
+msgid "Select a day with hearings to filter the agenda."
+msgstr "Chagua siku yenye vikao ili kuchuja ratiba."
+
+msgid "Select a quarantined version on this record."
+msgstr "Chagua toleo lililotengwa katika rekodi hii."
+
+msgid "Senior disposition"
+msgstr "Uamuzi wa Afisa Mwandamizi"
+
+msgid "Senior endorsement is not Head approval."
+msgstr "Pendekezo la Afisa Mwandamizi si idhini ya Mkuu."
+
+msgid "Senior review"
+msgstr "Mapitio ya Afisa Mwandamizi"
+
+msgid "Senior review of an opinion was recorded"
+msgstr "Mapitio ya maoni ya Afisa Mwandamizi yamerekodiwa"
+
+msgid "Separate settlement authority"
+msgstr "Mamlaka tofauti ya suluhu"
+
+msgid "Showing records for this matter"
+msgstr "Rekodi za shauri hili"
+
+msgid "Source"
+msgstr "Chanzo"
+
+msgid "Source and provenance"
+msgstr "Chanzo na asili"
+
+msgid "Source changes require independent verification and reassessment."
+msgstr "Mabadiliko ya chanzo yanahitaji uhakiki huru na tathmini upya."
+
+msgid "Source title"
+msgstr "Kichwa cha chanzo"
+
+msgid "Source versions"
+msgstr "Matoleo ya chanzo"
+
+msgid "Specialist action recorded."
+msgstr "Hatua maalumu imerekodiwa."
+
+msgid "Specialist details not registered"
+msgstr "Taarifa maalumu hazijasajiliwa"
+
+msgid "Submit corrective evidence"
+msgstr "Wasilisha ushahidi wa marekebisho"
+
+msgid "Submitting evidence does not resolve a gap until verified."
+msgstr "Kuwasilisha ushahidi hakutatui pengo hadi uhakikiwe."
+
+msgid "Sun"
+msgstr "Jpi"
+
+msgid "Synthetic data · Phases 1–4"
+msgstr "Data za kubuni · Awamu 1–4"
+
+msgid "TBC LSMS workspace"
+msgstr "Eneo la kazi la TBC LSMS"
+
+msgid "Talent / image / voice"
+msgstr "Kipaji, taswira au sauti"
+
+msgid "Templates / research"
+msgstr "Violezo na utafiti"
+
+msgid "Territory"
+msgstr "Eneo la matumizi"
+
+msgid "That party is already recorded for this role."
+msgstr "Upande huo tayari umerekodiwa kwa wajibu huo."
+
+msgid ""
+"The approved audience is no longer eligible. Do not issue this version."
+msgstr "Wapokeaji walioidhinishwa hawastahili tena. Usitoe toleo hili."
+
+msgid "The assigned author needs an independently endorsed opinion version."
+msgstr ""
+"Mwandishi aliyepangiwa shauri anahitaji toleo la maoni lililopendekezwa kwa "
+"kujitegemea."
+
+msgid "The current corrective evidence is awaiting verification."
+msgstr "Ushahidi wa sasa wa marekebisho unasubiri uhakiki."
+
+msgid "The event date cannot be in the future."
+msgstr "Tarehe ya tukio haiwezi kuwa ya baadaye."
+
+msgid ""
+"The file and all future versions stay private to the authorised audience."
+msgstr ""
+"Faili na matoleo yote yajayo yatabaki ya faragha kwa wapokeaji "
+"walioidhinishwa."
+
+msgid "The full opinion cannot be released to staff on this matter."
+msgstr "Maoni kamili ya shauri hili hayawezi kutolewa kwa wafanyakazi."
+
+msgid "The linked signed counterpart is not available."
+msgstr "Nakala iliyotiwa saini iliyounganishwa haipatikani."
+
+msgid "The scanner is still unavailable. This document remains quarantined."
+msgstr "Kichanganuzi bado hakipatikani. Hati hii inaendelea kutengwa."
+
+msgid "The supporting evidence is not available."
+msgstr "Ushahidi wa kuunga mkono haupatikani."
+
+msgid "These documents are not eligible for staff release."
+msgstr "Nyaraka hizi hazistahili kutolewa kwa wafanyakazi."
+
+msgid "This matter has no staff-facing projection."
+msgstr "Shauri hili halina rekodi inayoonekana kwa wafanyakazi."
+
+msgid "This month"
+msgstr "Mwezi huu"
+
+msgid "Thu"
+msgstr "Alh"
+
+msgid "Too many confirmation attempts. Try again later."
+msgstr "Majaribio mengi mno ya uthibitisho. Jaribu tena baadaye."
+
+msgid "Tue"
+msgstr "Jnn"
+
+msgid "Upload new version"
+msgstr "Pakia toleo jipya"
+
+msgid "Use the currently effective verified source."
+msgstr "Tumia chanzo kilichohakikiwa kinachotumika kwa sasa."
+
+msgid "Use the shared matter to complete intake or assignment first."
+msgstr "Kamilisha upokeaji au mgawo kwenye shauri husika kwanza."
+
+msgid "Value"
+msgstr "Thamani"
+
+msgid "Verification"
+msgstr "Uhakiki"
+
+msgid "Verification decision"
+msgstr "Uamuzi wa uhakiki"
+
+msgid "Verified and resolved"
+msgstr "Imehakikiwa na kutatuliwa"
+
+msgid "Verified facts and scope"
+msgstr "Ukweli uliohakikiwa na mipaka ya shauri"
+
+msgid "Verify and resolve action"
+msgstr "Hakiki na kamilisha hatua"
+
+msgid "Verify corrective action"
+msgstr "Hakiki hatua ya marekebisho"
+
+msgid "Verify source version"
+msgstr "Hakiki toleo la chanzo"
+
+msgid "Verify the licence provenance and scope before registration."
+msgstr "Hakiki chanzo na mipaka ya leseni kabla ya usajili."
+
+msgid "Versioned repository"
+msgstr "Hifadhi yenye matoleo"
+
+msgid "View report"
+msgstr "Fungua taarifa"
+
+msgid "Wed"
+msgstr "Jtn"
+
+msgid "Withdrawal / dismissed"
+msgstr "Kuondolewa au kutupiliwa mbali"
+
+msgid "Within recorded term"
+msgstr "Ndani ya muda uliorekodiwa"
+
+msgid "Work from the same matter, assignment and evidence record."
+msgstr "Tumia rekodi zile zile za shauri, mgawo na ushahidi."
+
+msgid "Yes,No"
+msgstr "Ndiyo,Hapana"

@@ -6,7 +6,7 @@ from django import forms
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.core.paginator import Paginator
-from django.db.models import Count, Q
+from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from django.utils.translation import gettext as _
@@ -22,7 +22,6 @@ from identity.policy import LEGAL_CAPABILITIES, STAFF_CAPABILITIES
 from identity.security import audit
 from matters.models import STAFF_TERMINAL, Category, StaffStatus, Status
 from matters.selectors import (
-    aggregate_scope,
     category_chart,
     chart_months,
     display_assignments,
@@ -306,37 +305,19 @@ def staff_request(request, pk):
 @login_required
 @require_safe
 def management_dashboard(request):
-    if not request.policy.has('reports.aggregate'):
-        raise PermissionDenied
-    qs = aggregate_scope(request.policy)
-    # One stable unfiltered projection only. No small-group drill-through or offsetting filters.
-    groups = list(qs.order_by().values('status').annotate(total=Count('pk')))
-    summary = {row['status']: row['total'] for row in groups}
-    total = sum(summary.values())
-    completed = summary.get(Status.COMPLETED, 0)
-    other = total - completed
-    metrics = [
-        {
-            'label': _('Reportable matters'),
-            'value': total if not 0 < completed < 3 and not 0 < other < 3 else '—',
-            'icon': 'briefcase',
-            'tone': 'blue',
-        },
-        {
-            'label': _('Completed'),
-            'value': completed if not 0 < completed < 3 else '—',
-            'icon': 'check-circle',
-            'tone': 'green',
-        },
-        {
-            'label': _('Other outcomes and open matters'),
-            'value': other if not 0 < other < 3 else '—',
-            'icon': 'clock',
-            'tone': 'amber',
-        },
-    ]
-    audit(request, 'aggregate_viewed', area=AuditLog.Area.LEGAL)
-    return render(request, 'management.html', {'metrics': metrics})
+    from . import reporting
+
+    context = reporting.context(request)
+    audit(request, 'aggregate_viewed', area=AuditLog.Area.LEGAL, detail={'year': context['year']})
+    return render(request, 'management.html', context)
+
+
+@login_required
+@require_safe
+def management_export(request, format_):
+    from . import reporting
+
+    return reporting.export(request, format_)
 
 
 @login_required

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}{% load i18n ui %}
+{% block title %}{{ register.label }} · {{ case.matter.reference }}{% endblock %}{% block breadcrumb %}{{ register.title }}{% endblock %}
+{% block content %}
+<a class="back-link" href="{% url 'specialist_index' module %}">{% icon 'arrow-left' 16 %}{{ register.title }}</a>
+<section class="page-head"><div><p class="eyebrow reference">{{ record.reference|default:case.matter.reference }}</p><h1>{{ case.matter.title }}</h1><p>{{ case.matter.department|local_name }} · {{ case.matter.get_classification_display }}{% if assignment %} · {{ assignment.officer.display_name }}{% endif %}</p></div><span class="pill pill-{{ case.matter.status|tone }}">{{ case.matter.get_status_display }}</span></section>
+<div class="case-banner"><div class="case-banner-icon">{% icon register.icon 22 %}</div><div><strong>{{ register.label }}</strong><p>{{ case.matter.reference }} · {% translate 'Matter, assignment and approval history stay linked.' %}</p></div><div class="case-actions case-banner-end"><a class="button secondary small" href="{% url 'matter_detail' case.pk %}">{% icon 'briefcase' 16 %}{% translate 'Open matter' %}</a><a class="button secondary small" href="{% url 'library_index' %}?matter={{ case.pk }}">{% icon 'files' 16 %}{% translate 'Documents' %}</a></div></div>
+{% if actions %}<section class="panel case-gap"><header class="panel-header"><div><h2>{% translate 'Available actions' %}</h2><p>{% translate 'Actions follow the current assignment and matter status.' %}</p></div>{% icon 'arrow-right' 20 %}</header><div class="case-pad case-actions">{% for command,label in actions %}<a class="button {% if command == 'register' or command == 'opinion_version' or command == 'opinion_senior' %}primary{% else %}secondary{% endif %} small" href="{% url 'specialist_action' module case.pk command %}">{{ label }}</a>{% endfor %}</div></section>{% endif %}
+{% if record %}
+  {% if module == 'litigation' %}{% include 'specialists/litigation.html' %}
+  {% elif module == 'opinions' %}{% include 'specialists/opinions.html' %}
+  {% elif module == 'rights' %}{% include 'specialists/rights.html' %}
+  {% else %}{% include 'specialists/compliance.html' %}{% endif %}
+{% else %}<section class="panel case-gap">{% include 'partials/empty.html' with empty_title=_('Specialist details not registered') empty_text=_('Use the shared matter to complete intake or assignment first.') %}</section>{% endif %}
+{% endblock %}

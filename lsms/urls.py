@@ -5,6 +5,8 @@ from django.views.i18n import set_language
 
 from casework import views as cases
 from identity import views as identity
+from library import views as library
+from specialists import views as specialists
 from workspace import views as work
 
 urlpatterns = [
@@ -28,6 +30,15 @@ urlpatterns = [
         {'staff': True},
         name='staff_document',
     ),
+    path(
+        'portal/requests/<uuid:pk>/opinions/<uuid:review_id>/pdf/',
+        cases.opinion_pdf,
+        {'staff': True},
+        name='staff_opinion_pdf',
+    ),
+    path(
+        'admin/matters/<uuid:pk>/opinions/<uuid:review_id>/pdf/', cases.opinion_pdf, name='opinion_pdf'
+    ),
     path('portal/requests/<uuid:pk>/', work.staff_request, name='staff_request'),
     path('admin/', work.admin_home, name='legal_dashboard'),
     path('admin/matters/', work.matter_register, name='matter_register'),
@@ -46,6 +57,26 @@ urlpatterns = [
         cases.section,
         name='checklist_section',
     ),
+    path('admin/calendar/', specialists.calendar, name='court_calendar'),
+    path('admin/deadlines/', specialists.deadlines, name='legal_deadlines'),
+    path('admin/registers/<slug:module>/', specialists.index, name='specialist_index'),
+    path('admin/registers/<slug:module>/new/', specialists.create, name='specialist_create'),
+    path('admin/registers/<slug:module>/<uuid:pk>/', specialists.detail, name='specialist_detail'),
+    path(
+        'admin/registers/<slug:module>/<uuid:pk>/actions/<slug:command>/',
+        specialists.action,
+        name='specialist_action',
+    ),
+    path('admin/library/', library.index, name='library_index'),
+    path('admin/library/new/<uuid:matter>/', library.create, name='library_create'),
+    path('admin/library/<uuid:pk>/', library.detail, name='library_detail'),
+    path('admin/library/<uuid:pk>/actions/<slug:command>/', library.action, name='library_action'),
+    path(
+        'admin/library/<uuid:pk>/versions/<uuid:version_id>/download/',
+        library.download,
+        name='library_download',
+    ),
+    path('admin/management/export/<slug:format_>/', work.management_export, name='management_export'),
     path('admin/management/', work.management_dashboard, name='management_dashboard'),
     path('admin/records/', work.records_register, name='records_register'),
     path('admin/ict/', identity.ict_dashboard, name='ict_dashboard'),

@@ -15,6 +15,7 @@ from identity.models import AuditLog, User
 from identity.policy import Policy
 from identity.security import audit, demo_available, limit_attempt, verify_totp
 from matters.models import (
+    Classification,
     LegalAssignment,
     LegalMatter,
     LegalRequest,
@@ -51,6 +52,7 @@ from .policy import (
     current_assignment,
     eligible_officer,
     head,
+    matter_documents,
     own_case,
 )
 from .storage import read_blob, scan_bytes, store
@@ -66,6 +68,9 @@ class StepUpFailed(ValidationError):
 
 
 PUBLIC_MESSAGES = {
+    'litigation_outcome': gettext_noop(
+        'Legal Services recorded a case disposition. Contact Legal Services through approved channels for details.'
+    ),
     'submit': gettext_noop('Your request has been received by Legal Services.'),
     'accept': gettext_noop('Your request was accepted and will be handled by Legal Services.'),
     'reply': gettext_noop('Your response was received and is awaiting verification.'),
@@ -86,7 +91,7 @@ def digest(data):
     ).hexdigest()
 
 
-def _number(namespace, demo):
+def allocate_reference(namespace, demo):
     year = timezone.localdate().year
     counter, _new = ReferenceCounter.objects.get_or_create(namespace=namespace, year=year)
     ReferenceCounter.objects.filter(pk=counter.pk).update(last_number=F('last_number') + 1)
@@ -95,7 +100,7 @@ def _number(namespace, demo):
     return f'{prefix}/{year}/{counter.last_number:05d}'
 
 
-def _actors(request, other_id=None):
+def lock_actors(request, other_id=None):
     ids = {request.user.pk}
     if other_id:
         ids.add(other_id)
@@ -110,7 +115,9 @@ def _actors(request, other_id=None):
     return actor, accounts.get(other_id)
 
 
-def _publish(case, status, *, key=None, text=None):
+def publish_projection(case, status, *, key=None, text=None):
+    if case.internal:
+        return
     projection = case.matter.staff_request
     if text is None:
         with translation.override('en'):
@@ -124,7 +131,7 @@ def _publish(case, status, *, key=None, text=None):
     RequestUpdate.objects.create(request=projection, status=status, message=text, message_sw=text_sw)
 
 
-def _record(request, case, actor, command, before, *, reason='', notice=None, extra=None):
+def record_event(request, case, actor, command, before, *, reason='', notice=None, extra=None):
     event = Event.objects.create(
         case=case,
         command=command,
@@ -148,7 +155,7 @@ def _record(request, case, actor, command, before, *, reason='', notice=None, ex
 
 @transaction.atomic
 def submit(request, data):
-    actor, _other = _actors(request)
+    actor, _other = lock_actors(request)
     if not can_submit(Policy(actor)):
         raise PermissionDenied
     dept = actor.department
@@ -183,7 +190,7 @@ def submit(request, data):
     if data['required_on'] < timezone.localdate():
         raise ValidationError(_('The required completion date cannot be in the past.'))
     matter = LegalMatter.objects.create(
-        reference=_number('REQ', actor.is_demo),
+        reference=allocate_reference('REQ', actor.is_demo),
         title=data['title'],
         internal_summary=data['summary'],
         category=data['category'],
@@ -214,22 +221,22 @@ def submit(request, data):
     )
     for kind, file in files:
         store(case, actor, file, kind)
-    _publish(case, StaffStatus.AWAITING, key='submit')
-    _record(request, case, actor, 'submit', '', notice='submit')
+    publish_projection(case, StaffStatus.AWAITING, key='submit')
+    record_event(request, case, actor, 'submit', '', notice='submit')
     return case
 
 
-def _lock(request, pk, revision, *, staff=False, other_id=None):
-    actor, other = _actors(request, other_id)
+def lock_case(request, pk, revision, *, staff=False, other_id=None, scope_for=None):
+    actor, other = lock_actors(request, other_id)
     policy = Policy(actor)
-    scope = Case.objects.filter(submitted_by=actor) if staff else cases_for(policy)
+    scope = Case.objects.filter(submitted_by=actor) if staff else (scope_for or cases_for)(policy)
     if not scope.filter(pk=pk).exists():
         raise Http404
     case = Case.objects.select_for_update(no_key=True).get(pk=pk)
     if staff:
         if not own_case(policy, case):
             raise Http404
-    elif not cases_for(policy).filter(pk=pk).exists():
+    elif not (scope_for or cases_for)(policy).filter(pk=pk).exists():
         raise Http404
     if revision != case.revision:
         raise Conflict()
@@ -261,7 +268,7 @@ def condition_round(case):
     )
 
 
-def _transition(case, status):
+def transition_case(case, status):
     case.matter.status = status
     case.matter.save(update_fields=['status'])
 
@@ -281,7 +288,7 @@ def _contract_version(case, actor, draft, data, *, reason):
     contract = Contract.objects.filter(pk=case.pk).first()
     if not contract:
         contract = Contract.objects.create(
-            case=case, reference=_number('CTR', actor.is_demo), registered_by=actor
+            case=case, reference=allocate_reference('CTR', actor.is_demo), registered_by=actor
         )
     previous = contract.versions.first()
     version = ContractVersion.objects.create(
@@ -305,7 +312,7 @@ def _contract_version(case, actor, draft, data, *, reason):
 
 @transaction.atomic
 def reply(request, pk, data):
-    case, actor, _policy, _other = _lock(request, pk, data['revision'], staff=True)
+    case, actor, _policy, _other = lock_case(request, pk, data['revision'], staff=True)
     round_ = active_information(case)
     if case.matter.status != Status.INFORMATION or not round_ or round_.replied_at:
         raise PermissionDenied
@@ -321,14 +328,14 @@ def reply(request, pk, data):
     round_.reply = data['reply']
     round_.replied_at = timezone.now()
     round_.save(update_fields=['reply', 'replied_at'])
-    _publish(case, StaffStatus.INFORMATION, key='reply')
-    _record(request, case, actor, 'reply', Status.INFORMATION, notice='reply')
+    publish_projection(case, StaffStatus.INFORMATION, key='reply')
+    record_event(request, case, actor, 'reply', Status.INFORMATION, notice='reply')
 
 
 def _evidence(case, ids, *, signed=False):
     # Accept model objects only from validated forms, but reselect clean case-scoped rows under lock.
     ids = {str(getattr(item, 'pk', item)) for item in ids}
-    base = case.documents.filter(scan=Document.Scan.CLEAN) if signed else clean_documents(case)
+    base = matter_documents(case).filter(scan=Document.Scan.CLEAN) if signed else clean_documents(case)
     rows = {str(doc.pk): doc for doc in base.filter(pk__in=ids)}
     if ids != rows.keys():
         raise ValidationError(_('Select only available evidence on this request.'))
@@ -370,10 +377,18 @@ def _freeze(request, case, actor, assignment, data):
     number = (case.reviews.values_list('number', flat=True).first() or 0) + 1
     if case.matter.category_id in CONTRACT_CATEGORIES and not version:
         raise ValidationError(_('Register the contract version first.'))
-    if case.documents.filter(scan=Document.Scan.PENDING).exists():
+    if matter_documents(case).filter(scan=Document.Scan.PENDING).exists():
         raise ValidationError(_('Wait for documents still in quarantine before sending the review.'))
     all_evidence = {str(doc.pk): doc for doc in clean_documents(case)}
     release_ids = [str(doc.pk) for doc in data.get('deliverables', ())]
+    if release_ids and (
+        case.internal
+        or (
+            case.matter.category_id == 'opinion'
+            and case.matter.classification != Classification.INTERNAL
+        )
+    ):
+        raise ValidationError(_('These documents are not eligible for staff release.'))
     if any(
         key not in all_evidence or all_evidence[key].kind != Document.Kind.RESPONSE
         for key in release_ids
@@ -401,7 +416,11 @@ def _freeze(request, case, actor, assignment, data):
         'evidence': [_file(all_evidence[key]) for key in sorted(all_evidence)],
         'deliverables': release_ids,
     }
-    if data['recommendation'] == Recommendation.APPROVE and not package['response']:
+    if (
+        data['recommendation'] == Recommendation.APPROVE
+        and not case.internal
+        and not package['response']
+    ):
         raise ValidationError(
             _('Prepare a staff-facing response for Head review before recommending approval.')
         )
@@ -436,6 +455,10 @@ def _freeze(request, case, actor, assignment, data):
                 for sec in checklist.SECTIONS
             ],
         }
+    if case.matter.category_id == 'opinion':
+        from specialists.opinions import freeze_opinion
+
+        package['opinion'] = freeze_opinion(case, actor, share=data.get('share_opinion', False))
     return ReviewRound.objects.create(
         case=case,
         number=number,
@@ -459,11 +482,20 @@ def _verify_package(case, review, data):
     if review.version_id != (version.pk if version else None):
         raise Conflict()
     files = review.package['evidence']
+    opinion = review.package.get('opinion')
+    if opinion:
+        from specialists.opinions import check_pin
+
+        check_pin(case, review)
     available = _evidence(case, [entry['id'] for entry in files])
     if any(_file(available[entry['id']]) != entry for entry in files):
         raise Conflict()
     # Reverify both encrypted bytes and digests for the exact draft and proposed disclosures.
     pinned = set(review.package['deliverables'])
+    if opinion and opinion['evidence_id']:
+        if opinion['evidence_id'] not in available:
+            raise Conflict()
+        pinned.add(opinion['evidence_id'])
     if version:
         pinned.add(str(version.draft_id))
     for key in pinned:
@@ -471,7 +503,7 @@ def _verify_package(case, review, data):
     return available
 
 
-def _assurance(request, actor, data):
+def confirm_step_up(request, actor, data):
     if actor.is_demo:
         if (
             request.session.get('auth_channel') == 'demo'
@@ -505,7 +537,7 @@ def run(request, pk, command, data):
 @transaction.atomic
 def _run(request, pk, command, data):
     proposed_id = data['officer'].pk if command == 'assign' else None
-    case, actor, policy, proposed = _lock(request, pk, data['revision'], other_id=proposed_id)
+    case, actor, policy, proposed = lock_case(request, pk, data['revision'], other_id=proposed_id)
     assignment, review, info = current_assignment(case), latest_package(case), active_information(case)
     if command not in ACTIONS or not can_act(policy, case, command, assignment, review, info):
         raise PermissionDenied
@@ -514,11 +546,11 @@ def _run(request, pk, command, data):
     extra, notice = {}, None
     match command:
         case 'triage':
-            _transition(case, Status.PRELIMINARY)
+            transition_case(case, Status.PRELIMINARY)
         case 'accept':
             if not data.get('verified'):
                 raise ValidationError(_('Confirm that the intake evidence is complete.'))
-            if case.documents.filter(scan=Document.Scan.PENDING).exists():
+            if matter_documents(case).filter(scan=Document.Scan.PENDING).exists():
                 raise ValidationError(_('Pending documents do not satisfy intake verification.'))
             if case.matter.category_id in CONTRACT_CATEGORIES:
                 draft = case.documents.filter(kind=Document.Kind.DRAFT).first()
@@ -528,12 +560,12 @@ def _run(request, pk, command, data):
                     case, actor, draft, case.submission['contract'], reason=reason
                 )
                 extra['version'] = str(version.pk)
-            _transition(case, Status.ACCEPTED)
-            _publish(case, StaffStatus.PROCESSING, key='accept')
+            transition_case(case, Status.ACCEPTED)
+            publish_projection(case, StaffStatus.PROCESSING, key='accept')
             notice = 'accept'
         case 'reject_intake':
-            _transition(case, Status.REJECTED)
-            _publish(case, StaffStatus.REJECTED, text=data['public_message'])
+            transition_case(case, Status.REJECTED)
+            publish_projection(case, StaffStatus.REJECTED, text=data['public_message'])
             notice = 'reject'
         case 'ask':
             _future(data['due_on'])
@@ -544,18 +576,18 @@ def _run(request, pk, command, data):
                 due_on=data['due_on'],
                 resume_status=before,
             )
-            _transition(case, Status.INFORMATION)
-            _publish(case, StaffStatus.INFORMATION, text=data['public_message'])
+            transition_case(case, Status.INFORMATION)
+            publish_projection(case, StaffStatus.INFORMATION, text=data['public_message'])
             notice = 'ask'
         case 'verify':
-            if case.documents.filter(scan=Document.Scan.PENDING).exists():
+            if matter_documents(case).filter(scan=Document.Scan.PENDING).exists():
                 raise ValidationError(
                     _('Wait for documents still in quarantine before verifying the reply.')
                 )
             info.verified_by, info.verified_at = actor, timezone.now()
             info.save(update_fields=['verified_by', 'verified_at'])
-            _transition(case, info.resume_status)
-            _publish(
+            transition_case(case, info.resume_status)
+            publish_projection(
                 case,
                 StaffStatus.AWAITING
                 if info.resume_status == Status.PRELIMINARY
@@ -577,11 +609,11 @@ def _run(request, pk, command, data):
             )
             case.matter.priority = data['priority']
             case.matter.save(update_fields=['priority'])
-            _transition(case, Status.ASSIGNED)
+            transition_case(case, Status.ASSIGNED)
             extra['officer'] = str(proposed.pk)
             notice = 'assign'
         case 'begin':
-            _transition(case, Status.REVIEW)
+            transition_case(case, Status.REVIEW)
         case 'note':
             pass  # Only the private event stores note text.
         case 'upload':
@@ -590,7 +622,9 @@ def _run(request, pk, command, data):
                 raise ValidationError(_('Choose internal evidence or a proposed deliverable.'))
             extra['document'] = str(doc.pk)
         case 'rescan':
-            doc = case.documents.filter(pk=data['pending'].pk, scan=Document.Scan.PENDING).first()
+            doc = (
+                matter_documents(case).filter(pk=data['pending'].pk, scan=Document.Scan.PENDING).first()
+            )
             if not doc:
                 raise Conflict()
             verdict, method = scan_bytes(read_blob(doc))
@@ -607,7 +641,7 @@ def _run(request, pk, command, data):
             extra['version'] = str(version.pk)
         case 'submit_review':
             review = _freeze(request, case, actor, assignment, data)
-            _transition(case, Status.HEAD_REVIEW)
+            transition_case(case, Status.HEAD_REVIEW)
             extra['review'] = str(review.pk)
             notice = command
         case 'decide':
@@ -635,7 +669,11 @@ def _run(request, pk, command, data):
                 raise ValidationError(
                     _('Strategic risk requires documented escalation evidence in the frozen package.')
                 )
-            if outcome == Decision.Outcome.REJECT and not data.get('public_message'):
+            if (
+                outcome == Decision.Outcome.REJECT
+                and not case.internal
+                and not data.get('public_message')
+            ):
                 raise ValidationError(_('Provide a separate staff-facing disposition.'))
             conditional = outcome == Decision.Outcome.CONDITIONAL
             owner = None
@@ -650,7 +688,7 @@ def _run(request, pk, command, data):
                         _('Conditions require a reason, due date and an eligible assigned owner.')
                     )
                 owner = assignment.officer
-            assurance = _assurance(request, actor, data)
+            assurance = confirm_step_up(request, actor, data)
             Decision.objects.create(
                 review=review,
                 decided_by=actor,
@@ -666,18 +704,26 @@ def _run(request, pk, command, data):
             extra |= {'review': str(review.pk), 'outcome': outcome, 'assurance': assurance}
             notice = outcome
             if outcome == Decision.Outcome.CLEAR:
-                _transition(case, Status.APPROVED)
-                _publish(case, StaffStatus.PROCESSING, key='approve')
+                transition_case(case, Status.APPROVED)
+                publish_projection(case, StaffStatus.PROCESSING, key='approve')
                 notice = 'approve'
             elif outcome == Decision.Outcome.REJECT:
-                _transition(case, Status.REJECTED)
-                _publish(case, StaffStatus.REJECTED, text=data['public_message'])
+                transition_case(case, Status.REJECTED)
+                publish_projection(case, StaffStatus.REJECTED, text=data.get('public_message'))
             else:
-                _transition(case, Status.REVIEW if assignment else Status.ACCEPTED)
+                transition_case(case, Status.REVIEW if assignment else Status.ACCEPTED)
         case 'issue':
             if not data.get('confirmed'):
                 raise ValidationError(_('Confirm release of the exact approved response.'))
             evidence = _verify_package(case, review, data)
+            if review.package['deliverables'] and (
+                case.internal
+                or (
+                    case.matter.category_id == 'opinion'
+                    and case.matter.classification != Classification.INTERNAL
+                )
+            ):
+                raise ValidationError(_('These documents are not eligible for staff release.'))
             for key in review.package['deliverables']:
                 document = evidence[key]
                 if document.kind != Document.Kind.RESPONSE and (
@@ -685,15 +731,19 @@ def _run(request, pk, command, data):
                 ):
                     raise ValidationError(_('The proposed release does not match the approved review.'))
                 Release.objects.create(document=document, decision=review.decision, released_by=actor)
-            _transition(case, Status.COMPLETED)
-            _publish(case, StaffStatus.COMPLETED, text=review.package['response'])
+            if 'opinion' in review.package:
+                from specialists.opinions import issue_opinion
+
+                issue_opinion(case, actor, review)
+            transition_case(case, Status.COMPLETED)
+            publish_projection(case, StaffStatus.COMPLETED, text=review.package['response'])
             extra['review'] = str(review.pk)
             notice = 'issue'
         case 'reopen':
             case.minimum_version = review.version.number + 1
             case.save(update_fields=['minimum_version'])
-            _transition(case, Status.REVIEW if assignment else Status.ACCEPTED)
-            _publish(case, StaffStatus.PROCESSING, key='reopen')
+            transition_case(case, Status.REVIEW if assignment else Status.ACCEPTED)
+            publish_projection(case, StaffStatus.PROCESSING, key='reopen')
             notice = 'reopen'
         case 'execute':
             _verify_package(case, review, data)
@@ -707,7 +757,7 @@ def _run(request, pk, command, data):
             signed_doc = store(case, actor, data['document'], Document.Kind.EXECUTION)
             if signed_doc.scan != Document.Scan.CLEAN:
                 raise ValidationError(_('Recording execution requires the scanner to be available.'))
-            assurance = _assurance(request, actor, data)
+            assurance = confirm_step_up(request, actor, data)
             Execution.objects.create(
                 version=review.version,
                 clearance=review.decision,
@@ -729,16 +779,16 @@ def _run(request, pk, command, data):
                 raise ValidationError(
                     _('Confirm that closure does not authorise deletion or override a legal hold.')
                 )
-            _transition(case, Status.CLOSED)
-            _publish(case, StaffStatus.CLOSED, key='close')
+            transition_case(case, Status.CLOSED)
+            publish_projection(case, StaffStatus.CLOSED, key='close')
             notice = 'close'
-    _record(request, case, actor, command, before, reason=reason, notice=notice, extra=extra)
+    record_event(request, case, actor, command, before, reason=reason, notice=notice, extra=extra)
     return case
 
 
 @transaction.atomic
 def save_checklist(request, pk, version_pk, section, data):
-    case, actor, policy, _other = _lock(request, pk, data['revision'])
+    case, actor, policy, _other = lock_case(request, pk, data['revision'])
     version, assignment = latest_version(case), current_assignment(case)
     if section == 'XIII':
         version = ContractVersion.objects.filter(contract_id=case.pk, pk=version_pk).first()
@@ -800,7 +850,7 @@ def save_checklist(request, pk, version_pk, section, data):
                     )
                 sheet.finalized_at, sheet.finalized_by = now, actor
     sheet.save()
-    _record(
+    record_event(
         request,
         case,
         actor,

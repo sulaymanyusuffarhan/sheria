@@ -14,6 +14,7 @@ from reportlab.platypus import KeepTogether, Paragraph, SimpleDocTemplate, Space
 
 from . import checklist
 from .models import Checklist, ContractType, Recommendation
+from .policy import matter_documents
 
 NAVY = colors.HexColor('#12284b')
 BLUE = colors.HexColor('#1e4d93')
@@ -193,7 +194,7 @@ def checklist_pdf(case, review):
                 ('archive', 'Archive reference'),
             ):
                 line(label, post.post_details.get(key))
-            evidence |= {str(file.pk): file.name for file in case.documents.all()}
+            evidence |= {str(file.pk): file.name for file in matter_documents(case)}
         checks(sections['XIII'], post.answers if post else {}, evidence)
         doc.build(content, onFirstPage=decorate, onLaterPages=decorate)
     return output.getvalue()

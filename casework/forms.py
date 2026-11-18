@@ -1,5 +1,6 @@
 """Bounded, explicit Phase 2 command payloads. Revisions: Git."""
 
+from datetime import date
 from uuid import uuid4
 
 from django import forms
@@ -8,11 +9,11 @@ from django.utils import timezone
 from django.utils.translation import gettext as _
 from django.utils.translation import gettext_lazy
 
-from matters.models import Category, LegalMatter
+from matters.models import Category, Classification, LegalMatter
 
 from . import checklist
 from .models import ContractType, Decision, Document, Recommendation
-from .policy import CONTRACT_CATEGORIES, clean_documents, officer_choices
+from .policy import CONTRACT_CATEGORIES, clean_documents, matter_documents, officer_choices
 from .storage import prepare_upload
 
 
@@ -192,7 +193,10 @@ class AssignForm(ReasonForm):
         super().__init__(*args, **kwargs)
         self.fields['officer'].queryset = officer_choices(self.case, policy)
         self.initial.update(
-            priority=self.case.matter.priority, due_on=self.case.matter.staff_request.due_on
+            priority=self.case.matter.priority,
+            due_on=date.fromisoformat(self.case.submission['required_on'])
+            if self.case.internal
+            else self.case.matter.staff_request.due_on,
         )
 
 
@@ -212,7 +216,7 @@ class RescanForm(RevisionForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['pending'].queryset = self.case.documents.filter(scan=Document.Scan.PENDING)
+        self.fields['pending'].queryset = matter_documents(self.case).filter(scan=Document.Scan.PENDING)
 
 
 class VersionForm(RevisionForm, ContractFields):
@@ -247,6 +251,7 @@ class ReviewForm(RevisionForm):
         required=False,
         widget=forms.CheckboxSelectMultiple,
     )
+    share_opinion = attest('Propose issuing the full opinion to the named requester.', required=False)
     release_draft = attest(
         'Propose releasing the exact reviewed contract draft to the requester.', required=False
     )
@@ -256,7 +261,23 @@ class ReviewForm(RevisionForm):
 
     def __init__(self, *args, version, prior_condition, **kwargs):
         super().__init__(*args, **kwargs)
-        candidates = clean_documents(self.case).filter(kind=Document.Kind.RESPONSE)
+        sensitive_opinion = (
+            self.case.matter.category_id == 'opinion'
+            and self.case.matter.classification != Classification.INTERNAL
+        )
+        if self.case.internal:
+            self.fields.pop('response')
+        if (
+            self.case.internal
+            or self.case.matter.category_id != 'opinion'
+            or self.case.matter.classification != Classification.INTERNAL
+        ):
+            self.fields.pop('share_opinion')
+        candidates = (
+            Document.objects.none()
+            if self.case.internal or sensitive_opinion
+            else clean_documents(self.case).filter(kind=Document.Kind.RESPONSE)
+        )
         if not candidates.exists():
             self.fields.pop('deliverables')
         else:
@@ -326,6 +347,8 @@ class DecideForm(StepUpForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        if self.case.internal:
+            self.fields.pop('public_message')
         ids = [entry['id'] for entry in self.review.package['evidence']]
         if self.review.version_id and ids:
             self.fields['gate_evidence'].queryset = clean_documents(self.case).filter(
@@ -429,7 +452,7 @@ class SectionForm(RevisionForm):
         else:
             evidence = clean_documents(self.case)
             if section.code == 'XIII':
-                evidence = self.case.documents.filter(scan=Document.Scan.CLEAN)
+                evidence = matter_documents(self.case).filter(scan=Document.Scan.CLEAN)
             for key, prompt in section.items:
                 choice, remarks, proof = f'{key}_choice', f'{key}_remarks', f'{key}_evidence'
                 self.fields[choice] = forms.ChoiceField(

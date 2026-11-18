@@ -30,7 +30,7 @@
         {% for code, label, symbol in demo_choices|slice:'3:' %}<button type="submit" name="role" value="{{ code }}" class="demo-option">{% icon symbol 17 %}<span>{{ label }}</span>{% icon 'chevron' 13 %}</button>{% endfor %}
         </div></details></form></div>{% elif show_demo %}<p class="flash">{% translate 'No demonstration roles are available. Ask the sandbox operator to initialise the fixture.' %}</p>{% endif %}
     </div>
-    <footer class="login-footer">{% icon 'lock' 14 %}{% translate 'For authorised use only' %}<span>·</span> {% translate 'Phase 1 Foundation' %}</footer>
+    <footer class="login-footer">{% icon 'lock' 14 %}{% translate 'For authorised use only' %}<span>·</span> {% translate 'TBC LSMS workspace' %}</footer>
   </section>
 </div>
 {% endblock %}

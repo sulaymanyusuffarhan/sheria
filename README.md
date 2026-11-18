@@ -1,6 +1,6 @@
 # TBC Legal Services Management System (LSMS)
 
-**Phase 2 development build.** LSMS is a modular Django 5.2 LTS application with a staff portal (`/portal/`) and a legal workspace (`/admin/`). Staff can submit and track requests, and Legal Services can triage, assign, review and issue approved responses. Contract requests have private, versioned evidence, a digital checklist and a distinct authenticated Head decision. Production and real-data use are not authorised.
+**Phases 1–4 development build.** TBC LSMS is a Django 5.2 LTS application with a staff portal (`/portal/`) and a legal workspace (`/admin/`). Intake, contract review, litigation, opinions, IP and broadcasting rights, compliance, the court calendar, the document repository, and management reporting share one matter register and permission system. Production and real-data use are not authorised.
 
 **Checklist source:** The build preserves A and I–XIII of `TBC/DLS/CRF/001/2026` using the available design inventory. The controlled form is not in the checkout. Prompt wording and translations are draft pending DLS reconciliation. Clearance is not contract execution.
 
@@ -20,12 +20,14 @@ export LSMS_DOCUMENT_KEY="$(cat .local/demo-document.key)"
 python manage.py migrate --noinput
 python manage.py seed_demo
 python manage.py seed_phase2_demo
+python manage.py seed_phase34_demo
+python manage.py deliver_legal_reminders --demo
 python manage.py runserver
 ```
 
-Open <http://localhost:8000/>. Choose **Legal dashboard**, **Staff portal**, or **ICT console**. Expand **More demonstration roles** for the other six. To switch roles, sign out first. Try **Staff portal → New legal request** or **Legal dashboard → Contract register**. The [workflow guide](docs/phase-2/guide.md) walks through the employee, Senior, legal officer and Head views. Existing synthetic decisions are examples, not legal approvals. Changes to this sample database persist; run with a **new** `LSMS_DB_PATH` and reseed for a clean copy. Never put institutional data in the demo database.
+Open <http://localhost:8000/>. Choose **Legal dashboard**, **Staff portal**, or **ICT console**. Expand **More demonstration roles** for the other six. To switch roles, sign out first. Try **Legal dashboard → Litigation** and open *Studio transmission dispute (demo)*, or see the [Phase 3–4 workflow guide](docs/phase-3-4/guide.md) for all specialist, document and reporting walkthroughs. **Staff portal → New legal request** and **Legal dashboard → Contract register** remain available. Existing synthetic decisions are examples, not legal approvals. Changes to this sample database persist; run with a **new** `LSMS_DB_PATH` and reseed for a clean copy. Never put institutional data in the demo database.
 
-`LSMS_DEMO=1` uses `.local/demo.sqlite3` by default and refuses to run if the database contains non-demo identities, directory units or matters. `seed_demo` and `seed_phase2_demo` are repeatable; it does not erase the changes made during a demo. `LSMS_PREVIEW=1` is restricted to the synthetic development SQLite mode. The Arena preview is temporary and not institutional hosting.
+`LSMS_DEMO=1` uses `.local/demo.sqlite3` by default and refuses to run if the database contains non-demo identities, directory units or matters. The three seed commands are repeatable and do not erase changes made during a demo. `LSMS_PREVIEW=1` is restricted to the synthetic development SQLite mode. The Arena preview is temporary and not institutional hosting.
 
 ## Run the tests
 
@@ -39,7 +41,7 @@ python -m ruff format --check .
 python tools/compile_i18n.py --check
 ```
 
-The default test database is freshly migrated SQLite. PostgreSQL is the proposed primary. Set the `LSMS_DB_*` variables for an **isolated PostgreSQL test instance** or use the disposable Linux smoke runner: `python -m pip install pgserver==0.1.4` then `python tools/postgres_smoke.py`. See [Phase 2 verification](docs/phase-2/verification.md) for results, browser replay and limitations.
+The default test database is freshly migrated SQLite. PostgreSQL is the proposed primary. Set the `LSMS_DB_*` variables for an **isolated PostgreSQL test instance** or use the disposable Linux smoke runner: `python -m pip install pgserver==0.1.4` then `python tools/postgres_smoke.py`. See [Phase 3–4 verification](docs/phase-3-4/verification.md) for results, browser replay and limitations.
 
 ## Configuration and operator notes
 
@@ -55,6 +57,8 @@ The default test database is freshly migrated SQLite. PostgreSQL is the proposed
 For a **non-demo local or controlled staging** test, unset `LSMS_DEMO`/`LSMS_PREVIEW`, select a separate DB and migrate. Establish operator/approver identities in a private, interactive terminal with `python manage.py enroll_local <username> --new-role ict --totp` and `--new-role head --totp`, respectively, under separate, approved custodians. This command is for trusted DB operators; record authorisation before bootstrapping any role. The key and one-time code must not go into chat, scripts, screen recordings or deployment logs. Create the organisation directory and employees from ICT; for a verified employee run `python manage.py enroll_local <username>` without `--new-role` (`--totp` for an elevated role). In-app delegable grants require an independent decision before ICT activates them. No Django superuser route is exposed. Production sign-in is **blocked** until an approved institutional IdP and MFA integration are implemented and accepted.
 
 ## Documents
+
+- [Phase 3–4 workflow and operator guide](docs/phase-3-4/guide.md) · [Phase 3–4 verification and remaining gates](docs/phase-3-4/verification.md)
 
 - [Phase 2 workflow and operator guide](docs/phase-2/guide.md) · [Phase 2 verification and remaining gates](docs/phase-2/verification.md)
 - [Phase 1 verification and gate](docs/phase-1/verification.md) · [Versioned API contract](docs/api/v1.yaml) · [Dependencies](docs/phase-1/dependencies.md)

@@ -2307,3 +2307,128 @@ select[disabled] {
     flex: 1 1 95px;
   }
 }
+
+/* Specialist workspace: scoped register, agenda, repository and reporting. */
+.row-meta {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.top-rule { border-top: 1px solid var(--border); }
+.calendar-panel { overflow: hidden; }
+.calendar-grid {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.calendar-grid th, .calendar-grid td { text-align: left; }
+.calendar-grid th {
+  font-size: 11px;
+  color: #435671;
+  padding: 9px 12px;
+  background: #f4f7fc;
+}
+.calendar-grid td {
+  min-height: 57px;
+  height: 64px;
+  vertical-align: top;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  font-weight: 620;
+  font-variant-numeric: tabular-nums;
+}
+.calendar-grid td:first-child { border-left: 0; }
+.calendar-grid td:last-child { border-right: 0; }
+.calendar-grid tr:last-child td { border-bottom: 0; }
+.cal-out { color: #576980; background: #f8fafd; }
+.cal-today { box-shadow: inset 0 -2px #3362a9; }
+.cal-selected { background: #eef4ff; }
+.calendar-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  min-width: 31px;
+  min-height: 29px;
+  margin-top: 4px;
+  color: #163e7b;
+  background: #e4eeff;
+  border-radius: 7px;
+}
+.calendar-count:hover { background: #cfdef7; }
+.agenda-list > li { align-items: center; }
+.agenda-list > li > div:last-child { min-width: 0; overflow-wrap: anywhere; }
+.agenda-day {
+  flex: 0 0 46px;
+  min-height: 46px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  background: #eaf2ff;
+  color: #204c8a;
+  border-radius: 10px;
+  line-height: 1.15;
+}
+.agenda-day strong { font-size: 17px; }
+.agenda-day span { font-size: 10px; font-weight: 650; }
+.opinion-copy { padding: 18px 22px 24px; max-width: 82ch; overflow-wrap: anywhere; }
+.opinion-copy h3 { margin: 16px 0 5px; color: #24446e; font-size: 14px; }
+.opinion-copy h3:first-child { margin-top: 0; }
+.opinion-copy p { margin: 0; line-height: 1.65; }
+.report-controls { align-items: end; }
+.report-export { margin-inline-start: auto; }
+.report-values { margin: 0; }
+.report-values > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-top: 1px solid var(--border);
+}
+.report-values dd, .report-months dd {
+  margin: 0;
+  font-weight: 700;
+  color: #1f4b83;
+  font-variant-numeric: tabular-nums;
+}
+.report-months {
+  margin: 0;
+  padding: 16px 20px 20px;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+.report-months > div {
+  text-align: center;
+  padding: 10px 2px;
+  border-radius: 7px;
+  background: #f2f6fc;
+  overflow-wrap: anywhere;
+}
+.report-months dt { margin-bottom: 4px; font-size: 12px; color: #485c76; }
+@media (max-width: 1150px) {
+  .report-months { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+@media (max-width: 550px) {
+  .calendar-grid td, .calendar-grid th { padding: 5px 4px; }
+  .calendar-grid td { height: 56px; }
+  .calendar-grid th { font-size: 10px; }
+  .calendar-count { min-width: 26px; min-height: 25px; }
+  .calendar-panel > header, #agenda > header { flex-wrap: wrap; }
+  .opinion-copy { padding: 16px; }
+  .report-export { margin-inline-start: 0; }
+  .report-months { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.switch-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
+.switch-tabs a {
+  padding: 8px 13px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  color: #435671;
+  background: #fff;
+  font-weight: 640;
+}
+.switch-tabs .selected { color: #183e80; background: #e6efff; border-color: #b8c9ea; }
