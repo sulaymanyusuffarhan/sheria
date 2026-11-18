@@ -1,6 +1,8 @@
 # LSMS — e-GA Version 3.0 assessment mapping
 
-**Draft for review · 18 November 2026** · [Architecture proposal](proposal.md)
+**Design-stage draft · 18 November 2026** · [Architecture proposal](proposal.md)
+
+For the Phases 1–4 implementation and evidence, use the [QA and security gap report](../qa/ega-v3-gap-report.md) and [clause-level requirements matrix](../qa/ega-v3-requirements-matrix.md). The design-stage responses below are retained as planning context, not current verification or acceptance.
 
 **Primary source for all APA-005 clause references below:** e-Government Authority, *Standards and Guidelines for Development, Acquisition, Operation and Maintenance of e-Government Applications*, **eGA/EXT/APA/005, Version 3.0, February 2026** [1](https://www.ega.go.tz/uploads/standarddocuments/sw-1773258298-FINAL%20Reviewed%20Standards%20and%20Guidelines%20for%20Development%20Acqusition%20Operation%20and%20Maintanence%20of%20Government%20Applications%20-%2018%20-2-2026.pdf).
 

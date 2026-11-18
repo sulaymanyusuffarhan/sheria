@@ -58,6 +58,7 @@ For a **non-demo local or controlled staging** test, unset `LSMS_DEMO`/`LSMS_PRE
 
 ## Documents
 
+- [APA-005 v3.0 QA and security gap report](docs/qa/ega-v3-gap-report.md) · [Requirements matrix](docs/qa/ega-v3-requirements-matrix.md) · [Evidence and replay](docs/qa/evidence.md)
 - [Phase 3–4 workflow and operator guide](docs/phase-3-4/guide.md) · [Phase 3–4 verification and remaining gates](docs/phase-3-4/verification.md)
 
 - [Phase 2 workflow and operator guide](docs/phase-2/guide.md) · [Phase 2 verification and remaining gates](docs/phase-2/verification.md)
