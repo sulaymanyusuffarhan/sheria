@@ -1,0 +1,31 @@
+{% load i18n ui %}
+<div class="case-layout case-gap">
+  <section class="panel"><header class="panel-header"><div><h2>{% translate 'Request workflow' %}</h2><p>{% translate 'Actions available to your role and the current stage' %}</p></div><span class="version-tag">{% translate 'Revision' %} {{ active_case.revision }}</span></header>
+    <div class="case-pad">
+      {% if primary_action or case_actions %}<div class="case-actions">
+        {% if primary_action %}<a class="button primary" href="{{ primary_action.url }}">{% icon primary_action.icon 17 %}{{ primary_action.label }}</a>{% endif %}
+        {% for action in case_actions %}<a class="button secondary" href="{{ action.url }}">{% icon action.icon 16 %}{{ action.label }}</a>{% endfor %}
+      </div>{% else %}<p class="form-hint">{% translate 'No workflow action is available for your role at this stage.' %}</p>{% endif %}
+      {% if information %}<div class="case-banner case-inset warn"><div class="case-banner-icon">{% icon 'message' 20 %}</div><div><strong>{% translate 'Additional information requested' %}</strong><p>{{ information.question|linebreaksbr }}</p><p>{% translate 'Response due date' %}: {{ information.due_on|date:'d/m/Y' }}</p>{% if information.replied_at %}<p><strong>{% translate 'Requester replied' %}:</strong> {{ information.reply|linebreaksbr }}</p>{% endif %}</div></div>{% endif %}
+      {% if current_version %}<a class="case-resource" href="{% url 'contract_detail' matter.pk %}"><span class="case-resource-icon">{% icon 'files' 20 %}</span><span><strong>{% translate 'Open contract and checklist' %}</strong><small>{{ current_version.contract.reference }} · {% translate 'Version' %} {{ current_version.number }}</small></span>{% icon 'chevron' 16 %}</a>{% endif %}
+      {% if latest_review %}<a class="case-resource" href="{% url 'case_review' matter.pk latest_review.pk %}"><span class="case-resource-icon">{% icon 'check-shield' 20 %}</span><span><strong>{% translate 'Open latest frozen review' %}</strong><small>{% translate 'Review round' %} {{ latest_review.number }} · {% if latest_review.decision %}{{ latest_review.decision.get_outcome_display }}{% else %}{% translate 'Awaiting Head decision' %}{% endif %}</small></span>{% icon 'chevron' 16 %}</a>{% endif %}
+    </div>
+  </section>
+  <section class="panel"><header class="panel-header"><div><h2>{% translate 'Requester at submission' %}</h2><p>{% translate 'Authoritative unit and submitted contact details' %}</p></div>{% icon 'user' 19 %}</header>
+    <dl class="facts stacked-facts"><dt>{% translate 'Requesting officer' %}</dt><dd>{{ active_case.submission.responsible_officer }}</dd><dt>{% translate 'Office or unit' %}</dt><dd>{{ active_case.submission.office }} · {{ active_case.submission.department }}</dd><dt>{% translate 'Work email or telephone' %}</dt><dd>{{ active_case.submission.contact }}</dd><dt>{% translate 'Required completion date' %}</dt><dd>{{ active_case.submission.required_on }}</dd></dl>
+  </section>
+</div>
+<div class="detail-grid case-gap"><section class="panel"><header class="panel-header"><div><h2>{% translate 'Private documents' %}</h2><p>{% translate 'Only available documents can be downloaded or used as evidence.' %}</p></div>{% icon 'lock' 19 %}</header>
+  <ul class="case-list">
+    {% for doc in case_documents %}<li><span class="case-resource-icon">{% icon 'file' 17 %}</span><div>{% if doc.scan == 'clean' %}<a class="text-link" href="{% url 'legal_document' matter.pk doc.pk %}">{{ doc.name }}</a>{% else %}<strong>{{ doc.name }}</strong>{% endif %}<small>{{ doc.get_kind_display }} · {{ doc.get_scan_display }} · {{ doc.byte_size|filesizeformat }}</small></div></li>
+    {% empty %}<li>{% translate 'No documents uploaded' %}</li>{% endfor %}
+  </ul>
+</section>
+<section class="panel"><header class="panel-header"><div><h2>{% translate 'Internal activity' %}</h2><p>{% translate 'Only visible in Legal Services' %}</p></div>{% icon 'clock' 19 %}</header>
+  <ol class="timeline">{% for event in case_events %}<li><time>{{ event.occurred_at|date:'d/m/Y H:i' }} · {{ event.actor.display_name }}</time><strong>{{ event.label }}</strong>{% if event.reason %}<p>{{ event.reason|linebreaksbr }}</p>{% endif %}</li>{% endfor %}</ol>
+  {% if case_events.has_other_pages %}<div class="case-pad case-actions">{% if case_events.has_previous %}<a class="button secondary small" href="?activity={{ case_events.previous_page_number }}">{% translate 'Newer activity' %}</a>{% endif %}{% if case_events.has_next %}<a class="button secondary small" href="?activity={{ case_events.next_page_number }}">{% translate 'Older activity' %}</a>{% endif %}</div>{% endif %}
+</section></div>
+{% if case_reviews %}<section class="panel case-gap"><header class="panel-header"><h2>{% translate 'Review and decision history' %}</h2>{% icon 'files' 19 %}</header><ul class="case-list">
+  {% for review in case_reviews %}<li><span class="case-resource-icon">{% icon 'check-shield' 17 %}</span><div><a class="text-link" href="{% url 'case_review' matter.pk review.pk %}">{% translate 'Review round' %} {{ review.number }}{% if review.version %} · {% translate 'Version' %} {{ review.version.number }}{% endif %}</a><small>{{ review.submitted_at|date:'d/m/Y H:i' }} · {% if review.decision %}{{ review.decision.get_outcome_display }}{% else %}{% translate 'Awaiting Head decision' %}{% endif %}</small></div></li>{% endfor %}</ul></section>{% endif %}
+{% if past_information %}<section class="panel case-gap"><header class="panel-header"><h2>{% translate 'Verified information requests' %}</h2>{% icon 'message' 19 %}</header><ul class="case-list">
+  {% for info in past_information %}<li><div><strong>{{ info.question }}</strong><p>{{ info.reply|linebreaksbr }}</p><small>{{ info.verified_by.display_name }} · {{ info.verified_at|date:'d/m/Y H:i' }}</small></div></li>{% endfor %}</ul></section>{% endif %}

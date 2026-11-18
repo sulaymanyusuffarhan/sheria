@@ -17,6 +17,8 @@ from django.utils.translation import gettext as _
 from django.utils.translation import gettext_lazy
 from django.views.decorators.http import require_http_methods, require_POST, require_safe
 
+from casework.notices import link_notices, visible_inbox
+
 from . import services
 from .forms import (
     ChangePasswordForm,
@@ -196,20 +198,25 @@ def change_password(request):
 @login_required
 @require_safe
 def inbox(request):
-    items = Paginator(request.user.notifications.all(), 12).get_page(request.GET.get('page'))
+    visible = visible_inbox(request.policy)
+    items = Paginator(visible.select_related('workflow_notice__event'), 12).get_page(
+        request.GET.get('page')
+    )
+    link_notices(items)
     return render(
         request,
         'inbox.html',
-        {'page_obj': items, 'unread': request.user.notifications.filter(read_at__isnull=True).count()},
+        {'page_obj': items, 'unread': visible.filter(read_at__isnull=True).count()},
     )
 
 
 @login_required
 @require_POST
 def mark_read(request, pk=None):
-    qs = request.user.notifications.filter(read_at__isnull=True)
+    visible = visible_inbox(request.policy)
+    qs = visible.filter(read_at__isnull=True)
     if pk is not None:
-        get_object_or_404(request.user.notifications, pk=pk)
+        get_object_or_404(visible, pk=pk)
         qs = qs.filter(pk=pk)
     with transaction.atomic():
         if count := qs.update(read_at=timezone.now()):

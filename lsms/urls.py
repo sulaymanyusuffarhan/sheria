@@ -1,8 +1,9 @@
-"""Phase 1 routes. No framework superuser console. Introduced: 2026-11-18; revisions: Git."""
+"""Application routes. No framework superuser console. Introduced: 2026-11-18; revisions: Git."""
 
 from django.urls import path
 from django.views.i18n import set_language
 
+from casework import views as cases
 from identity import views as identity
 from workspace import views as work
 
@@ -19,10 +20,32 @@ urlpatterns = [
     path('notifications/<int:pk>/read/', identity.mark_read, name='mark_read'),
     path('portal/', work.staff_dashboard, name='staff_dashboard'),
     path('portal/requests/', work.staff_requests, name='staff_requests'),
+    path('portal/requests/new/', cases.new_request, name='new_request'),
+    path('portal/requests/<uuid:pk>/reply/', cases.reply, name='case_reply'),
+    path(
+        'portal/requests/<uuid:pk>/documents/<uuid:document_id>/',
+        cases.download,
+        {'staff': True},
+        name='staff_document',
+    ),
     path('portal/requests/<uuid:pk>/', work.staff_request, name='staff_request'),
     path('admin/', work.admin_home, name='legal_dashboard'),
     path('admin/matters/', work.matter_register, name='matter_register'),
     path('admin/matters/<uuid:pk>/', work.matter_detail, name='matter_detail'),
+    path('admin/matters/<uuid:pk>/actions/<slug:command>/', cases.action, name='case_action'),
+    path('admin/matters/<uuid:pk>/documents/<uuid:document_id>/', cases.download, name='legal_document'),
+    path('admin/matters/<uuid:pk>/reviews/<uuid:review_id>/', cases.review, name='case_review'),
+    path('admin/matters/<uuid:pk>/reviews/<uuid:review_id>/pdf/', cases.export, name='checklist_export'),
+    path('admin/contracts/', cases.register, name='contract_register'),
+    path('admin/contracts/<uuid:pk>/', cases.contract, name='contract_detail'),
+    path(
+        'admin/contracts/<uuid:pk>/versions/<uuid:version_id>/', cases.contract, name='contract_version'
+    ),
+    path(
+        'admin/contracts/<uuid:pk>/versions/<uuid:version_id>/checklist/<slug:code>/',
+        cases.section,
+        name='checklist_section',
+    ),
     path('admin/management/', work.management_dashboard, name='management_dashboard'),
     path('admin/records/', work.records_register, name='records_register'),
     path('admin/ict/', identity.ict_dashboard, name='ict_dashboard'),

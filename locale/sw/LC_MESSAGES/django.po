@@ -1306,3 +1306,1224 @@ msgstr "Nenosiri lako limebadilishwa."
 
 msgid "Your preferences were saved."
 msgstr "Mapendeleo yako yamehifadhiwa."
+
+#. Draft Phase 2 UI translation.
+msgid "New legal request"
+msgstr "Ombi jipya la kisheria"
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"Give Legal Services the information and documents needed to review your "
+"request."
+msgstr ""
+"Ipe Huduma za Sheria taarifa na nyaraka zinazohitajika ili kupitia ombi "
+"lako."
+
+#. Draft Phase 2 UI translation.
+msgid "Request title"
+msgstr "Kichwa cha ombi"
+
+#. Draft Phase 2 UI translation.
+msgid "Office or unit"
+msgstr "Ofisi au kitengo"
+
+#. Draft Phase 2 UI translation.
+msgid "Work email or telephone"
+msgstr "Barua pepe au simu ya kazini"
+
+#. Draft Phase 2 UI translation.
+msgid "Description and background"
+msgstr "Maelezo na usuli"
+
+#. Draft Phase 2 UI translation.
+msgid "Required completion date"
+msgstr "Tarehe inayohitajika ya kukamilisha"
+
+#. Draft Phase 2 UI translation.
+msgid "Requested priority"
+msgstr "Kipaumbele kilichoombwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Contract details"
+msgstr "Taarifa za mkataba"
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"Complete this section for Contract or Memorandum of Understanding requests."
+msgstr "Jaza sehemu hii kwa maombi ya mkataba au hati ya makubaliano."
+
+#. Draft Phase 2 UI translation.
+msgid "Counterparty name"
+msgstr "Jina la mhusika mwingine"
+
+#. Draft Phase 2 UI translation.
+msgid "Contract type"
+msgstr "Aina ya mkataba"
+
+#. Draft Phase 2 UI translation.
+msgid "Contract amount"
+msgstr "Kiasi cha mkataba"
+
+#. Draft Phase 2 UI translation.
+msgid "Currency code"
+msgstr "Msimbo wa sarafu"
+
+#. Draft Phase 2 UI translation.
+msgid "Contract duration"
+msgstr "Muda wa mkataba"
+
+#. Draft Phase 2 UI translation.
+msgid "Contract draft"
+msgstr "Rasimu ya mkataba"
+
+#. Draft Phase 2 UI translation.
+msgid "Supporting information"
+msgstr "Taarifa za ziada"
+
+#. Draft Phase 2 UI translation.
+msgid "Supporting attachment"
+msgstr "Kiambatisho cha ziada"
+
+#. Draft Phase 2 UI translation.
+msgid "Supporting evidence"
+msgstr "Ushahidi wa kuunga mkono"
+
+#. Draft Phase 2 UI translation.
+msgid "PDF, DOCX or XLSX; up to 5 MB each."
+msgstr "PDF, DOCX au XLSX; hadi MB 5 kwa kila faili."
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"I confirm that this request is accurate and that I am authorised to submit "
+"these documents."
+msgstr ""
+"Ninathibitisha kuwa ombi hili ni sahihi na nina mamlaka ya kuwasilisha "
+"nyaraka hizi."
+
+#. Draft Phase 2 UI translation.
+msgid "If you attached a document, select the file again before submitting."
+msgstr "Ikiwa uliambatisha nyaraka, chagua faili tena kabla ya kuwasilisha."
+
+#. Draft Phase 2 UI translation.
+msgid "Submit request"
+msgstr "Wasilisha ombi"
+
+#. Draft Phase 2 UI translation.
+msgid "Submitting as"
+msgstr "Mwasilishaji"
+
+#. Draft Phase 2 UI translation.
+msgid "Requesting officer"
+msgstr "Afisa mwombaji"
+
+#. Draft Phase 2 UI translation.
+msgid "Requesting department"
+msgstr "Idara inayoomba"
+
+#. Draft Phase 2 UI translation.
+msgid "Requesting directorate"
+msgstr "Kurugenzi inayoomba"
+
+#. Draft Phase 2 UI translation.
+msgid "What happens next?"
+msgstr "Nini kinafuata?"
+
+#. Draft Phase 2 UI translation.
+msgid "You get a reference and can track published updates."
+msgstr ""
+"Utapata namba ya kumbukumbu na utaweza kufuatilia taarifa zilizochapishwa."
+
+#. Draft Phase 2 UI translation.
+msgid "Legal Services checks the information and assigns an officer."
+msgstr "Huduma za Sheria hukagua taarifa na kumteua afisa."
+
+#. Draft Phase 2 UI translation.
+msgid "The approved response is issued to your staff portal."
+msgstr "Jibu lililoidhinishwa litatolewa kwenye tovuti yako ya watumishi."
+
+#. Draft Phase 2 UI translation.
+msgid "Your request has been received by Legal Services."
+msgstr "Huduma za Sheria zimepokea ombi lako."
+
+#. Draft Phase 2 UI translation.
+msgid "Your request was accepted and will be handled by Legal Services."
+msgstr "Ombi lako limekubaliwa na litashughulikiwa na Huduma za Sheria."
+
+#. Draft Phase 2 UI translation.
+msgid "Your response was received and is awaiting verification."
+msgstr "Jibu lako limepokelewa na linasubiri uhakiki."
+
+#. Draft Phase 2 UI translation.
+msgid "Legal Services verified your response and resumed review."
+msgstr "Huduma za Sheria zimehakiki jibu lako na kuendelea na mapitio."
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"Review is complete. Legal Services will issue the approved response "
+"separately."
+msgstr ""
+"Mapitio yamekamilika. Huduma za Sheria zitatoa jibu lililoidhinishwa kwa "
+"hatua tofauti."
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"A new review is in progress. Earlier responses are retained as history."
+msgstr ""
+"Mapitio mapya yanaendelea. Majibu ya awali yamehifadhiwa kama historia."
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"Legal Services has closed this request. This does not change the earlier "
+"outcome."
+msgstr ""
+"Huduma za Sheria zimefunga ombi hili. Hilo halibadili uamuzi wa awali."
+
+#. Draft Phase 2 UI translation.
+msgid "Request submitted. Keep the reference for tracking."
+msgstr "Ombi limewasilishwa. Hifadhi namba ya kumbukumbu kwa ufuatiliaji."
+
+#. Draft Phase 2 UI translation.
+msgid "The required completion date cannot be in the past."
+msgstr "Tarehe ya kukamilisha haiwezi kuwa tarehe iliyopita."
+
+#. Draft Phase 2 UI translation.
+msgid "Additional information requested"
+msgstr "Taarifa za ziada zimeombwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Response due date"
+msgstr "Tarehe ya mwisho ya kujibu"
+
+#. Draft Phase 2 UI translation.
+msgid "Respond to Legal Services"
+msgstr "Jibu Huduma za Sheria"
+
+#. Draft Phase 2 UI translation.
+msgid "Send information"
+msgstr "Tuma taarifa"
+
+#. Draft Phase 2 UI translation.
+msgid "Send response"
+msgstr "Tuma jibu"
+
+#. Draft Phase 2 UI translation.
+msgid "Your response"
+msgstr "Jibu lako"
+
+#. Draft Phase 2 UI translation.
+msgid "Response sent for verification."
+msgstr "Jibu limetumwa kwa uhakiki."
+
+#. Draft Phase 2 UI translation.
+msgid "Replacement contract draft"
+msgstr "Rasimu mbadala ya mkataba"
+
+#. Draft Phase 2 UI translation.
+msgid "Available documents"
+msgstr "Nyaraka zinazopatikana"
+
+#. Draft Phase 2 UI translation.
+msgid "Your uploads and copies released to you by Legal Services"
+msgstr "Nyaraka ulizopakia na nakala ulizopewa na Huduma za Sheria"
+
+#. Draft Phase 2 UI translation.
+msgid "Your legal request was submitted"
+msgstr "Ombi lako la kisheria limewasilishwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Your legal request was accepted"
+msgstr "Ombi lako la kisheria limekubaliwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Your legal request was closed"
+msgstr "Ombi lako la kisheria limefungwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Legal Services requested more information"
+msgstr "Huduma za Sheria zimeomba taarifa zaidi"
+
+#. Draft Phase 2 UI translation.
+msgid "Your response was verified"
+msgstr "Jibu lako limehakikiwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Head review is complete. The response is pending issue."
+msgstr "Mapitio ya Mkuu yamekamilika. Jibu linasubiri kutolewa."
+
+#. Draft Phase 2 UI translation.
+msgid "A decision is available for your request"
+msgstr "Uamuzi wa ombi lako unapatikana"
+
+#. Draft Phase 2 UI translation.
+msgid "Your approved legal response is available"
+msgstr "Jibu lako la kisheria lililoidhinishwa linapatikana"
+
+#. Draft Phase 2 UI translation.
+msgid "A new review is in progress for your request"
+msgstr "Mapitio mapya ya ombi lako yanaendelea"
+
+#. Draft Phase 2 UI translation.
+msgid "Open related request"
+msgstr "Fungua ombi husika"
+
+#. Draft Phase 2 UI translation.
+msgid "Open your staff portal to see the published status and next steps."
+msgstr ""
+"Fungua tovuti ya watumishi ili kuona hali iliyochapishwa na hatua "
+"zinazofuata."
+
+#. Draft Phase 2 UI translation.
+msgid "Open the legal workspace to view authorised details."
+msgstr "Fungua eneo la kazi la sheria kuona taarifa unazoruhusiwa."
+
+#. Draft Phase 2 UI translation.
+msgid "New request for preliminary review"
+msgstr "Ombi jipya la mapitio ya awali"
+
+#. Draft Phase 2 UI translation.
+msgid "Accepted request to assign"
+msgstr "Ombi lililokubaliwa linasubiri kupangiwa afisa"
+
+#. Draft Phase 2 UI translation.
+msgid "Legal work assigned to you"
+msgstr "Umepewa kazi ya kisheria"
+
+#. Draft Phase 2 UI translation.
+msgid "A staff response is ready for verification"
+msgstr "Jibu la mtumishi liko tayari kuhakikiwa"
+
+#. Draft Phase 2 UI translation.
+msgid "A frozen review is awaiting a Head decision"
+msgstr "Mapitio yaliyofungwa yanasubiri uamuzi wa Mkuu"
+
+#. Draft Phase 2 UI translation.
+msgid "Head decision recorded"
+msgstr "Uamuzi wa Mkuu umerekodiwa"
+
+#. Draft Phase 2 UI translation.
+msgid "A review was returned for changes"
+msgstr "Mapitio yamerejeshwa kwa marekebisho"
+
+#. Draft Phase 2 UI translation.
+msgid "Conditions must be verified before clearance"
+msgstr "Masharti lazima yahakikiwe kabla ya kibali"
+
+#. Draft Phase 2 UI translation.
+msgid "A review decision was recorded"
+msgstr "Uamuzi wa mapitio umerekodiwa"
+
+#. Draft Phase 2 UI translation.
+msgid "A contract needs a new version review"
+msgstr "Mkataba unahitaji mapitio ya toleo jipya"
+
+#. Draft Phase 2 UI translation.
+msgid "Start preliminary review"
+msgstr "Anza mapitio ya awali"
+
+#. Draft Phase 2 UI translation.
+msgid "Accept request"
+msgstr "Kubali ombi"
+
+#. Draft Phase 2 UI translation.
+msgid "Reject at intake"
+msgstr "Kataa ombi katika hatua ya awali"
+
+#. Draft Phase 2 UI translation.
+msgid "Request additional information"
+msgstr "Omba taarifa za ziada"
+
+#. Draft Phase 2 UI translation.
+msgid "Verify staff response"
+msgstr "Hakiki jibu la mtumishi"
+
+#. Draft Phase 2 UI translation.
+msgid "Assign legal officer"
+msgstr "Pangia afisa wa sheria"
+
+#. Draft Phase 2 UI translation.
+msgid "Begin legal review"
+msgstr "Anza mapitio ya kisheria"
+
+#. Draft Phase 2 UI translation.
+msgid "Add internal note"
+msgstr "Ongeza dokezo la ndani"
+
+#. Draft Phase 2 UI translation.
+msgid "Upload legal document"
+msgstr "Pakia nyaraka za kisheria"
+
+#. Draft Phase 2 UI translation.
+msgid "Recheck quarantined document"
+msgstr "Kagua tena nyaraka zilizotengwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Register new contract version"
+msgstr "Sajili toleo jipya la mkataba"
+
+#. Draft Phase 2 UI translation.
+msgid "Send to Head of Legal Services"
+msgstr "Tuma kwa Mkuu wa Huduma za Sheria"
+
+#. Draft Phase 2 UI translation.
+msgid "Record Head decision"
+msgstr "Rekodi uamuzi wa Mkuu"
+
+#. Draft Phase 2 UI translation.
+msgid "Issue approved response"
+msgstr "Toa jibu lililoidhinishwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Open a new contract review"
+msgstr "Fungua mapitio mapya ya mkataba"
+
+#. Draft Phase 2 UI translation.
+msgid "Record external execution"
+msgstr "Rekodi utiwaji saini nje ya mfumo"
+
+#. Draft Phase 2 UI translation.
+msgid "Close request"
+msgstr "Funga ombi"
+
+#. Draft Phase 2 UI translation.
+msgid "Workflow action saved."
+msgstr "Hatua imehifadhiwa."
+
+#. Draft Phase 2 UI translation.
+msgid "Request workflow"
+msgstr "Mchakato wa ombi"
+
+#. Draft Phase 2 UI translation.
+msgid "Actions available to your role and the current stage"
+msgstr "Hatua zinazopatikana kwa jukumu lako katika hatua hii"
+
+#. Draft Phase 2 UI translation.
+msgid "Internal reason"
+msgstr "Sababu ya ndani"
+
+#. Draft Phase 2 UI translation.
+msgid "Staff-facing message"
+msgstr "Ujumbe kwa mwombaji"
+
+#. Draft Phase 2 UI translation.
+msgid "Published to the requester. Do not include privileged information."
+msgstr ""
+"Ujumbe utachapishwa kwa mwombaji. Usiweke taarifa za siri za kisheria."
+
+#. Draft Phase 2 UI translation.
+msgid "I verified the request details, authority and required evidence."
+msgstr "Nimehakiki taarifa za ombi, mamlaka na ushahidi unaohitajika."
+
+#. Draft Phase 2 UI translation.
+msgid "Review due date"
+msgstr "Tarehe ya mwisho ya mapitio"
+
+#. Draft Phase 2 UI translation.
+msgid "Private document"
+msgstr "Nyaraka isiyowekwa wazi"
+
+#. Draft Phase 2 UI translation.
+msgid "Private documents"
+msgstr "Nyaraka zisizowekwa wazi"
+
+#. Draft Phase 2 UI translation.
+msgid "Document purpose"
+msgstr "Madhumuni ya nyaraka"
+
+#. Draft Phase 2 UI translation.
+msgid "Request attachment"
+msgstr "Kiambatisho cha ombi"
+
+#. Draft Phase 2 UI translation.
+msgid "Quarantined document"
+msgstr "Nyaraka iliyotengwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Quarantined — awaiting scan"
+msgstr "Imetengwa — inasubiri ukaguzi"
+
+#. Draft Phase 2 UI translation.
+msgid "Available"
+msgstr "Inapatikana"
+
+#. Draft Phase 2 UI translation.
+msgid "Blocked"
+msgstr "Imezuiwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Internal evidence"
+msgstr "Ushahidi wa ndani"
+
+#. Draft Phase 2 UI translation.
+msgid "Proposed deliverable"
+msgstr "Nyaraka inayopendekezwa kutolewa"
+
+#. Draft Phase 2 UI translation.
+msgid "Only available documents can be downloaded or used as evidence."
+msgstr ""
+"Nyaraka zinazopatikana pekee ndizo zinaweza kupakuliwa au kutumiwa kama "
+"ushahidi."
+
+#. Draft Phase 2 UI translation.
+msgid "No documents uploaded"
+msgstr "Hakuna nyaraka zilizopakiwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Requester at submission"
+msgstr "Mwombaji wakati wa kuwasilisha"
+
+#. Draft Phase 2 UI translation.
+msgid "Authoritative unit and submitted contact details"
+msgstr "Kitengo rasmi na mawasiliano yaliyowasilishwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Internal activity"
+msgstr "Shughuli za ndani"
+
+#. Draft Phase 2 UI translation.
+msgid "Only visible in Legal Services"
+msgstr "Huonekana ndani ya Huduma za Sheria pekee"
+
+#. Draft Phase 2 UI translation.
+msgid "No workflow action is available for your role at this stage."
+msgstr "Hakuna hatua inayopatikana kwa jukumu lako katika hatua hii."
+
+#. Draft Phase 2 UI translation.
+msgid "Verified information requests"
+msgstr "Maombi ya taarifa yaliyohakikiwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Requester replied"
+msgstr "Mwombaji amejibu"
+
+#. Draft Phase 2 UI translation.
+msgid "Open contract and checklist"
+msgstr "Fungua mkataba na orodha hakiki"
+
+#. Draft Phase 2 UI translation.
+msgid "Open latest frozen review"
+msgstr "Fungua mapitio ya karibuni yaliyofungwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Review and decision history"
+msgstr "Historia ya mapitio na maamuzi"
+
+#. Draft Phase 2 UI translation.
+msgid "Revision"
+msgstr "Marekebisho"
+
+#. Draft Phase 2 UI translation.
+msgid "Newer activity"
+msgstr "Shughuli mpya zaidi"
+
+#. Draft Phase 2 UI translation.
+msgid "Older activity"
+msgstr "Shughuli za awali"
+
+#. Draft Phase 2 UI translation.
+msgid "Contract register"
+msgstr "Daftari la mikataba"
+
+#. Draft Phase 2 UI translation.
+msgid "Registered contracts"
+msgstr "Mikataba iliyosajiliwa"
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"Track registered contracts, current versions and execution records within "
+"your scope."
+msgstr ""
+"Fuatilia mikataba iliyosajiliwa, matoleo ya sasa na rekodi za utiwaji saini "
+"unazoruhusiwa kuona."
+
+#. Draft Phase 2 UI translation.
+msgid "Reference, title or counterparty"
+msgstr "Kumbukumbu, kichwa au mhusika mwingine"
+
+#. Draft Phase 2 UI translation.
+msgid "Show"
+msgstr "Onyesha"
+
+#. Draft Phase 2 UI translation.
+msgid "All contracts"
+msgstr "Mikataba yote"
+
+#. Draft Phase 2 UI translation.
+msgid "In review"
+msgstr "Inaendelea kupitiwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Execution recorded"
+msgstr "Utiwaji saini umerekodiwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Contract"
+msgstr "Mkataba"
+
+#. Draft Phase 2 UI translation.
+msgid "Request status"
+msgstr "Hali ya ombi"
+
+#. Draft Phase 2 UI translation.
+msgid "External signing date"
+msgstr "Tarehe ya kutiwa saini nje ya mfumo"
+
+#. Draft Phase 2 UI translation.
+msgid "No contracts match this view"
+msgstr "Hakuna mikataba inayolingana na chaguo hili"
+
+#. Draft Phase 2 UI translation.
+msgid "Contract detail"
+msgstr "Taarifa za mkataba"
+
+#. Draft Phase 2 UI translation.
+msgid "Contract checklist"
+msgstr "Orodha hakiki ya mkataba"
+
+#. Draft Phase 2 UI translation.
+msgid "Open legal request"
+msgstr "Fungua ombi la kisheria"
+
+#. Draft Phase 2 UI translation.
+msgid "Checklist template information"
+msgstr "Taarifa za kiolezo cha orodha hakiki"
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"Draft digital checklist. DLS must verify the controlled wording and "
+"translation."
+msgstr ""
+"Rasimu ya orodha hakiki ya kidijitali. Kurugenzi ya Huduma za Sheria lazima "
+"ihakiki maneno rasmi na tafsiri yake."
+
+#. Draft Phase 2 UI translation.
+msgid "Draft template"
+msgstr "Kiolezo cha rasimu"
+
+#. Draft Phase 2 UI translation.
+msgid "Template revision"
+msgstr "Toleo la kiolezo"
+
+#. Draft Phase 2 UI translation.
+msgid "Contract Identification Details"
+msgstr "Taarifa za Utambulisho wa Mkataba"
+
+#. Draft Phase 2 UI translation.
+msgid "Contract reference"
+msgstr "Kumbukumbu ya mkataba"
+
+#. Draft Phase 2 UI translation.
+msgid "Contract title"
+msgstr "Kichwa cha mkataba"
+
+#. Draft Phase 2 UI translation.
+msgid "Contract value and currency"
+msgstr "Thamani na sarafu ya mkataba"
+
+#. Draft Phase 2 UI translation.
+msgid "Date submitted"
+msgstr "Tarehe ya kuwasilishwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Responsible officer"
+msgstr "Afisa anayehusika"
+
+#. Draft Phase 2 UI translation.
+msgid "Assigned legal officer"
+msgstr "Afisa wa sheria aliyepangiwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Version"
+msgstr "Toleo"
+
+#. Draft Phase 2 UI translation.
+msgid "Current version"
+msgstr "Toleo la sasa"
+
+#. Draft Phase 2 UI translation.
+msgid "Historical version"
+msgstr "Toleo la awali"
+
+#. Draft Phase 2 UI translation.
+msgid "Version history"
+msgstr "Historia ya matoleo"
+
+#. Draft Phase 2 UI translation.
+msgid "Earlier drafts and decisions are retained."
+msgstr "Rasimu na maamuzi ya awali huhifadhiwa."
+
+#. Draft Phase 2 UI translation.
+msgid "Earlier clearance is historical"
+msgstr "Kibali cha awali kimehifadhiwa kama historia"
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"A new contract version and decision are required. Earlier decisions and "
+"issues remain on record."
+msgstr ""
+"Toleo jipya la mkataba na uamuzi mpya vinahitajika. Maamuzi na majibu "
+"yaliyotolewa awali yanabaki kwenye kumbukumbu."
+
+#. Draft Phase 2 UI translation.
+msgid "Exact draft"
+msgstr "Rasimu iliyopitiwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Pre-clearance checklist"
+msgstr "Orodha hakiki kabla ya kibali"
+
+#. Draft Phase 2 UI translation.
+msgid "Pre-clearance review"
+msgstr "Mapitio kabla ya kibali"
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"Parts I–X check completion; Part XI records the legal officer’s risk "
+"assessment."
+msgstr ""
+"Sehemu I–X zinahusu uhakiki; Sehemu XI inarekodi tathmini ya hatari ya afisa"
+" wa sheria."
+
+#. Draft Phase 2 UI translation.
+msgid "Preliminary Review"
+msgstr "Mapitio ya Awali"
+
+#. Draft Phase 2 UI translation.
+msgid "Contracting Parties Review"
+msgstr "Mapitio ya Wahusika wa Mkataba"
+
+#. Draft Phase 2 UI translation.
+msgid "Legal and Regulatory Compliance Review"
+msgstr "Mapitio ya Uzingatiaji wa Sheria na Kanuni"
+
+#. Draft Phase 2 UI translation.
+msgid "Contract Terms Review"
+msgstr "Mapitio ya Masharti ya Mkataba"
+
+#. Draft Phase 2 UI translation.
+msgid "Financial Review"
+msgstr "Mapitio ya Fedha"
+
+#. Draft Phase 2 UI translation.
+msgid "Intellectual Property and Content Review"
+msgstr "Mapitio ya Hakimiliki, Miliki Bunifu na Maudhui"
+
+#. Draft Phase 2 UI translation.
+msgid "Risk Allocation Review"
+msgstr "Mapitio ya Mgawanyo wa Hatari"
+
+#. Draft Phase 2 UI translation.
+msgid "Digital, ICT and Data Protection Review"
+msgstr "Mapitio ya Huduma za Kidijitali, TEHAMA na Ulinzi wa Data"
+
+#. Draft Phase 2 UI translation.
+msgid "Termination and Dispute Management"
+msgstr "Usitishaji na Usimamizi wa Migogoro"
+
+#. Draft Phase 2 UI translation.
+msgid "Counterparty Due Diligence"
+msgstr "Uhakiki wa Mhusika Mwingine"
+
+#. Draft Phase 2 UI translation.
+msgid "Risk Classification"
+msgstr "Uainishaji wa Hatari"
+
+#. Draft Phase 2 UI translation.
+msgid "Risk classification"
+msgstr "Uainishaji wa hatari"
+
+#. Draft Phase 2 UI translation.
+msgid "Approval and Legal Clearance"
+msgstr "Idhini na Kibali cha Kisheria"
+
+#. Draft Phase 2 UI translation.
+msgid "Post-Execution Requirements"
+msgstr "Mahitaji Baada ya Kutiwa Saini"
+
+#. Draft Phase 2 UI translation.
+msgid "Post-execution review"
+msgstr "Mapitio baada ya kutiwa saini"
+
+#. Draft Phase 2 UI translation.
+msgid "Back to checklist"
+msgstr "Rudi kwenye orodha hakiki"
+
+#. Draft Phase 2 UI translation.
+msgid "Edit section"
+msgstr "Hariri sehemu"
+
+#. Draft Phase 2 UI translation.
+msgid "checks complete"
+msgstr "vipengele vimekamilika"
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"Save one section at a time. Blank means unanswered; No and N/A need a reason"
+" before review."
+msgstr ""
+"Hifadhi sehemu moja kwa wakati. Nafasi tupu haijajibiwa; Hapana na Haihusiki"
+" zinahitaji sababu kabla ya mapitio."
+
+#. Draft Phase 2 UI translation.
+msgid "Save section"
+msgstr "Hifadhi sehemu"
+
+#. Draft Phase 2 UI translation.
+msgid "Save checklist section"
+msgstr "Hifadhi sehemu ya orodha hakiki"
+
+#. Draft Phase 2 UI translation.
+msgid "Checklist section saved."
+msgstr "Sehemu ya orodha hakiki imehifadhiwa."
+
+#. Draft Phase 2 UI translation.
+msgid "Answer"
+msgstr "Jibu"
+
+#. Draft Phase 2 UI translation.
+msgid "Unanswered"
+msgstr "Haijajibiwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Yes"
+msgstr "Ndiyo"
+
+#. Draft Phase 2 UI translation.
+msgid "No"
+msgstr "Hapana"
+
+#. Draft Phase 2 UI translation.
+msgid "N/A"
+msgstr "Haihusiki"
+
+#. Draft Phase 2 UI translation.
+msgid "Remarks"
+msgstr "Maoni"
+
+#. Draft Phase 2 UI translation.
+msgid "Description"
+msgstr "Maelezo"
+
+#. Draft Phase 2 UI translation.
+msgid "Risk assessment"
+msgstr "Tathmini ya hatari"
+
+#. Draft Phase 2 UI translation.
+msgid "Risk category"
+msgstr "Aina ya hatari"
+
+#. Draft Phase 2 UI translation.
+msgid "Likelihood"
+msgstr "Uwezekano"
+
+#. Draft Phase 2 UI translation.
+msgid "Impact"
+msgstr "Athari"
+
+#. Draft Phase 2 UI translation.
+msgid "Mitigation"
+msgstr "Hatua za kupunguza hatari"
+
+#. Draft Phase 2 UI translation.
+msgid "Responsible person"
+msgstr "Mtu anayewajibika"
+
+#. Draft Phase 2 UI translation.
+msgid "Medium"
+msgstr "Wastani"
+
+#. Draft Phase 2 UI translation.
+msgid "Low Risk"
+msgstr "Hatari Ndogo"
+
+#. Draft Phase 2 UI translation.
+msgid "Medium Risk"
+msgstr "Hatari ya Wastani"
+
+#. Draft Phase 2 UI translation.
+msgid "High Risk"
+msgstr "Hatari Kubwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Strategic/Board-Level Risk"
+msgstr "Hatari ya Kimkakati / ya Kiwango cha Bodi"
+
+#. Draft Phase 2 UI translation.
+msgid "Not recorded"
+msgstr "Haijarekodiwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Select a risk classification."
+msgstr "Chagua kiwango cha hatari."
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"Complete all 79 checks in Parts I–X. Give a reason for every No or N/A."
+msgstr ""
+"Kamilisha vipengele vyote 79 vya Sehemu I–X. Eleza sababu kwa kila Hapana au"
+" Haihusiki."
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"Record the risk classification and at least one risk assessment in Part XI."
+msgstr ""
+"Rekodi uainishaji wa hatari na angalau tathmini moja katika Sehemu XI."
+
+#. Draft Phase 2 UI translation.
+msgid "Send for Head review"
+msgstr "Tuma kwa mapitio ya Mkuu"
+
+#. Draft Phase 2 UI translation.
+msgid "Review frozen and sent to the Head of Legal Services."
+msgstr "Mapitio yamefungwa na yametumwa kwa Mkuu wa Huduma za Sheria."
+
+#. Draft Phase 2 UI translation.
+msgid "Legal officer recommendation"
+msgstr "Pendekezo la afisa wa sheria"
+
+#. Draft Phase 2 UI translation.
+msgid "Approved – Legally Acceptable"
+msgstr "Imeidhinishwa – Inakubalika Kisheria"
+
+#. Draft Phase 2 UI translation.
+msgid "Approved Subject to Amendments"
+msgstr "Imeidhinishwa kwa Sharti la Marekebisho"
+
+#. Draft Phase 2 UI translation.
+msgid "Requires Further Negotiation"
+msgstr "Inahitaji Majadiliano Zaidi"
+
+#. Draft Phase 2 UI translation.
+msgid "Not Recommended for Approval"
+msgstr "Haipendekezwi Kuidhinishwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Internal rationale"
+msgstr "Ufafanuzi wa ndani"
+
+#. Draft Phase 2 UI translation.
+msgid "Required amendments or negotiation steps"
+msgstr "Marekebisho au hatua za majadiliano zinazohitajika"
+
+#. Draft Phase 2 UI translation.
+msgid "Earlier conditions — not a clearance"
+msgstr "Masharti ya awali — si kibali"
+
+#. Draft Phase 2 UI translation.
+msgid "Verification of earlier conditions"
+msgstr "Uhakiki wa masharti ya awali"
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"I confirm this recommendation and its evidence are ready to freeze for Head "
+"review."
+msgstr ""
+"Ninathibitisha kuwa pendekezo hili na ushahidi wake viko tayari kufungwa kwa"
+" mapitio ya Mkuu."
+
+#. Draft Phase 2 UI translation.
+msgid "View review"
+msgstr "Angalia mapitio"
+
+#. Draft Phase 2 UI translation.
+msgid "Frozen package"
+msgstr "Kifurushi kilichofungwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Frozen review package"
+msgstr "Kifurushi cha mapitio kilichofungwa"
+
+#. Draft Phase 2 UI translation.
+msgid "No frozen recommendation yet"
+msgstr "Hakuna pendekezo lililofungwa bado"
+
+#. Draft Phase 2 UI translation.
+msgid "Review round"
+msgstr "Awamu ya mapitio"
+
+#. Draft Phase 2 UI translation.
+msgid "Awaiting Head decision"
+msgstr "Inasubiri uamuzi wa Mkuu"
+
+#. Draft Phase 2 UI translation.
+msgid "Read-only record"
+msgstr "Rekodi ya kusoma tu"
+
+#. Draft Phase 2 UI translation.
+msgid "Recommendation authenticated and submitted"
+msgstr "Pendekezo limethibitishwa na kuwasilishwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Authenticated legal session"
+msgstr "Kipindi cha kazi ya kisheria kilichothibitishwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Evidence in this package"
+msgstr "Ushahidi katika kifurushi hiki"
+
+#. Draft Phase 2 UI translation.
+msgid "No attached evidence"
+msgstr "Hakuna ushahidi ulioambatishwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Files proposed for release"
+msgstr "Faili zinazopendekezwa kutolewa"
+
+#. Draft Phase 2 UI translation.
+msgid "Download checklist PDF"
+msgstr "Pakua orodha hakiki ya PDF"
+
+#. Draft Phase 2 UI translation.
+msgid "Expand a section to inspect answers, remarks and evidence."
+msgstr "Fungua sehemu ili kukagua majibu, maoni na ushahidi."
+
+#. Draft Phase 2 UI translation.
+msgid "Frozen checklist responses"
+msgstr "Majibu yaliyofungwa ya orodha hakiki"
+
+#. Draft Phase 2 UI translation.
+msgid "Proposed staff response"
+msgstr "Jibu linalopendekezwa kwa mwombaji"
+
+#. Draft Phase 2 UI translation.
+msgid "Proposed files for release"
+msgstr "Faili zinazopendekezwa kutolewa"
+
+#. Draft Phase 2 UI translation.
+msgid "Head decision"
+msgstr "Uamuzi wa Mkuu"
+
+#. Draft Phase 2 UI translation.
+msgid "Decision recorded"
+msgstr "Uamuzi umerekodiwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Head decision recorded."
+msgstr "Uamuzi wa Mkuu umerekodiwa."
+
+#. Draft Phase 2 UI translation.
+msgid "Approve / clear this revision"
+msgstr "Idhinisha / toa kibali kwa toleo hili"
+
+#. Draft Phase 2 UI translation.
+msgid "Return for changes"
+msgstr "Rudisha kwa marekebisho"
+
+#. Draft Phase 2 UI translation.
+msgid "Conditional — not cleared"
+msgstr "Ina masharti — haina kibali"
+
+#. Draft Phase 2 UI translation.
+msgid "Reject / not recommended"
+msgstr "Kataa / haipendekezwi"
+
+#. Draft Phase 2 UI translation.
+msgid "Internal decision rationale"
+msgstr "Sababu za ndani za uamuzi"
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"I am independent of the submission and recommendation and have no conflict "
+"of interest."
+msgstr ""
+"Sikuhusika na uwasilishaji wala pendekezo, na sina mgongano wa maslahi."
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"I verified all applicable institutional prerequisites and have recorded the "
+"basis."
+msgstr ""
+"Nimehakiki masharti yote ya awali ya taasisi yanayohusika na kurekodi msingi"
+" wa uhakiki huo."
+
+#. Draft Phase 2 UI translation.
+msgid "Escalation evidence"
+msgstr "Ushahidi wa kuwasilisha suala ngazi ya juu"
+
+#. Draft Phase 2 UI translation.
+msgid "Conditions and required verification"
+msgstr "Masharti na uhakiki unaohitajika"
+
+#. Draft Phase 2 UI translation.
+msgid "Condition due date"
+msgstr "Tarehe ya mwisho ya kutimiza masharti"
+
+#. Draft Phase 2 UI translation.
+msgid "Staff-facing disposition if rejected"
+msgstr "Uamuzi kwa mwombaji endapo ombi limekataliwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Fresh one-time authenticator code"
+msgstr "Msimbo mpya wa uthibitisho wa matumizi moja"
+
+#. Draft Phase 2 UI translation.
+msgid "Fresh authenticator code verified"
+msgstr "Msimbo mpya wa uthibitisho umehakikiwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Simulated confirmation"
+msgstr "Uthibitisho wa majaribio"
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"I confirm this is a simulated decision on fictional data, not MFA or a legal"
+" signature."
+msgstr ""
+"Ninathibitisha kuwa huu ni uamuzi wa majaribio kwa data ya kubuniwa, si "
+"uthibitisho wa hatua nyingi wala saini ya kisheria."
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"Fresh authentication failed. Wait for a new authenticator code and try "
+"again."
+msgstr ""
+"Uthibitisho umeshindikana. Subiri msimbo mpya wa uthibitisho na ujaribu "
+"tena."
+
+#. Draft Phase 2 UI translation.
+msgid "Legal clearance is not contract execution."
+msgstr "Kibali cha kisheria si kutiwa saini kwa mkataba."
+
+#. Draft Phase 2 UI translation.
+msgid "Approved staff response"
+msgstr "Jibu lililoidhinishwa kwa mwombaji"
+
+#. Draft Phase 2 UI translation.
+msgid "No documents will be released."
+msgstr "Hakuna nyaraka zitakazotolewa."
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"I confirm that only the reviewed response and selected versions will be "
+"issued."
+msgstr ""
+"Ninathibitisha kuwa jibu lililopitiwa na matoleo yaliyochaguliwa pekee ndiyo"
+" yatatolewa."
+
+#. Draft Phase 2 UI translation.
+msgid "Approved response issued to the requester."
+msgstr "Jibu lililoidhinishwa limetolewa kwa mwombaji."
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"Available only after external execution is recorded. It does not block pre-"
+"clearance."
+msgstr ""
+"Inapatikana baada ya kurekodi utiwaji saini nje ya mfumo. Haizuii mapitio "
+"kabla ya kibali."
+
+#. Draft Phase 2 UI translation.
+msgid "No execution recorded. Legal clearance is not contract execution."
+msgstr ""
+"Hakuna utiwaji saini uliorekodiwa. Kibali cha kisheria si kutiwa saini kwa "
+"mkataba."
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"Not part of this pre-clearance decision. See the contract version for "
+"separate execution records."
+msgstr ""
+"Si sehemu ya uamuzi huu wa kibali. Angalia toleo la mkataba kwa rekodi "
+"tofauti za utiwaji saini."
+
+#. Draft Phase 2 UI translation.
+msgid "View this contract version"
+msgstr "Angalia toleo hili la mkataba"
+
+#. Draft Phase 2 UI translation.
+msgid "Edit Part XIII"
+msgstr "Hariri Sehemu XIII"
+
+#. Draft Phase 2 UI translation.
+msgid "Execution follow-up"
+msgstr "Ufuatiliaji baada ya kutiwa saini"
+
+#. Draft Phase 2 UI translation.
+msgid "Date signed"
+msgstr "Tarehe ya kutiwa saini"
+
+#. Draft Phase 2 UI translation.
+msgid "Effective date"
+msgstr "Tarehe ya kuanza kutumika"
+
+#. Draft Phase 2 UI translation.
+msgid "Expiry date"
+msgstr "Tarehe ya kuisha"
+
+#. Draft Phase 2 UI translation.
+msgid "Signed counterpart"
+msgstr "Nakala iliyotiwa saini"
+
+#. Draft Phase 2 UI translation.
+msgid "Verified external signatories"
+msgstr "Watia saini waliohakikiwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Authority and prerequisite evidence references"
+msgstr "Kumbukumbu za ushahidi wa mamlaka na masharti ya awali"
+
+#. Draft Phase 2 UI translation.
+msgid "Authorised contract manager"
+msgstr "Msimamizi wa mkataba aliyeidhinishwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Monitoring and follow-up plan"
+msgstr "Mpango wa uangalizi na ufuatiliaji"
+
+#. Draft Phase 2 UI translation.
+msgid "Archive reference for signed original"
+msgstr "Kumbukumbu ya hifadhi ya nakala asili iliyotiwa saini"
+
+#. Draft Phase 2 UI translation.
+msgid "Finalise and lock the post-execution review."
+msgstr "Kamilisha na funga mapitio baada ya kutiwa saini."
+
+#. Draft Phase 2 UI translation.
+msgid "Finalised"
+msgstr "Imekamilishwa"
+
+#. Draft Phase 2 UI translation.
+msgid "Request changed"
+msgstr "Ombi limebadilika"
+
+#. Draft Phase 2 UI translation.
+msgid "This request changed. Go back and reload it before trying again."
+msgstr ""
+"Ombi hili limebadilika. Rudi na upakie upya ukurasa kabla ya kujaribu tena."
+
+#. Draft Phase 2 UI translation.
+msgid "Open latest record"
+msgstr "Fungua rekodi ya sasa"
+
+#. Draft Phase 2 UI translation.
+msgid "Document unavailable"
+msgstr "Nyaraka haipatikani"
+
+#. Draft Phase 2 UI translation.
+msgid "Private document storage is not configured. Contact ICT."
+msgstr "Hifadhi ya nyaraka binafsi haijasanidiwa. Wasiliana na TEHAMA."
+
+#. Draft Phase 2 UI translation.
+msgid "This private document cannot be verified. Contact ICT."
+msgstr "Nyaraka hii haiwezi kuhakikiwa. Wasiliana na TEHAMA."
+
+#. Draft Phase 2 UI translation.
+msgid "Use a PDF, DOCX or XLSX file with a valid name."
+msgstr "Tumia faili ya PDF, DOCX au XLSX yenye jina halali."
+
+#. Draft Phase 2 UI translation.
+msgid "Each document must be between 1 byte and 5 MB."
+msgstr "Kila nyaraka lazima iwe na ukubwa wa baiti 1 hadi MB 5."
+
+#. Draft Phase 2 UI translation.
+msgid "This upload exceeds the permitted request size."
+msgstr "Ukubwa wa upakiaji umezidi kiwango kinachoruhusiwa."
+
+#. Draft Phase 2 UI translation.
+msgid ""
+"This workspace contains synthetic records for demonstration and testing."
+msgstr ""
+"Eneo hili la kazi lina kumbukumbu za kubuniwa kwa maonesho na majaribio."
+
+#. Draft Phase 2 UI translation.
+msgid "Synthetic data · Phase 2"
+msgstr "Data ya kubuniwa · Awamu ya 2"

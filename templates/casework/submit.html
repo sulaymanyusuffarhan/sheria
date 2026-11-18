@@ -1,0 +1,22 @@
+{% extends 'base.html' %}{% load i18n ui %}
+{% block title %}{% translate 'New legal request' %}{% endblock %}{% block breadcrumb %}{% translate 'New legal request' %}{% endblock %}
+{% block content %}
+<a class="back-link" href="{% url 'staff_requests' %}">{% icon 'arrow-left' 16 %}{% translate 'Back to requests' %}</a>
+<section class="page-head"><div><p class="eyebrow"><i></i>{% translate 'TBC STAFF PORTAL' %}</p><h1>{% translate 'New legal request' %}</h1><p>{% translate 'Give Legal Services the information and documents needed to review your request.' %}</p></div></section>
+<div class="case-layout"><section class="panel case-form-panel"><form method="post" enctype="multipart/form-data" data-intake>
+  {% csrf_token %}{{ form.submission_key }}{{ form.submission_key.errors }}{{ form.non_field_errors }}
+  <div class="case-form-body"><h2>{% translate 'Request details' %}</h2>{% include 'casework/fields.html' with fields=form.intake_fields %}</div>
+  <fieldset class="case-form-body case-divider" data-contract-fields>
+    <legend>{% translate 'Contract details' %}</legend><p class="form-hint">{% translate 'Complete this section for Contract or Memorandum of Understanding requests.' %}</p>
+    {% include 'casework/fields.html' with fields=form.contract_fields %}
+  </fieldset>
+  <div class="case-form-body case-divider"><h2>{% translate 'Supporting information' %}</h2>{% include 'casework/fields.html' with fields=form.finish_fields %}
+    {% if form.errors %}<p class="form-hint">{% translate 'If you attached a document, select the file again before submitting.' %}</p>{% endif %}
+    <div class="form-actions"><button class="button primary" type="submit">{% translate 'Submit request' %}{% icon 'arrow-right' 16 %}</button><a class="button secondary" href="{% url 'staff_requests' %}">{% translate 'Cancel' %}</a></div>
+  </div>
+</form></section>
+<aside class="case-aside"><section class="panel"><header class="panel-header"><div><h2>{% translate 'Submitting as' %}</h2></div>{% icon 'user' 19 %}</header>
+  <dl class="facts stacked-facts"><dt>{% translate 'Requesting officer' %}</dt><dd>{{ request.user.display_name }}</dd><dt>{% translate 'Department' %}</dt><dd>{{ request.user.department|local_name }}</dd><dt>{% translate 'Directorate' %}</dt><dd>{{ request.user.department.directorate|local_name }}</dd></dl>
+</section><section class="panel"><header class="panel-header"><h2>{% translate 'What happens next?' %}</h2>{% icon 'clock' 19 %}</header>
+  <ol class="case-steps"><li>{% translate 'You get a reference and can track published updates.' %}</li><li>{% translate 'Legal Services checks the information and assigns an officer.' %}</li><li>{% translate 'The approved response is issued to your staff portal.' %}</li></ol></section></aside></div>
+{% endblock %}

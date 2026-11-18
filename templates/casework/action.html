@@ -1,0 +1,13 @@
+{% extends 'base.html' %}{% load i18n ui %}
+{% block title %}{{ title }}{% endblock %}{% block breadcrumb %}{{ title }}{% endblock %}
+{% block content %}
+<a class="back-link" href="{{ back_url }}">{% icon 'arrow-left' 16 %}{% translate 'Back' %}</a>
+<section class="page-head"><div>{% if case %}<p class="eyebrow reference">{{ case.matter.reference }}</p>{% endif %}<h1>{{ title }}</h1><p>{{ description|linebreaksbr }}</p>{% if staff_date %}<p>{% translate 'Response due date' %}: {{ staff_date|date:'d/m/Y' }}</p>{% endif %}</div></section>
+{% if review %}<section class="case-banner" aria-label="{% translate 'Frozen review package' %}"><div class="case-banner-icon">{% icon 'check-shield' 22 %}</div><div><strong>{% translate 'Frozen review package' %} · #{{ review.number }}{% if review.version %} · {% translate 'Version' %} {{ review.version.number }}{% endif %}</strong><p class="mono">SHA-256 {{ review.digest }}</p>{% if command == 'issue' %}<p><strong>{% translate 'Approved staff response' %}:</strong> {{ review.package.response|linebreaksbr }}</p>{% if release_names %}<ul>{% for name in release_names %}<li>{{ name }}</li>{% endfor %}</ul>{% else %}<p>{% translate 'No documents will be released.' %}</p>{% endif %}{% endif %}</div></section>{% endif %}
+{% if condition %}<div class="case-banner warn"><div class="case-banner-icon">{% icon 'flag' 22 %}</div><div><strong>{% translate 'Earlier conditions — not a clearance' %}</strong><p>{{ condition.conditions|linebreaksbr }}</p><p>{{ condition.condition_owner.display_name }} · {{ condition.condition_due|date:'d/m/Y' }}</p></div></div>{% endif %}
+{% if info %}<div class="case-banner"><div class="case-banner-icon">{% icon 'message' 22 %}</div><div><strong>{{ info.question }}</strong><p>{{ info.reply|linebreaksbr }}</p></div></div>{% endif %}
+<section class="panel form-panel"><form method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
+  {% csrf_token %}{{ form.non_field_errors }}{% include 'casework/fields.html' with fields=form %}
+  {% if form.is_multipart and form.errors %}<p class="form-hint">{% translate 'If you attached a document, select the file again before submitting.' %}</p>{% endif %}
+  <div class="form-actions"><button class="button primary" type="submit">{{ button_label }}{% icon 'arrow-right' 16 %}</button><a class="button secondary" href="{{ back_url }}">{% translate 'Cancel' %}</a></div>
+</form></section>{% endblock %}

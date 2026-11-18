@@ -6,7 +6,7 @@
 
 **Review decision:** Endorse or amend this design as the basis for requirements workshops and formal sign-off. No application code, database, infrastructure or integrations have been created. This proposal is not deployment authorisation, a legal opinion, an e-GA assessment or certification.
 
-> This is the original design review. For the later implementation status and engineering results, see [Phase 1 verification](../phase-1/verification.md).
+> This is the original design review. For the later implementation status and engineering results, see [Phase 1 verification](../phase-1/verification.md) and [Phase 2 verification](../phase-2/verification.md).
 
 ## 0. Repository inspection
 

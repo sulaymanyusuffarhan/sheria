@@ -16,6 +16,7 @@ from rest_framework.decorators import api_view
 from rest_framework.exceptions import ValidationError as APIValidationError
 from rest_framework.response import Response
 
+from casework.views import legal_panel, staff_panel
 from identity.models import AuditLog, Department, Directorate, User
 from identity.policy import LEGAL_CAPABILITIES, STAFF_CAPABILITIES
 from identity.security import audit
@@ -201,7 +202,11 @@ def matter_detail(request, pk):
     return render(
         request,
         'matter_detail.html',
-        {'matter': matter, 'milestones': matter.milestones.filter(is_cancelled=False)},
+        {
+            'matter': matter,
+            'milestones': matter.milestones.filter(is_cancelled=False),
+            **legal_panel(request, matter),
+        },
     )
 
 
@@ -293,6 +298,7 @@ def staff_request(request, pk):
             'record': record,
             'department_scope': department,
             'updates': record.updates.filter(published_at__lte=timezone.now()),
+            **staff_panel(request, record, department),
         },
     )
 

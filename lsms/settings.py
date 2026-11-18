@@ -1,4 +1,4 @@
-"""Environment-based Phase 1 settings. Introduced: 2026-11-18; revisions: Git."""
+"""Environment-based application settings. Introduced: 2026-11-18; revisions: Git."""
 
 import os
 import secrets
@@ -61,9 +61,11 @@ INSTALLED_APPS = [
     'identity',
     'matters',
     'workspace',
+    'casework',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'casework.storage.UploadLimitMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -156,7 +158,15 @@ X_FRAME_OPTIONS = 'DENY'
 if PREVIEW or flag('LSMS_TRUST_TLS_PROXY'):
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 DATA_UPLOAD_MAX_MEMORY_SIZE = 64 * 1024
-DATA_UPLOAD_MAX_NUMBER_FIELDS = 100
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 180
+DATA_UPLOAD_MAX_NUMBER_FILES = 4
+DOCUMENT_KEY = os.environ.get('LSMS_DOCUMENT_KEY', '')
+CLAMD_SOCKET = os.environ.get('LSMS_CLAMD_SOCKET', '')
+DOCUMENT_FILE_LIMIT = 5 * 1024 * 1024
+DOCUMENT_REQUEST_LIMIT = 21 * 1024 * 1024
+# Do not stage private files in plaintext temporary files; cap the multipart body first.
+FILE_UPLOAD_MAX_MEMORY_SIZE = DOCUMENT_REQUEST_LIMIT
+FILE_UPLOAD_HANDLERS = ['django.core.files.uploadhandler.MemoryFileUploadHandler']
 SILENCED_SYSTEM_CHECKS = []
 
 TIME_ZONE = os.environ.get('LSMS_TIME_ZONE', 'Africa/Dar_es_Salaam')
